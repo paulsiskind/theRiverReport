@@ -1,0 +1,73 @@
+<html ng-app="theRiver">
+<head>
+  <html ng-app="yourAppName">
+<head>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+   <script type="text/javascript" src="/javascripts/app.js"></script>
+   <script type="text/javascript" src="/javascripts/filter.js"></script>
+    <base href="/">
+  <title>TheRiverReport</title>
+</head>
+<body>
+    <div ng-controller="appCtrl">
+     <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">theRiverReport</a>
+        </div>
+        <div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#" ng-click="showme=true">Submit Post</a></li>
+            <li>
+             <form class="navbar-form" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" ng-model="search">
+              </div>
+            </form>
+            </li> 
+            <li>
+              <ul class="nav navbar-nav">
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Displaying {{viewBar}}<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/rivers" ng-click="order('rivers')">Rivers</a></li>
+                  <li><a href="#" ng-click="order('events')">Events</a></li>
+                  <li><a href="#" ng-click="order('gear')">Gear</a></li>
+                  <li><a href="#" ng-click="order('messageboard')">MessageBoard</a></li>
+                  <li><a href="#" ng-click="order('announcements')">Announcements</a></li> 
+               </ul>
+              </li>
+             </ul>
+            </li> 
+          
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class='container'>
+        <h1 class="well">The River Report</h1>
+
+        <div ng-view></div>
+
+   </div>
+    <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+      <div class="container">
+        <div class="navbar-text pull-right">
+          <p>©BrokenPaddleProductions</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+   <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-moment/0.9.0/angular-moment.min.js"></script>
+   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular-animate.js"></script>     
+  <script type="text/javascript" src="/javascripts/app.js"></script>
+  <script type="text/javascript" src="/javascripts/appCtrl.js"></script>
+
+ </body>
+ </html>

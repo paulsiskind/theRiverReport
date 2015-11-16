@@ -1,0 +1,39 @@
+<!-- <div ng-controller="RiverController" -->
+  <div class="jumbotron">
+  <ul class="nav navbar-nav">
+      <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Choose a River {{viewBarState}}<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="#" ng-click="state('al')">Alabama</a></li>
+        <li><a href="#" ng-click="state('ak')">Alaska</a></li>
+        <li><a href="#" ng-click="state('az')">Arizona</a></li>
+        <li><a href="#" ng-click="state('ar')">Arkansas</a></li>
+        <li><a href="#" ng-click="state('co')">Colorado</a></li> 
+     </ul>
+    </li>
+   </ul>
+ <!--  <select class="form-control">
+    <option value="AL" ng-click="state('al')">Alabama</option>
+    <option value="AK" ng-click="state('ak')">Alaska</option>
+    <option value="AZ" ng-click="state('az')">Arizona</option>
+    <option value="AR" ng-click="state('ar')">Arkansas</option>
+    <option value="CA" ng-click="state('ca')">California</option>
+    <option value="CO" ng-click="state('co')">Colorado</option>
+  </select> -->
+  <br>
+  <select class="form-control">
+    <option value="V" ng-click="class('v')">Class V</option>
+    <option value="IV" ng-click="class('iv')">Class IV</option>
+    <option value="III" ng-click="class('iii')">Class III</option>
+    <option value="II" ng-click="class('ii')">Class II</option>
+    <option value="I" ng-click="class('i')">Class I</option>
+  </select>
+
+   
+
+
+  </div>
+
+   <h1 class="well"> {{viewBarState}}</h1>
+
+ </div>
