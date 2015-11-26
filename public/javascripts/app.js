@@ -21,13 +21,19 @@ var app = angular.module("theRiver", ['ngRoute'])
                     }
     
   })
-  app.controller('HomeController', function($scope, $http){
-       $http.get('http://waterservices.usgs.gov/nwis/iv/?format=waterml,1.1&sites=09058000&parameterCd=00060,00065').then(function(response){
-      console.log(response)
-      $scope.flows = response.data
-    })
+  app.controller('RiverController', function($scope, $http){
   })
   app.controller('RiverController', function($scope, $http){
+
+       $http.get('http://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites=09058000,%2009070500&parameterCd=00060,00065').then(function(response){
+      console.log(response.data.value.timeSeries)
+      // $scope.flows = response.data.data.weather[0]
+    })
+
+    $http.get('/api/v1/coData').then(function (response) {
+    console.log(response)
+    $scope.coWaters = response.data;
+  });   
     $scope.state = function(choice){
       console.log(choice)
       if(choice === 'al'){
@@ -56,7 +62,7 @@ var app = angular.module("theRiver", ['ngRoute'])
     $routeProvider
       .when('/', {
         templateUrl: 'partials/home.html',
-        controller: 'HomeController'
+        controller: 'RiverController'
       })
       .when('/rivers',{
         templateUrl: 'partials/rivers.html',

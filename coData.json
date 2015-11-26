@@ -1,0 +1,15 @@
+[
+ {"id":"06716100","name": "West Fork Clear Creek", "nameProper":"Clear Creek", "class":"V", "state":"CO", "season": "Spring, Summer"},
+ {"id":"06719505","name": "Golden PlayPark", "nameProper":"Clear Creek", "class":"III", "state":"CO", "season": "Spring, Summer"},
+ {"id":"06719505","name": "Lower Clear Creek", "nameProper":"Clear Creek", "class":"IV", "state":"CO", "season": "Spring, Summer"},
+ {"id":"06719505","name": "Black Rock", "nameProper":"Clear Creek", "class":"V", "state":"CO", "season": "Spring, Summer"},
+ {"id":"06719505","name": "Kermits", "nameProper":"Clear Creek", "class":"IV+", "state":"CO", "season": "Spring, Summer"},
+ {"id":"06716500","name": "Lawson to Idaho Springs", "nameProper":"Clear Creek", "class":"IV", "state":"CO", "season": "Spring, Summer"},
+ {"id":"09058000","name":"Gore Canyon","nameProper":"Colorado River", "class":"V", "state":"CO","season":"All Year"},
+ {"id":"09058000","name":"Pumphouse CampGround to State Bridge","nameProper":"Colorado River", "class":"II", "state":"CO","season":"All Year"},
+ {"id":"09058000","name":"State Bridge to Burns","nameProper":"Colorado River", "state":"CO", "class":"II", "season":"All Year"},
+ {"id":"09058000","name":"Burns to Dotsero","nameProper":"Colorado River", "state":"CO", "class":"I", "season":"All Year"},
+ {"id":"09070500","name":"Shoshone","nameProper":"Colorado River", "state":"CO", "class": "III", "season":"All Year"},
+ {"id":"09070500","name":"Grizzly to Two Rivers Park", "nameProper":"Colorado River", "class":"II", "state":"CO","season":"All Year"}
+
+]
