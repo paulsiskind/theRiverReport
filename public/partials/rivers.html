@@ -35,16 +35,18 @@
    <h1 class="well"> {{viewBarState}} {{flows.weather}} </h1>
 
    <table class="table table-hover">
+        <th>Section</th>
         <th>River Name</th>
         <th>Class</th>
         <th>Season</th>
         <th>Flow</th>
     
-      <tr ng-repeat="water in coWaters">
-        <td>{{water.name}}</td>
+      <tr ng-repeat="water in coWaters | filter: search">
+        <td><a href="/{{water.id}}">{{water.name}}</td>
+        <td>{{water.nameProper}}</a></td>
         <td>{{water.class}} </td>
         <td>{{water.season}} </td>
-        <td>{{flows.chanceofsnow}} </td>
+        <td>{{water.flow}} </td>
       </tr>
     
     </table>
