@@ -55,6 +55,31 @@
       }
       $scope.choice = choice;
     }
+
+   $scope.class = function(select){
+    if(select === 'v'){
+      $scope.viewBarClass = ' Class V'
+      $scope.classSearch = 'V'
+    }
+    if(select === 'iv'){
+      $scope.viewBarClass = 'Class IV'
+      $scope.classSearch = 'IV'
+
+    }
+    if(select === 'iii'){
+      $scope.viewBarClass = 'Class III'
+      $scope.classSearch = 'III'
+    }
+    if(select === 'ii'){
+      $scope.viewBarClass = 'Class II'
+      $scope.classSearch = 'II'
+    }
+    if(select === 'i'){
+      $scope.viewBarClass = 'Class I'
+      $scope.classSearch = 'I'
+    }
+
+   }
   })
 
   app.controller("RiverPageController", function($scope, $http, $routeParams){
