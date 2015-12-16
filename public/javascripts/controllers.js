@@ -27,7 +27,7 @@
     console.log(response)
     $scope.coWaters = response.data;
   });   
-       $http.get('http://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites=06716100&parameterCd=00060,00065').then(function(response){
+       $http.get('http://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ $scope.water.USGSid +'&parameterCd=00060,00065').then(function(response){
       console.log(response.data.value.timeSeries[0].values[0].value[0].value)
         $scope.flows = response.data.value
     })

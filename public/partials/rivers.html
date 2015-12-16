@@ -37,16 +37,18 @@
    <table class="table table-hover">
         <th>Section</th>
         <th>River Name</th>
+        <th>State</th>
         <th>Class</th>
         <th>Season</th>
         <th>Flow</th>
     
-      <tr ng-repeat="water in coWaters | filter: search | filter: classSearch">
+      <tr ng-repeat="water in coWaters | filter: search | filter: {state: choice} | filter:{class:classSearch}">
         <td><a href="/{{water.id}}">{{water.name}}</td>
         <td>{{water.nameProper}}</a></td>
+        <td>{{water.state}}
         <td>{{water.class}} </td>
         <td>{{water.season}} </td>
-        <td>{{water.flow}} </td>
+        <td>{{flows.timeSeries[0].values[0].value[0].value}}</td>
       </tr>
     
     </table>
