@@ -4,8 +4,11 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: green;
 }
-.navbar{
+/*.navbar{
   background-color: blue;
+}*/
+.frozen{
+  color: blue;
 }

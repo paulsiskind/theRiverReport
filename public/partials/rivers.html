@@ -28,7 +28,7 @@
 
 
    
-
+  
 
   </div>
 
@@ -42,13 +42,19 @@
         <th>Season</th>
         <th>Flow</th>
     
-      <tr ng-repeat="water in coWaters | filter: search | filter: {state: choice} | filter:{class:classSearch}">
+      <tr ng-repeat="water in coWaters | filter: search | filter: {state:choice} | filter:{class:classSearch}">
         <td><a href="/{{water.id}}">{{water.name}}</td>
         <td>{{water.nameProper}}</a></td>
-        <td>{{water.state}}
+        <td>{{water.state}} </td>
         <td>{{water.class}} </td>
         <td>{{water.season}} </td>
-        <td>{{flows.timeSeries[0].values[0].value[0].value}}</td>
+        <td>{{water.timeSeries[0].values[0].value[0].value}}</td>
+        <td> 
+          <div class="frozen" ng-if="flows[water.name] == -999999">Frozen</div>
+          <div ng-if="flows[water.name] != -999999">{{flows[water.name]}}</div>
+
+          </td>
+       <!--  <td><p ng-model="tableFlow=" {{water.USGSid}}></p> {{flows.timeSeries[0].values[0].value[0].value}}</td> -->
       </tr>
     
     </table>
