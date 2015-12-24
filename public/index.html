@@ -1,9 +1,10 @@
 <html ng-app="theRiver">
 <head>
-   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.js"></script>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 
     <base href="/">
   <title>TheRiverReport</title>
@@ -33,20 +34,31 @@
                 <ul class="dropdown-menu">
                   <li><a href="/rivers" ng-click="order('rivers')">Rivers</a></li>
                   <li><a href="#" ng-click="order('events')">Events</a></li>
-                  <li><a href="#" ng-click="order('gear')">Gear</a></li>
+                  <li><a href="/gear" ng-click="order('gear')">Gear</a></li>
                   <li><a href="#" ng-click="order('messageboard')">MessageBoard</a></li>
                   <li><a href="#" ng-click="order('announcements')">Announcements</a></li> 
                </ul>
               </li>
              </ul>
             </li> 
+            <li>
+              <ul class="nav navbar-nav text-right">
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Log In {{viewBar}}<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/signin">Sign In</a></li>
+                  <li><a href="/signup">Sign Up</a></li>
+                  <li><a href="#">Edit</a></li>
+               </ul>
+              </li>
+             </ul>
+            </li> 
           
-          </ul>
         </div>
       </div>
     </nav>
     <div class='container'>
-        <h1 class="well">The River Report</h1>
+       
 
         <div ng-view></div>
 
@@ -59,13 +71,21 @@
       </div>
     </div>
   </div>
-  <script type="text/javascript" src="/javascripts/angularApp.js"></script>
-  <script type="text/javascript" src="/javascripts/controllers.js"></script>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-   <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-moment/0.9.0/angular-moment.min.js"></script>
-   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular-animate.js"></script>     
- 
-
+    <script type="text/javascript" src="/javascripts/app.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/signincontroller.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/riverpagecontroller.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/rivercontroller.js"></script>
+    <script type="text/javascript" src="/javascripts/map.js"></script>
+    <script type="text/javascript" src="/javascripts/angularApp.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-moment/0.9.0/angular-moment.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular-animate.js"></script>     
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyl38pBs1i_I5_3Jzg9BunEfo3bQ5uyYw&signed_in=true&callback=initMap" async defer></script>
  </body>
  </html>

@@ -1,5 +1,8 @@
-<!-- <div ng-controller="RiverController" -->
+
   <div class="jumbotron">
+
+    <h1>The River Report</h1>
+    
     <ul class="nav navbar-nav">
         <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="btn btn-primary dropdown-toggle">Choose a State {{viewBarState}}</span></a>
@@ -13,6 +16,7 @@
       </li>
      </ul>
 
+
   <ul class="nav navbar-nav">
       <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="btn btn-primary dropdown-toggle">Choose a Class {{viewBarClass}}</span></a>
@@ -25,7 +29,7 @@
      </ul>
     </li>
    </ul>
-
+ 
 
    
   
@@ -42,19 +46,17 @@
         <th>Season</th>
         <th>Flow</th>
     
-      <tr ng-repeat="water in coWaters | filter: search | filter: {state:choice} | filter:{class:classSearch}">
+      <tr ng-repeat="water in coWaters | filter: search | filter: {state:choice} | filter:{class:classSearch}" ng-class="flows[water.name] > water.recommend ? 'g':'r'">
         <td><a href="/{{water.id}}">{{water.name}}</td>
         <td>{{water.nameProper}}</a></td>
         <td>{{water.state}} </td>
         <td>{{water.class}} </td>
         <td>{{water.season}} </td>
         <td>{{water.timeSeries[0].values[0].value[0].value}}</td>
-        <td> 
-          <div class="frozen" ng-if="flows[water.name] == -999999">Frozen</div>
-          <div ng-if="flows[water.name] != -999999">{{flows[water.name]}}</div>
+        <td>
+           <span class="frozen" ng-if="flows[water.name] == -999999"> Frozen</span>  
+           <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span></td>
 
-          </td>
-       <!--  <td><p ng-model="tableFlow=" {{water.USGSid}}></p> {{flows.timeSeries[0].values[0].value[0].value}}</td> -->
       </tr>
     
     </table>

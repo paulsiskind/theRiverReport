@@ -1,4 +1,4 @@
-var app = angular.module("theRiver", ['ngRoute'])
+// var app = angular.module("theRiver", ['ngRoute', 'ngMaterial'])
 
   app.config(function($routeProvider, $locationProvider) {
     $routeProvider
@@ -9,6 +9,18 @@ var app = angular.module("theRiver", ['ngRoute'])
       .when('/rivers',{
         templateUrl: 'partials/rivers.html',
         controller: "RiverController"
+      })
+      .when('/signin',{
+        templateUrl: 'partials/signin/signIn.html',
+        controller: 'SigninController'
+      })
+      .when('/signup',{
+        templateUrl: 'partials/signin/signUp.html',
+        controller: 'SigninController'
+      })
+      .when('/gear',{
+         templateUrl: 'partials/gear.html',
+         controller: 'GearController'
       })
       .when('/:riverId', {
         templateUrl: 'partials/riverpage.html',
