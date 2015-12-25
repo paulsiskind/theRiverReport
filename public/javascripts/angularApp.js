@@ -1,4 +1,4 @@
-// var app = angular.module("theRiver", ['ngRoute', 'ngMaterial'])
+
 
   app.config(function($routeProvider, $locationProvider) {
     $routeProvider
