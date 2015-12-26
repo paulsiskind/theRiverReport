@@ -38,4 +38,4 @@
 //                         'Error: Your browser doesn\'t support geolocation.');
 // }
 
-    /*<script src="https://maps.googleapis.com/maps/api/js?k*/ey=AIzaSyCyl38pBs1i_I5_3Jzg9BunEfo3bQ5uyYw&signed_in=true&callback=initMap" async defer></script>
+    // <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyl38pBs1i_I5_3Jzg9BunEfo3bQ5uyYw&signed_in=true&callback=initMap" async defer></script>
