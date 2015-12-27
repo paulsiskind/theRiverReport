@@ -25,14 +25,14 @@ app.directive('leafletDirective', function () {
   return {
     restrict: 'E',
     scope: {
-      data: '/api/v1/coData'
+      // data: '/api/v1/coData'
       // markerCheck: '='
     },
     replace: true,
     template: '<div></div>',
     link: function (scope, element, attrs) {
       var map = L.map(attrs.id, {
-        center: [40, -105.38],
+        center: [ 39.56, -107.33],
         zoomControl: false,
         zoom: 13
       })
