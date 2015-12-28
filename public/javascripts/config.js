@@ -37,26 +37,26 @@
 
 })
 
-app.config(function (authProvider) {
-  authProvider.init({
-    domain: 'brokenpaddle.auth0.com',
-    clientID: 'qmaBRlYLvgIjao8jbLVA7kRVQLM5SCIS'
-  });
-})
-.run(function(auth) {
-  // This hooks al auth events to check everything as soon as the app starts
-  auth.hookEvents();
-});
-app.config(function (authProvider, $routeProvider, $httpProvider, jwtInterceptorProvider) {
-  // ...
+// app.config(function (authProvider) {
+//   authProvider.init({
+//     domain: 'brokenpaddle.auth0.com',
+//     clientID: 'qmaBRlYLvgIjao8jbLVA7kRVQLM5SCIS'
+//   });
+// })
+// .run(function(auth) {
+//   // This hooks al auth events to check everything as soon as the app starts
+//   auth.hookEvents();
+// });
+// app.config(function (authProvider, $routeProvider, $httpProvider, jwtInterceptorProvider) {
+//   // ...
 
-  // We're annotating this function so that the `store` is injected correctly when this file is minified
-  jwtInterceptorProvider.tokenGetter = ['store', function(store) {
-    // Return the saved token
-    return store.get('token');
-  }];
+//   // We're annotating this function so that the `store` is injected correctly when this file is minified
+//   jwtInterceptorProvider.tokenGetter = ['store', function(store) {
+//     // Return the saved token
+//     return store.get('token');
+//   }];
 
-  $httpProvider.interceptors.push('jwtInterceptor');
-  // ...
-});
+//   $httpProvider.interceptors.push('jwtInterceptor');
+//   // ...
+// });
 

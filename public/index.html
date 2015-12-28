@@ -1,13 +1,13 @@
 <html ng-app="theRiver">
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
     <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.mapbox.css' rel='stylesheet' />
     <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/css/font-awesome.min.css' rel='stylesheet' />
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
 
     <base href="/">
   <title>TheRiverReport</title>
@@ -80,6 +80,8 @@
     <script type="text/javascript" src="/javascripts/controllers/rivercontroller.js"></script>
     <script type="text/javascript" src="/javascripts/map.js"></script>
     <script type="text/javascript" src="/javascripts/config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.js"></script>
+   <!--  // <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="/javascripts/directives/leaflet.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -90,8 +92,10 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
-    <script src="//code.angularjs.org/1.2.16/angular-cookies.min.js"></script>
+    <script src="https://rawgit.com/nnnick/Chart.js/master/Chart.min.js"></script>
+    <script src="https://rawgit.com/jtblin/angular-chart.js/master/dist/angular-chart.min.js"></script>
 
+    <script src="//code.angularjs.org/1.2.16/angular-cookies.min.js"></script>
     <!-- Auth0 Lock script and AngularJS module -->
     <script src="//cdn.auth0.com/js/lock-7.12.min.js"></script>
     <!-- angular-jwt and angular-storage -->
