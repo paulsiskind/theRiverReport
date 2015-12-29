@@ -1,12 +1,15 @@
 <div class="container">
-    <h1 class="well">{{riverInfo.name}} | {{riverInfo.nameProper}}</h1>
+    <md-whiteframe class="md-whiteframe-1dp md-display-2 col-md-12" col-md-12>{{riverInfo.name}} | {{riverInfo.nameProper}}</md-whiteframe>
 
-    <div class="well col-md-4">
-      <p>Location: {{riverInfo.nameProper}}</p>
-      <p>Section: {{riverInfo.name}} </p>
-      <p>Class:  {{riverInfo.class}} </p>
-      <p>CFS: {{flows.timeSeries[0].values[0].value[0].value}} </p>
-      <p>Season: {{riverInfo.season}}</p>
+    <md-whiteframe class="md-whiteframe-3dp col-md-4">
+    
+      <form action="/"+ river_id +"/addFlow" method="post">
+        <p>Location: {{riverInfo.nameProper}}</p>
+        <p>Section: {{riverInfo.name}} </p>
+        <p>Class:  {{riverInfo.class}} </p>
+        <p value="flows.timeSeries[0].values[0].value[0].value">CFS: {{flows.timeSeries[0].values[0].value[0].value}} </p>
+        <p>Season: {{riverInfo.season}}</p>
+      </form>
       <br>
       <h5>Long Term Forecast</h5>
       <p>{{weatherUnder[0].title}}: {{weatherUnder[0].fcttext}}</p>
@@ -21,18 +24,21 @@
       <br>
       <br>
       <br>
-    </div>
-    <div class="col-md-8">
+    </md-whiteframe>
+   
+    <md-whiteframe class="md-whiteframe-1dp col-md-8">
      <canvas id="bar" class="chart chart-line" chart-data="data"
      chart-labels="labels" chart-legend="true" chart-series="series"
      chart-click="onClick" >
      </canvas> 
-      <md-checkbox ng-click="chart('line')" class="md-warn md-align-top-left"> Line </md-checkbox> <br>
+      <md-checkbox ng-click="chart('line')" class="md-primary md-align-top-left"> Line </md-checkbox> <br>
       <md-checkbox ng-click="chart('bar')" class="md-warn md-align-top-left"> Bar </md-checkbox><br>
       <md-checkbox ng-click="chart('doughnut')" class="md-warn md-align-top-left"> Doughnut </md-checkbox><br>
-      <md-checkbox ng-model="" class="md-warn md-align-top-left"> Spyder </md-checkbox><br>
+      <md-checkbox ng-click="chart('radar')" class="md-warn md-align-top-left"> Radar </md-checkbox><br>
 <p>{{chartSelect}}</p>
-   </div>
+<br>
+<br>
+   </md-whiteframe>
 </div>
 <!-- <canvas id="bar" class="chart chart-bar"
   chart-data="data" chart-labels="labels"> chart-series="series"
