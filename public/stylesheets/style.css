@@ -4,7 +4,7 @@ body {
 }
 
 a {
-  color: green;
+  color: black;
 }
 /*.navbar{
   background-color: blue;
@@ -56,3 +56,10 @@ a {
     background-color: #F2FCE2; }
   .whiteframedemoBasicUsage md-whiteframe > span {
     font-size: 1.0em; } }
+table{
+  font-size: 18px;
+}
+/*li > a:hover, li > a:focus {
+    background-color: orange;
+    color: #FFC0CB;
+}*/

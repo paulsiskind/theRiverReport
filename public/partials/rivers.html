@@ -1,11 +1,12 @@
 <div class="container">
-  <div class="jumbotron">
-
-    <h1>The River Report</h1>
+  
+    </br>
+  </br>
+    <md-whiteframe class="md-whiteframe-1dp md-display-2 col-md-12">The River Report</md-whiteframe>
     
     <ul class="nav navbar-nav">
         <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="btn btn-primary dropdown-toggle">Choose a State {{viewBarState}}</span></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><md-button class="md-raised md-primary dropdown-toggle">Choose a State</md-button></a>
         <ul class="dropdown-menu">
           <li><a href="#" ng-click="state('al')">Alabama</a></li>
           <li><a href="#" ng-click="state('ak')">Alaska</a></li>
@@ -19,7 +20,7 @@
 
   <ul class="nav navbar-nav">
       <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="btn btn-primary dropdown-toggle">Choose a Class {{viewBarClass}}</span></a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><md-button class="md-raised md-primary dropdown-toggle">Choose a Class</md-button></a>
       <ul class="dropdown-menu">
         <li><a href="#" ng-click="class('v')">Class V</a></li>
         <li><a href="#" ng-click="class('iv')">Class IV</a></li>
@@ -34,32 +35,32 @@
    
   
 
-  </div>
 
-   <h1 class="well"> {{viewBarState}} {{viewBarClass}} {{flows.weather}} </h1>
 
-   <table class="table table-hover">
-        <th>Section</th>
-        <th>River Name</th>
-        <th>State</th>
-        <th>Class</th>
-        <th>Season</th>
-        <th>Flow</th>
-    
-      <tr ng-repeat="water in coWaters | filter: search | filter: {state:choice} | filter:{class:classSearch}" ng-class="flows[water.name] > water.recommend ? 'g':'r'">
-        <td><a href="/{{water.id}}">{{water.name}}</td>
-        <td>{{water.nameProper}}</a></td>
-        <td>{{water.state}} </td>
-        <td>{{water.class}} </td>
-        <td>{{water.season}} </td>
-        <td>{{water.timeSeries[0].values[0].value[0].value}}</td>
-        <td>
-           <span class="frozen" ng-if="flows[water.name] == -999999"> Frozen</span>  
-           <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span></td>
+   <md-whiteframe class="md-whiteframe-1dp md-display-2 col-md-12"> {{viewBarState}} {{viewBarClass}} {{flows.weather}} </md-whiteframe>
+  <md-whiteframe class="md-whiteframe-1dp md-display-2 col-md-12">
+     <table class="table table-hover">
+          <th>Section</th>
+          <th>River Name</th>
+          <th>State</th>
+          <th>Class</th>
+          <th>Season</th>
+          <th>Flow</th>
+      
+        <tr ng-repeat="water in coWaters | filter: search | filter: {state:choice} | filter:{class:classSearch}" ng-class="flows[water.name] > water.recommend ? 'g':'r'">
+          <td><a href="/{{water.id}}">{{water.name}}</td>
+          <td>{{water.nameProper}}</a></td>
+          <td>{{water.state}} </td>
+          <td>{{water.class}} </td>
+          <td>{{water.season}} </td>
+          <td>{{water.timeSeries[0].values[0].value[0].value}}</td>
+          <td>
+             <span class="frozen" ng-if="flows[water.name] == -999999"> Frozen</span>  
+             <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span></td>
 
-      </tr>
-    
-    </table>
+        </tr>
+      
+      </table>
+  </md-whiteframe>
 
- </div>
 </div>

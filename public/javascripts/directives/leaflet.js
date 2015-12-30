@@ -65,7 +65,7 @@ app.directive('leafletDirective', function () {
      //  $scope.coWaters = response.data;
 
      //    $scope.coWaters.map(function(d){
-     // var marker = L.marker([d.lat, d.long]).addTo(map);
+     var marker = L.marker([39.56, -107.33]).addTo(map);
 
          
      //    })

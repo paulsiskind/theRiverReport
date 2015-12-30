@@ -1,7 +1,9 @@
 
 
-  app.config(function(authProvider, $routeProvider, $locationProvider) {
-      
+  app.config(function(authProvider, $routeProvider, $locationProvider, $mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+       .dark();
+
     $routeProvider
       .when('/', {
         templateUrl: 'partials/home.html',
