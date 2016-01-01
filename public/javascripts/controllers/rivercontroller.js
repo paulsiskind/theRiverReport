@@ -18,8 +18,6 @@
                     $scope.select = select;
                     }
     
-  })
-  app.controller('RiverController', function($scope, $http){
 
     $http.get('/api/v1/coData').then(function (response) {
       $scope.flows = {};

@@ -25,7 +25,7 @@ app.directive('leafletDirective', function () {
   return {
     restrict: 'E',
     scope: {
-      // data: '/api/v1/coData'
+      // data: 'api/v1/coData'
       // markerCheck: '='
     },
     replace: true,
@@ -45,27 +45,48 @@ app.directive('leafletDirective', function () {
         accessToken: 'pk.eyJ1IjoicGF1bHNpc2tpbmQiLCJhIjoiY2lobWxiMHI1MG90NXY1a2xxNnY2Znk3YSJ9.SfeALtaMIyM0YxvMolgvYw'
       }).addTo(map)
 
-      var areaIcon = L.icon({
-        iconUrl: '/images/skull.jpeg',
-        iconSize: [31.5, 35], // size of the icon
-        iconAnchor: [15, 20], // point of the icon which will correspond to marker's location
-        popupAnchor: [-3, -76]
-      })
+      // var areaIcon = L.icon({
+      //   iconUrl: '/images/skull.jpeg',
+      //   iconSize: [31.5, 35], // size of the icon
+      //   iconAnchor: [15, 20], // point of the icon which will correspond to marker's location
+      //   popupAnchor: [-3, -76]
+      // })
 
-      var geojsonLayer = L.geoJson(scope.data, {
-        onEachFeature: onEachFeature,
-        pointToLayer: function (feature, latlng) {
-          return L.marker(latlng, {
-            icon: areaIcon
-          })
+      // var geojsonLayer = L.geoJson(scope.data, {
+      //   onEachFeature: onEachFeature,
+      //   pointToLayer: function (feature, latlng) {
+      //     return L.marker(latlng, {
+      //       icon: areaIcon
+      //     })
+      //   }
+      // }).addTo(map)
+
+    //     $.getJSON('api/v1/caData',function(data){
+    // // add GeoJSON layer to the map once the file is loaded
+    //     L.geoJson(data).addTo(map);
+    //    });
+
+        $.getJSON('api/v1/caData',function(data){
+         var skullMarker = L.icon({
+         iconUrl: '../../images/skull.jpeg',
+         iconSize: [60,50]
+       });
+        L.geoJson(data,{
+          pointToLayer: function(feature,latlng){
+          var marker = L.marker(latlng,{icon: skullMarker});
+          marker.bindPopup('<a href=/'+feature.id+">" + feature.name + '<br/>' + feature.nameProper);
+          return marker;
         }
-      }).addTo(map)
+      }).addTo(map);
+    });
+
+
      //  $http.get('/api/v1/coData').then(function (response) {
      //  $scope.flows = {};
      //  $scope.coWaters = response.data;
 
      //    $scope.coWaters.map(function(d){
-     var marker = L.marker([39.56, -107.33]).addTo(map);
+     // var marker = L.marker('api/v1/coData').addTo(map);
 
          
      //    })

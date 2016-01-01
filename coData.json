@@ -1,5 +1,5 @@
 [ 
- {"id":"1", "USGSid":"09361500","name": "Town Run", "nameProper":"Animas River", "class":"II", "state":"CO", "season": "Spring, Summer, Fall, Winter", "recommend":250,"type": "Feature","geometry":{"type":"Point", "coordinates":[]}},
+ {"id":"1", "USGSid":"09361500","name": "Town Run", "nameProper":"Animas River", "class":"II", "state":"CO", "season": "Spring, Summer, Fall, Winter", "recommend":250,"type": "Feature","geometry":{"type":"Point", "coordinates":[-107.42, 57.28]}},
  {"id":"2", "USGSid":"09359020","name": "Baker's Box", "nameProper":"Animas River", "class":"IV-V", "state":"CO", "season": "Spring, Summer, Fall, Winter", "recommend":250,"type": "Feature","geometry":{"type":"Point", "coordinates":[]}},
  {"id":"3", "USGSid":"09359020","name": "Pandora's Box", "nameProper":"Animas River", "class":"V", "state":"CO", "season": "Spring, Summer, Fall, Winter", "recommend":250,"type": "Feature","geometry":{"type":"Point", "coordinates":[]}},
  {"id":"4", "USGSid":"09359020","name": "Upper Animas", "nameProper":"Animas River", "class":"IV-V", "state":"CO", "season": "Spring, Summer, Fall, Winter", "recommend":250,"type": "Feature","geometry":{"type":"Point", "coordinates":[]}},
