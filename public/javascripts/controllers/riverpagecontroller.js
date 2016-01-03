@@ -14,7 +14,7 @@ app.controller("RiverPageController", function($scope, $http, $routeParams){
       console.log(response.data.value.timeSeries[0].values[0].value[0].value)
         $scope.flows = response.data.value
     })
-          $http.get("http://api.wunderground.com/api/2dc07206ff5e682e/geolookup/forecast/q/"+$scope.riverInfo.geometry.coordinates +".json").then(function(response){
+          $http.get("https://api.wunderground.com/api/2dc07206ff5e682e/geolookup/forecast/q/"+$scope.riverInfo.geometry.coordinates +".json").then(function(response){
       console.log($scope.riverInfo.geometry.coordinates, "Look Over Here!")
       $scope.weatherUnder = response.data.forecast.txt_forecast.forecastday
 
