@@ -43,6 +43,7 @@ app.directive('leafletDirective', function () {
        map.addLayer(clusters);
        })
 
+      
    
     }
   }
