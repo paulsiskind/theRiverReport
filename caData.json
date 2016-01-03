@@ -1,7 +1,7 @@
 [ 
- {"id":"1", "USGSid":"09361500","name": "Town Run", "nameProper":"Animas River", "class":"II", "state":"CO", "season": "Spring, Summer, Fall, Winter", "recommend":250,"type": "Feature","geometry":{"type":"Point", "coordinates":[-106.50,39.99]}},
+ {"id":"1", "USGSid":"09361500","name": "Town Run", "nameProper":"Animas River", "class":"II", "state":"CO", "season": "Spring, Summer, Fall, Winter", "recommend":250},
  
-{"id":"48", "USGSid":"09059500","name":"Piney River", "nameProper":"Piney River", "class":"V", "state":"CO","season":"Spring, Summer", "recommend":600,"type": "Feature","geometry":{"type":"Point", "coordinates":[-106.8, 40.00]}},
+{"id":"48", "USGSid":"09059500","name":"Piney River", "nameProper":"Piney River", "class":"V", "state":"CO","season":"Spring, Summer", "recommend":600,"type": "Feature","geometry":{"type":"Point", "coordinates":[-105.437792,39.746350]}},
 {"id":"40", "USGSid":"09059500","name":"Piney River", "nameProper":"Piney River", "class":"V", "state":"CO","season":"Spring, Summer", "recommend":600}
 
 ]
