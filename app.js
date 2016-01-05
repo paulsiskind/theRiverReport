@@ -9,8 +9,15 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 require('dotenv').load()
 var cors = require('cors');
+var bodyParser = require('body-parser');
+
 
 var app = express();
+// configure the app to use bodyParser()
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

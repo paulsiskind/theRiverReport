@@ -9,10 +9,11 @@ app.controller("RiverPageController", function($scope, $http, $routeParams){
           console.log($scope.riverInfo)
         }
        }
+   
 
-      $http.get('http://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ $scope.riverInfo.USGSid +'&parameterCd=00060,00065').then(function(response){
-      console.log(response.data.value.timeSeries[0].values[0].value[0].value)
+      $http.jsonp('http://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ $scope.riverInfo.USGSid +'&parameterCd=00060,00065').then(function(response){
         $scope.flows = response.data.value
+        console.log($scope.flows)
     })
           $http.get("https://api.wunderground.com/api/2dc07206ff5e682e/geolookup/forecast/q/"+$scope.riverInfo.latlng +".json").then(function(response){
       console.log(response.data, "Look Over Here!")

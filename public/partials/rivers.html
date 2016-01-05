@@ -49,16 +49,17 @@
           <th>Season</th>
           <th>Flow</th>
       
-        <tr ng-repeat="water in coWaters | filter: search | filter: {state:choice} | filter:{class:classSearch}" ng-class="flows[water.name] >= water.recommend ? 'g':'r'">
+        <tr ng-repeat="water in coWaters | filter: search | filter: {state:choice} | filter:{class:classSearch}" ng-class="flows[water.USGSid] >= water.recommend ? 'g':'r'">
           <td><a href="/{{water.id}}">{{water.name}}</td>
           <td>{{water.nameProper}}</a></td>
           <td>{{water.state}} </td>
           <td>{{water.class}} </td>
           <td>{{water.season}} </td>
-          <td>{{water.timeSeries[0].values[0].value[0].value}}</td>
           <td>
-             <span class="frozen" ng-if="flows[water.name] == -999999"> Frozen</span>  
-             <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span></td>
+             <span class="frozen" ng-if="flows[water.USGSid] == -999999"> Frozen</span>  
+             <span ng-if="flows[water.USGSid] != -999999">{{flows[water.USGSid]}}</span>
+             <span ng-if="flows[water.USGSid].length == 0"> -- </span>
+           </td>
 
         </tr>
       
