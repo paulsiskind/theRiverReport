@@ -88,20 +88,20 @@
    $scope.myInterval = 3000;
   $scope.slides = [
     {
-      image: 'http://lorempixel.com/400/200/',
+      image: '/images/yule.jpg',
       text: "A Home For Local Streamflows"
 
     },
     {
-      image: 'http://lorempixel.com/400/200/food',
+      image: '/images/obj.jpg',
       text: "Find the nearest river to your current location"
     },
     {
-      image: 'http://lorempixel.com/400/200/sports',
+      image: '/images/grand.jpg',
       text: "Plan your next adventure!"
     },
     {
-      image: 'http://lorempixel.com/400/200/people',
+      image: '/images/tom.jpg',
       text: "Stay informed on the latest conditions"
     }
   ];
