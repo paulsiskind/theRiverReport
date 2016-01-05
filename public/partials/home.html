@@ -1,2 +1,30 @@
 
-<leaflet-directive id="map" data="data"></leaflet-directive>
+    <br>
+    <br>
+    <br>
+
+  <div class="md-whiteframe-20dp md-display-2 col-md-12 text-center"> Welcome to theRiverReport </div>
+  <button class="btn btn-lg btn-primary" ng-click="callApi()">Call API</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+ <div id="slides_control">
+    <div>
+      <carousel interval="myInterval">
+        <slide ng-repeat="slide in slides" active="slide.active">
+          <img ng-src="{{slide.image}}">
+          <div class="carousel-caption">
+            <h4>{{slide.text}}</h4>
+          </div>
+        </slide>
+      </carousel>
+    </div>
+  </div>
+</div>  
+
+
+ 
+

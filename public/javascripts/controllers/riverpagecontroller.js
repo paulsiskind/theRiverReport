@@ -29,7 +29,7 @@ app.controller("RiverPageController", function($scope, $http, $routeParams){
   $scope.labels = ["January", "February", "March", "April", "May", "June", "July","August","September","October","November","December"];
   // $scope.series = ['Series A'];
   $scope.data = [
-    [65, 59, 80, 81, 56, 55, 40,45,55,65,75,80,99,78]
+    [43, 59, 80, 81, 56, 55, 40,45,55,65,75,80,99,78]
   ];
   $scope.onClick = function (points, evt) {
     console.log(points, evt);
