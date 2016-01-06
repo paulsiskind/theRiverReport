@@ -29,6 +29,8 @@ app.controller("RiverPageController", function($scope, $http, $routeParams){
     
      // })
 
+  
+
       $http.get('http://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ $scope.riverInfo.USGSid +'&parameterCd=00060,00065').then(function(response){
         $scope.flows = response.data.value
         console.log($scope.flows)
@@ -43,14 +45,32 @@ app.controller("RiverPageController", function($scope, $http, $routeParams){
       // $scope.weatherUnder = response.data.forecast.txt_forecast.forecastday
      
   })
-    })
- 
+   
 
-  $scope.labels = ["January", "February", "March", "April", "May", "June", "July","August","September","October","November","December"];
+    $http.get('http://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT=2015-01-04&parameterCd=00060,00065').then(function(response){
+        $scope.flow = response.data.value.timeSeries[0].values[0].value;
+        $scope.flowData = [];
+
+        for (var i = 0; i < $scope.flow.length; i+=100) {
+          // $scope.flow[i]
+          // console.log($scope.flow[i]);
+       
+          $scope.flowData.push(Number($scope.flow[i].value));
+        };
+
+    return $scope.flowData;
+    }).then(function(arr){
+  $scope.labels = [];
   // $scope.series = ['Series A'];
+  for (var i = 0; i <= arr.length; i++) {
+    $scope.labels.push("1");
+  };
+  
   $scope.data = [
-    [43, 59, 80, 81, 56, 55, 40,45,55,65,75,80,99,78]
+   arr
   ];
+  console.log('$scope data', $scope.data);
+
   $scope.onClick = function (points, evt) {
     console.log(points, evt);
   };
@@ -59,6 +79,14 @@ app.controller("RiverPageController", function($scope, $http, $routeParams){
        $scope.chartSelect = select;
        console.log($scope.chartSelect)
   }
+    })
+
+     })
+ 
+
+  // [
+  //   [43, 59, 80, 81, 56, 55, 40,45,55,65,75,80,99,78]
+  // ];
 
 
 

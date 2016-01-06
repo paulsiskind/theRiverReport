@@ -23,24 +23,26 @@
     
 
     $http.get('/api/v1/coData').then(function (response) {
-      $scope.flows = {};
+     
       $scope.coWaters = response.data;
 
-      var data = { 'apiurl' : [] }
+      
       $scope.coWaters.map(function(d){
-        var url = 'http://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ d.USGSid +'&parameterCd=00060,00065';
-        data.apiurl.push(url)
+      $http.get('http://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ d.USGSid +'&parameterCd=00060,00065').then(function(response){
+
+      });
+       
       });
 
-      return $http.post("/api/v1/api-proxy/flows", data)
+      // return $http.post("/api/v1/api-proxy/flows", data)
 
-    }).then(function(res, status) {
-      var data = res.data;
-      console.log('flows', data, status, $scope.flows)
+    // }).then(function(res, status) {
+    //   var data = res.data;
+    //   console.log('flows', data, status, $scope.flows)
 
-      for(var prop in data){
-        $scope.flows[prop] = data[prop];
-      }
+    //   for(var prop in data){
+    //     $scope.flows[prop] = data[prop];
+    //   }
 
     }); 
 
