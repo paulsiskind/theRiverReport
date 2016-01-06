@@ -50,7 +50,19 @@ router.post('/api/v1/api-proxy/flows', function(req, res, next){
 
   Promise.all(promises).then(function(){
     res.json(result)
+
   });
+
+})
+
+
+router.post('/api/v1/api-proxy/flow', function(req, res, next){
+  var url = req.body;
+  console.log('url',url)
+  // http.get(url).then(function(body){
+  //     console.log(body, '-------------------------')
+  //     res.json(body);
+  // })
 
 })
 

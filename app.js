@@ -7,8 +7,9 @@ var bodyParser = require('body-parser');
 var session = require('cookie-session')
 var routes = require('./routes/index');
 var users = require('./routes/users');
-require('dotenv').load()
 var cors = require('cors');
+require('dotenv').load()
+// var cors = require('cors');
 var bodyParser = require('body-parser');
 
 
@@ -32,13 +33,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({
-  name: 'session',
-  keys: [process.env.SESSION_KEY1,
-         process.env.SESSION_KEY2,
-         process.env.SESSION_KEY3
-         ]
-}));
+// app.use(session({
+//   name: 'session',
+//   keys: [process.env.SESSION_KEY1,
+//          process.env.SESSION_KEY2,
+//          process.env.SESSION_KEY3
+//          ]
+// }));
 
 app.use('/', routes);
 app.use('/users', users);

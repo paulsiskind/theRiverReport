@@ -1,5 +1,6 @@
 app.controller("RiverPageController", function($scope, $http, $routeParams){
        $scope.riverId = $routeParams.riverId;
+       console.log($routeParams)
        $http.get('/api/v1/coData').then(function (response) {
        console.log(response)
        $scope.coWaters = response.data;
@@ -10,12 +11,29 @@ app.controller("RiverPageController", function($scope, $http, $routeParams){
         }
        }
    
+     //   var url = 'http://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ $scope.riverInfo.USGSid +'&parameterCd=00060,00065';
 
-      $http.jsonp('http://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ $scope.riverInfo.USGSid +'&parameterCd=00060,00065').then(function(response){
+     //  return url;
+       
+     //  }).then(function(url) {
+     //    console.log('url in controller', url); 
+     //    $http.post("/api/v1/api-proxy/flow", url).then(function(res){
+     //    var data = res.data;
+     //    console.log(data)
+     
+
+     //   // $scope.flows = data.data.value
+     //   // console.log($scope.flows)
+     //    })
+
+    
+     // })
+
+      $http.get('http://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ $scope.riverInfo.USGSid +'&parameterCd=00060,00065').then(function(response){
         $scope.flows = response.data.value
         console.log($scope.flows)
     })
-          $http.get("https://api.wunderground.com/api/2dc07206ff5e682e/geolookup/forecast/q/"+$scope.riverInfo.latlng +".json").then(function(response){
+      $http.get("https://api.wunderground.com/api/2dc07206ff5e682e/geolookup/forecast/q/"+$scope.riverInfo.latlng +".json").then(function(response){
       console.log(response.data, "Look Over Here!")
       $scope.weatherUnder = response.data.forecast.txt_forecast.forecastday
       $scope.weatherLocation = response.data.location.city
@@ -24,8 +42,9 @@ app.controller("RiverPageController", function($scope, $http, $routeParams){
       // console.log(response.data.forecast, "Look Over Here!")
       // $scope.weatherUnder = response.data.forecast.txt_forecast.forecastday
      
+  })
     })
-  });
+ 
 
   $scope.labels = ["January", "February", "March", "April", "May", "June", "July","August","September","October","November","December"];
   // $scope.series = ['Series A'];
@@ -43,4 +62,4 @@ app.controller("RiverPageController", function($scope, $http, $routeParams){
 
 
 
-  })
+})
