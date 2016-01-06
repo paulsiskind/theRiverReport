@@ -11,25 +11,6 @@ app.controller("RiverPageController", function($scope, $http, $routeParams){
         }
        }
    
-     //   var url = 'http://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ $scope.riverInfo.USGSid +'&parameterCd=00060,00065';
-
-     //  return url;
-       
-     //  }).then(function(url) {
-     //    console.log('url in controller', url); 
-     //    $http.post("/api/v1/api-proxy/flow", url).then(function(res){
-     //    var data = res.data;
-     //    console.log(data)
-     
-
-     //   // $scope.flows = data.data.value
-     //   // console.log($scope.flows)
-     //    })
-
-    
-     // })
-
-  
 
       $http.get('http://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ $scope.riverInfo.USGSid +'&parameterCd=00060,00065').then(function(response){
         $scope.flows = response.data.value
@@ -39,10 +20,6 @@ app.controller("RiverPageController", function($scope, $http, $routeParams){
       console.log(response.data, "Look Over Here!")
       $scope.weatherUnder = response.data.forecast.txt_forecast.forecastday
       $scope.weatherLocation = response.data.location.city
-
-      // $http.get("http://api.wunderground.com/api/2dc07206ff5e682e/geolookup/forecast/q/" + $scope.riverInfo.latitude +',' + $scope.riverInfo.longitude + ".json").then(function(response){
-      // console.log(response.data.forecast, "Look Over Here!")
-      // $scope.weatherUnder = response.data.forecast.txt_forecast.forecastday
      
   })
    
@@ -51,11 +28,13 @@ app.controller("RiverPageController", function($scope, $http, $routeParams){
         $scope.flow = response.data.value.timeSeries[0].values[0].value;
         $scope.flowData = [];
 
-        for (var i = 0; i < $scope.flow.length; i+=100) {
-          // $scope.flow[i]
-          // console.log($scope.flow[i]);
-       
+        for (var i = 0; i < $scope.flow.length; i+=96) {
+          if($scope.flow[i].value == '-999999'){
+            $scope.flowData.push(1)
+          }else{
+    
           $scope.flowData.push(Number($scope.flow[i].value));
+        }
         };
 
     return $scope.flowData;
@@ -63,7 +42,7 @@ app.controller("RiverPageController", function($scope, $http, $routeParams){
   $scope.labels = [];
   // $scope.series = ['Series A'];
   for (var i = 0; i <= arr.length; i++) {
-    $scope.labels.push("1");
+    $scope.labels.push("-");
   };
   
   $scope.data = [
@@ -73,12 +52,13 @@ app.controller("RiverPageController", function($scope, $http, $routeParams){
 
   $scope.onClick = function (points, evt) {
     console.log(points, evt);
-  };
+  };  
       $scope.chart = function(select) {
-                
+       $scope.chartSelect = "line";
        $scope.chartSelect = select;
        console.log($scope.chartSelect)
-  }
+     }
+  
     })
 
      })

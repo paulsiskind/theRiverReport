@@ -1,15 +1,19 @@
-<!-- <div class="container"> -->
-    <md-whiteframe class="md-whiteframe-1dp md-display-2 col-md-12" col-md-12>{{riverInfo.name}} | {{riverInfo.nameProper}}</md-whiteframe>
+<div class="container"> 
+    <md-whiteframe class="md-whiteframe-1dp md-display-2 col-md-12 riverHeader" col-md-12>{{riverInfo.name}} | {{riverInfo.nameProper}}</md-whiteframe>
+    <br>
+    <br>
     <br>
 
-    <md-whiteframe class="md-whiteframe-3dp col-md-4">
+    <md-whiteframe class="md-whiteframe-3dp col-md-4 displayInfo">
     
       <form action="/"+ river_id +"/addFlow" method="post">
         <p>Location: {{riverInfo.nameProper}}</p>
         <p>Section: {{riverInfo.name}} </p>
         <p>Class:  {{riverInfo.class}} </p>
-        <p value="flows.timeSeries[0].values[0].value[0].value">CFS: {{flows.timeSeries[0].values[0].value[0].value}} </p>
-        <p>Season: {{riverInfo.season}}</p>
+        <p>CFS: 
+            <span class="frozen" ng-if="flows.timeSeries[0].values[0].value[0].value == -999999"> Frozen</span>  
+            <span ng-if="flows.timeSeries[0].values[0].value[0].value != -999999">{{flows.timeSeries[0].values[0].value[0].value}}</span>
+        </p>
       </form>
       <br>
       <h4>Long Term Forecast</h4>
@@ -29,15 +33,17 @@
     </md-whiteframe>
     <div class="col-md-1"></div>
    
-    <md-whiteframe class="md-whiteframe-1dp col-md-7">
-     <canvas id="bar" class="chart chart-line" chart-data="data"
-     chart-labels="labels" chart-legend="true" chart-series="series"
+    <md-whiteframe class="md-whiteframe-15dp col-md-7 charts">
+     <canvas id="bar" class="chart chart-line"  chart-data="data"
+     chart-labels="labels" chart-legend="false" chart-series="series"
      chart-click="onClick" >
      </canvas> 
-      <md-checkbox ng-click="chart('line')" class="md-primary md-align-top-left"> Line </md-checkbox> <br>
-      <md-checkbox ng-click="chart('bar')" class="md-warn md-align-top-left"> Bar </md-checkbox><br>
-      <md-checkbox ng-click="chart('doughnut')" class="md-warn md-align-top-left"> Doughnut </md-checkbox><br>
-      <md-checkbox ng-click="chart('radar')" class="md-warn md-align-top-left"> Radar </md-checkbox><br>
+     <br>
+     <br>
+     <canvas id="bar" class="chart chart-bar"  chart-data="data"
+     chart-labels="labels" chart-legend="false" chart-series="series"
+     chart-click="onClick" >
+     </canvas> 
 <p>{{chartSelect}}</p>
 <br>
 <br>
@@ -45,4 +51,8 @@
 </div>
 <!-- <canvas id="bar" class="chart chart-bar"
   chart-data="data" chart-labels="labels"> chart-series="series"
-</canvas -->
+</canvas
+    <!  <md-checkbox ng-click="chart('line')" class="md-primary md-align-top-left"> Line </md-checkbox> <br>
+      <md-checkbox ng-click="chart('bar')" class="md-warn md-align-top-left"> Bar </md-checkbox><br>
+      <md-checkbox ng-click="chart('doughnut')" class="md-warn md-align-top-left"> Doughnut </md-checkbox><br>
+      <md-checkbox ng-click="chart('radar')" class="md-warn md-align-top-left"> Radar </md-checkbox><br> -->

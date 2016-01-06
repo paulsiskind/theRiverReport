@@ -2,7 +2,7 @@
   
     </br>
   </br>
-    <md-whiteframe class="md-whiteframe-16dp md-display-2 col-md-12">The River Report</md-whiteframe>
+    <md-whiteframe class="md-whiteframe-16dp md-display-2 col-md-12 riverHeader">The River Report</md-whiteframe>
     
     <ul class="nav navbar-nav">
         <li class="dropdown">
@@ -18,7 +18,7 @@
      </ul>
 
 
-  <ul class="nav navbar-nav">
+   <ul class="nav navbar-nav">
       <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><md-button class="md-raised md-primary dropdown-toggle">Choose a Class</md-button></a>
       <ul class="dropdown-menu">
@@ -37,11 +37,11 @@
 
 
 
-    <md-whiteframe class="md-whiteframe-15dp md-display-2 col-md-12"> {{viewBarState}} {{viewBarClass}} {{flows.weather}} {{search}}</md-whiteframe>
+    <md-whiteframe class="md-whiteframe-15dp md-display-2 col-md-12 riverHeader"> {{viewBarState}} {{viewBarClass}} {{flows.weather}} {{search}}</md-whiteframe>
     <md-whiteframe class="md-whiteframe-24dp md-display-2 col-md-12">
     </br>
 
-     <table class="table table-hover">
+    <table class="table table-hover">
           <th>Section</th>
           <th>River Name</th>
           <th>State</th>
@@ -49,17 +49,16 @@
           <th>Season</th>
           <th>Flow</th>
       
-        <tr ng-repeat="water in coWaters | filter: search | filter: {state:choice} | filter:{class:classSearch}" ng-class="flows[water.USGSid] >= water.recommend ? 'g':'r'">
+        <tr ng-repeat="water in coWaters | filter: search | filter: {state:choice} | filter:{class:classSearch}" ng-class="flows[water.name] >= water.recommend ? 'g':'r'">
           <td><a href="/{{water.id}}">{{water.name}}</td>
           <td>{{water.nameProper}}</a></td>
           <td>{{water.state}} </td>
           <td>{{water.class}} </td>
           <td>{{water.season}} </td>
+          <td>{{water.timeSeries[0].values[0].value[0].value}}</td>
           <td>
-             <span class="frozen" ng-if="flows[water.USGSid] == -999999"> Frozen</span>  
-             <span ng-if="flows[water.USGSid] != -999999">{{flows[water.USGSid]}}</span>
-             
-           </td>
+             <span class="frozen" ng-if="flows[water.name] == -999999"> Frozen</span>  
+             <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span></td>
 
         </tr>
       

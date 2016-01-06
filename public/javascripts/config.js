@@ -12,12 +12,12 @@
       })
       .when('/map', {
         templateUrl: 'partials/map.html',
-        controller: 'RiverController'
+        controller: 'MapController'
       
       })
       .when('/rivers',{
         templateUrl: 'partials/rivers.html',
-        controller: "RiverController"
+        controller: "IndexController"
         
       })
       .when('/signin',{
