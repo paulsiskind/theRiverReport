@@ -16,15 +16,15 @@
     "debug": "~2.2.0",
     "dotenv": "^1.2.0",
     "express": "~4.13.1",
-    "passport": "^0.3.2",
-    "passport-facebook": "^2.0.0",
     "jade": "~1.11.0",
     "monk": "^1.0.1",
     "morgan": "~1.6.1",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.0.0",
     "pg": "^4.4.3",
-    "xml2js": "^0.4.15",
     "request-json": "^0.5.4",
     "request-promise-json": "^1.0.4",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "xml2js": "^0.4.15"
   }
 }

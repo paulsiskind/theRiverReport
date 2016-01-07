@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var pg = require('pg');
-var conString = "postgres://@localhost/theriverreport";
+var conString = process.env.DATABASE_URL || "postgres://@localhost/theriverreport";
 var coData = require('../coData.json')
 var caData = require('../caData.json')
 
@@ -27,7 +27,7 @@ router.post('/addFav', function(req, res, next){
     if (err) {
       return console.error('error fetching client from pool', err);
     }
-    client.query('INSERT INTO favorites(facebook_id, resort_id) VALUES($1, $2) returning id;',[req.user.facebookId, req.body.riverId], function(err, result) {
+    client.query('INSERT INTO favorites(facebook_id, river_id) VALUES($1, $2) returning id;',[req.user.facebookId, req.body.riverId], function(err, result) {
       done();
       res.redirect('/' + req.body.resortId)
       if (err) {
@@ -43,7 +43,7 @@ router.get('/isFav/:id', function(req, res, next){
     if (err) {
       return console.error('error fetching client from pool', err);
     }
-    client.query('SELECT * FROM favorites WHERE (facebook_id = $1 and resort_id = $2);',[req.user.facebookId, req.params.id], function(err, result) {
+    client.query('SELECT * FROM favorites WHERE (facebook_id = $1 and river_id = $2);',[req.user.facebookId, req.params.id], function(err, result) {
       done();
 
 

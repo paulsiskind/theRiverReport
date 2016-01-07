@@ -9,7 +9,7 @@ var FacebookStrategy = require('passport-facebook');
 var passport = require('passport');
 require('dotenv').load()
 var pg = require('pg');
-var conString = "process.env.DATABASE_URL || postgres://@localhost/theriverreport";
+var conString = process.env.DATABASE_URL || "postgres://@localhost/theriverreport";
 
 
 var routes = require('./routes/index');
