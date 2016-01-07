@@ -17,7 +17,7 @@ app.directive('leafletDirective', function () {
       })
       new L.Control.Zoom({ position: 'bottomright' }).addTo(map)
 
-      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+      L.tileLayer('//api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
         maxZoom: 18,
         minZoom: 3,
         id: 'paulsiskind.oh1cnj5g',
