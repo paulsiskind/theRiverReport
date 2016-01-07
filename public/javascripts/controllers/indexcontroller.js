@@ -7,7 +7,7 @@
 
         $scope.coWaters.map(function(d){
 
-          return $http.get('//waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ d.USGSid +'&parameterCd=00060,00065').then(function(response){
+          return $http.get('https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ d.USGSid +'&parameterCd=00060,00065').then(function(response){
             $scope.flows[d.name] = response.data.value.timeSeries[0].values[0].value[0].value;
           });
 
