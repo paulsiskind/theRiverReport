@@ -1,12 +1,15 @@
 var express = require('express');
 var router = express.Router();
-var db = require('monk')(process.env.MONGOLAB_URI || 'localhost/theRiverReport');
-var river = db.get('theRiverReport');
+var pg = require('pg');
+var conString = "postgres://@localhost/theriverreport";
 var coData = require('../coData.json')
 var caData = require('../caData.json')
-var akData = require('../akData.json')
-var http = require('request-promise-json');
 
+
+router.get('/_=_', function(req, res, next) {
+ 
+  res.json(req.user)
+});
 
 router.get('/api/v1/coData', function(req, res, next) {
   res.json(coData)
@@ -16,46 +19,59 @@ router.get('/api/v1/caData', function(req, res, next){
   res.json(caData)
 });
 
-router.get('/api/v1/akData', function(req, res, next){
-  res.json(akData)
-});
 
-router.post('/api/v1/api-proxy/flows', function(req, res, next){
-  var url = req.body.apiurl;
-  var result = {};
-  var promises = [];
 
-  url.map(function(uri){
+router.post('/addFav', function(req, res, next){
+  pg.connect(conString, function(err, client, done) {
 
-    promises.push(
-      
-      http.get(uri).then(function(body){
-      
-        if(typeof body.value === 'object' && typeof body.value.timeSeries[0] === 'object'){
-          var siteCode = body.value.timeSeries[0].sourceInfo.siteCode[0].value;
-          var flow = body.value.timeSeries[0].values[0].value[0].value;
-          return result[siteCode] = flow;
-        }
-
-      })
-
-    )
-
-  })
-
-  Promise.all(promises).then(function(){
-    res.json(result)
-
+    if (err) {
+      return console.error('error fetching client from pool', err);
+    }
+    client.query('INSERT INTO favorites(facebook_id, resort_id) VALUES($1, $2) returning id;',[req.user.facebookId, req.body.riverId], function(err, result) {
+      done();
+      res.redirect('/' + req.body.resortId)
+      if (err) {
+        return console.error('error running query', err);
+      }
+    });
   });
-
 })
 
+router.get('/isFav/:id', function(req, res, next){
+  
+  pg.connect(conString, function(err, client, done) {
+    if (err) {
+      return console.error('error fetching client from pool', err);
+    }
+    client.query('SELECT * FROM favorites WHERE (facebook_id = $1 and resort_id = $2);',[req.user.facebookId, req.params.id], function(err, result) {
+      done();
 
-// router.post('/rivers', function(req, res, next){
-//   river.insert({riverId: req.body.river,
-//                riverFlow: req.body.riverFlow});
-//   res.redirect('/');
-// });
+
+      if (err) {
+        return console.error('error running query', err);
+      }
+    });
+  });
+})
+
+router.get('/userFavorites', function(req, res, next) {
+  pg.connect(conString, function(err, client, done) {
+    if (err) {
+      return console.error('error fetching client from pool', err);
+    }
+    client.query('SELECT * FROM favorites WHERE (facebook_id = $1);',[req.user.facebookId], function(err, result) {
+      done();
+      
+      if (err) {
+        return console.error('error running query', err);
+      }
+      res.json(result.rows)
+    })
+  }) 
+});
+
+
+
 
 router.get('*', function(req, res, next) {
   res.sendFile('index.html', {

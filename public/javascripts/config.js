@@ -1,10 +1,14 @@
 
 
-  app.config(function(authProvider, $routeProvider, $locationProvider,$httpProvider, jwtInterceptorProvider, $mdThemingProvider) {
+  app.config(function( $routeProvider, $locationProvider,$httpProvider,  $mdThemingProvider) {
     $mdThemingProvider.theme('default')
        .dark();
 
     $routeProvider
+     .when('/_=_', {
+        controller: 'RiverController',
+        redirectTo: '/'
+      })
       .when('/', {
         templateUrl: 'partials/home.html',
         controller: 'RiverController'

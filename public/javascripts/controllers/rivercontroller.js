@@ -1,6 +1,14 @@
-  app.controller("RiverController", function($scope, auth, $http, $location, store){
+  app.controller("RiverController", function($scope, $rootScope, $http, $location, $cookies){
     
-     $scope.auth = auth;
+     $http.get('/_=_').then(function (response) {
+    $cookies.put('facebookId', response.data.facebookId);
+    $cookies.put('firstName', response.data.firstName);
+    $cookies.put('lastName', response.data.lastName);
+    $scope.user = $cookies.getAll()
+    console.log(response.data);
+    console.log($scope.user);
+        })
+    
 
      $scope.order = function(select) {
                     if(select === 'rivers') {

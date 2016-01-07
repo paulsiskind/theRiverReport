@@ -46,24 +46,35 @@
              </ul>
             </li> 
             <li>
-              <ul class="nav navbar-nav text-right">
+              <!-- <ul class="nav navbar-nav text-right">
                 <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Log In <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="/signin">Sign In</a></li>
                   <li><a href="/signup">Sign Up</a></li>
                   <li><a href="#">Edit</a></li>
-               </ul>
+               </ul> -->
               </li>
              </ul>
             </li> 
             <ul class="nav navbar-nav text-right">
-            <li>{{auth.profile.email}} </li>
-            <br>
-
-            <li ng-if= 'auth.profile.email'>
-              <button class="btn-sm btn-warning" ng-click="logout()">Logout</button>
-            </li>
+                 <li>
+                <a href="/auth/facebook" ng-hide="user.firstName" target="_self"> login with
+                  <!-- <span>
+                    &nbsp; &nbsp;
+                    <img src="/images/facebook_logo.png" width="10px">
+                  </span> -->
+                </a>
+              </li>
+              <form class="navbar-form navbar-right" role="search"></form>
+              <li>
+                <a href="/logout" ng-show="user.firstName" target="_self"> logout with
+                  <!-- <span>
+                  &nbsp; &nbsp;
+                  <img src="/images/facebook_logo.png">
+                  </span> -->
+                </a>
+              </li>
           </ul>
           </ul>
       </div>
@@ -106,7 +117,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/0.9.0/angular-moment.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular-animate.js"></script>     
+    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
@@ -114,14 +125,8 @@
     <script src="https://rawgit.com/nnnick/Chart.js/master/Chart.min.js"></script>
     <script src="https://rawgit.com/jtblin/angular-chart.js/master/dist/angular-chart.min.js"></script>
 
-    <script src="//code.angularjs.org/1.2.16/angular-cookies.min.js"></script>
-    <!-- Auth0 Lock script and AngularJS module -->
-    <script src="//cdn.auth0.com/js/lock-7.12.min.js"></script>
-    <!-- angular-jwt and angular-storage -->
-    <script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
-    <script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
-
-    <script src="//cdn.auth0.com/w2/auth0-angular-4.js"> </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-cookies.js"></script>
+    
     <script src='http://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
     <link href='http://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
     <link href='http://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />

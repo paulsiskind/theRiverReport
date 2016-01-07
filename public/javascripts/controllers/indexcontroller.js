@@ -1,4 +1,4 @@
-  app.controller("IndexController", function($scope, auth, $http, $location, store){
+  app.controller("IndexController", function($scope, $http, $location){
     
 
         $http.get('/api/v1/coData').then(function (response) {

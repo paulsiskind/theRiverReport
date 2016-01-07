@@ -1,6 +1,12 @@
-app.controller("RiverPageController", function($scope, $http, $routeParams){
+app.controller("RiverPageController", function($scope, $http, $routeParams, $rootScope, $location, $window, $cookies){
        $scope.riverId = $routeParams.riverId;
        console.log($routeParams)
+       
+       $http.get('/isfav' + $location.path()).then(function (response){
+        // console.log($scope.isfav);
+        $scope.isfav = response.data;
+       })
+
        $http.get('/api/v1/coData').then(function (response) {
        console.log(response)
        $scope.coWaters = response.data;
