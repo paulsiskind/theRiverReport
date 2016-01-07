@@ -43,30 +43,5 @@
       })
       $locationProvider.html5Mode(true)
 
-       authProvider.init({
-          domain: 'brokenpaddle.auth0.com',
-          clientID: 'qmaBRlYLvgIjao8jbLVA7kRVQLM5SCIS',
-          callbackURL: location.href,
-         // Here include the URL to redirect to if the user tries to access a resource when not authenticated.
-          loginUrl: '/signin'
-        });
-      jwtInterceptorProvider.tokenGetter = ['store', function(store) {
-        // Return the saved token
-        return store.get('token');
-      }];
-      $httpProvider.interceptors.push('jwtInterceptor');
-      }).run(function($rootScope, auth, store, jwtHelper, $location) {
-     $rootScope.$on('$locationChangeStart', function() {
-    if (!auth.isAuthenticated) {
-      var token = store.get('token');
-      if (token) {
-        if (!jwtHelper.isTokenExpired(token)) {
-          auth.authenticate(store.get('profile'), token);
-        } else {
-          $location.path('/login');
-        }
-      }
-    }
-
-  });
-})
+       
+      })
