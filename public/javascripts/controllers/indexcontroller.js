@@ -1,5 +1,7 @@
   app.controller("IndexController", function($scope, $http, $location){
-    
+      
+       // $scope.riverId = $routeParams.riverId;
+       // console.log($routeParams.riverId)
 
         $http.get('/api/v1/coData').then(function (response) {
       $scope.flows = {};

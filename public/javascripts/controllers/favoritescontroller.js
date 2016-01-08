@@ -34,4 +34,6 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
 
   })
   })
+
+    
 })

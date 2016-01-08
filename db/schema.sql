@@ -6,12 +6,12 @@ CREATE TABLE users (
   firstName varchar(40),
   lastName varchar(40),
   facebookId varchar(60),
-  userPhone int
+  userPhone bigint
 );
 
 CREATE TABLE favorites (
   id serial primary key,
   facebook_id varchar(60),
-  river_id varchar(10),
+  river_id varchar(10) CONSTRAINT must_be_different UNIQUE,
   riverLevel int
 );

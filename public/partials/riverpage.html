@@ -5,8 +5,19 @@
         <input type="hidden" value="{{riverInfo.id}}" name="riverId">
         <md-button class="md-raised md-cornered" type="submit" value="Add to rivers">Add to Favorite Rivers</md-button>
       </form>
+ 
+      <md-button class="md-raised md-cornered btn btn-success" ng-click="showme=true">Set water level for messaging</md-button>
+    <form novalidate class="css-form waterLevel col-md-4" name="myForm" ng-show="showme" class="fade-in-out"><br>
+        <p>Add Prefered Water Level</p>
+        <input type="number" class="form-control">
+        <br>
+        <button type="submit" class="btn btn-success" ng-click="showme=false">Update</button>
+        <button type="submit" class="btn btn-danger" ng-click="showme=false">Cancel</button>
+      </form>
       </span>
+
   </md-whiteframe>
+
     <br>
     <br>
     <br>
@@ -49,7 +60,8 @@
      <br>
      <canvas id="bar" class="chart chart-bar"  chart-data="data"
      chart-labels="labels" chart-legend="false" chart-series="series"
-     chart-click="onClick" >
+     chart-click="onClick" chart-series="series"
+     chart-click="onClick">
      </canvas> 
 <p>{{chartSelect}}</p>
 <br>
