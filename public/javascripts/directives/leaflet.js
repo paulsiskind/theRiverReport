@@ -34,6 +34,20 @@ app.directive('leafletDirective', function () {
        var riverMarkers = L.geoJson(data,{
           pointToLayer: function(feature,latlng){
           var marker = L.marker(latlng,{icon: skullMarker});
+        //     var flows = {};
+           
+        //    console.log(typeof feature)
+
+        //     feature.map(function(d){
+
+        //   return $.getJSON('//waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ d.USGSid +'&parameterCd=00060,00065').then(function(response){
+        //     flows[d.name] = response.data.value.timeSeries[0].values[0].value[0].value;
+        //     console.log(flows, 'Picles')
+        //   });
+
+        // });
+
+
           marker.bindPopup('<a href=/'+feature.id+">" + feature.name + '<br/>' + feature.nameProper);
           return marker;
         }

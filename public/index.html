@@ -38,7 +38,7 @@
                   <li><a href="/rivers" ng-click="order('rivers')">Rivers</a></li>
                   <li><a href="#" ng-click="order('events')">Events</a></li>
                   <li><a href="/gear" ng-click="order('gear')">Gear</a></li>
-                  <li ng-if='user != 999'><a href="/favorites" ng-click="order('favorites')">Favorites</a></li>
+                  <li ng-if='user.facebookId'><a href="/favorites" ng-click="order('favorites')">Favorites</a></li>
                   <li><a href="#" ng-click="order('announcements')">Announcements</a></li>
                   
                </ul>

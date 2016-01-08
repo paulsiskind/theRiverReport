@@ -37,22 +37,22 @@ router.post('/addFav', function(req, res, next){
   });
 })
 
-router.get('/isFav/:id', function(req, res, next){
+// router.get('/isFav/:id', function(req, res, next){
   
-  pg.connect(conString, function(err, client, done) {
-    if (err) {
-      return console.error('error fetching client from pool', err);
-    }
-    client.query('SELECT * FROM favorites WHERE (facebook_id = $1 and river_id = $2);',[req.user.facebookId, req.params.id], function(err, result) {
-      done();
+//   pg.connect(conString, function(err, client, done) {
+//     if (err) {
+//       return console.error('error fetching client from pool', err);
+//     }
+//     client.query('SELECT * FROM favorites WHERE (facebook_id = $1 and river_id = $2);',[req.user.facebookId, req.params.id], function(err, result) {
+//       done();
 
 
-      if (err) {
-        return console.error('error running query', err);
-      }
-    });
-  });
-})
+//       if (err) {
+//         return console.error('error running query', err);
+//       }
+//     });
+//   });
+// })
 
 router.get('/userFavorites', function(req, res, next) {
   pg.connect(conString, function(err, client, done) {
