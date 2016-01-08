@@ -37,6 +37,12 @@
          controller: 'GearController'
          
       })
+      .when('/favorites', {
+        templateUrl: 'partials/favorites.html',
+        controller: 'FavoritesController'
+        // requiresLogin: true
+      })
+
       .when('/:riverId', {
         templateUrl: 'partials/riverpage.html',
         controller: "RiverPageController",

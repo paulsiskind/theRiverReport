@@ -38,7 +38,7 @@
                   <li><a href="/rivers" ng-click="order('rivers')">Rivers</a></li>
                   <li><a href="#" ng-click="order('events')">Events</a></li>
                   <li><a href="/gear" ng-click="order('gear')">Gear</a></li>
-                  <li><a href="#" ng-click="order('messageboard')">MessageBoard</a></li>
+                  <li ng-if='user != 999'><a href="/favorites" ng-click="order('favorites')">Favorites</a></li>
                   <li><a href="#" ng-click="order('announcements')">Announcements</a></li>
                   
                </ul>
@@ -99,6 +99,7 @@
   </div>
     <script type="text/javascript" src="/javascripts/app.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/signincontroller.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/favoritescontroller.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/riverpagecontroller.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/rivercontroller.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/indexcontroller.js"></script>
@@ -106,13 +107,8 @@
     <script type="text/javascript" src="/javascripts/config.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
-   <!--  // <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script> -->
+ 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
- <!--    // <script type="text/javascript" src="/javascripts/init.js"></script> -->
-  <!--   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"> -->
-
-  <!-- Compiled and minified JavaScript -->
-   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script> -->
     <script type="text/javascript" src="/javascripts/directives/leaflet.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>

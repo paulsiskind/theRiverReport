@@ -1,6 +1,6 @@
 app.controller("RiverPageController", function($scope, $http, $routeParams, $rootScope, $location, $window, $cookies){
        $scope.riverId = $routeParams.riverId;
-       console.log($routeParams)
+       console.log($routeParams.riverId)
        
        $http.get('/isfav' + $location.path()).then(function (response){
         // console.log($scope.isfav);
@@ -70,9 +70,7 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $roo
      })
  
 
-  // [
-  //   [43, 59, 80, 81, 56, 55, 40,45,55,65,75,80,99,78]
-  // ];
+ 
 
 
 

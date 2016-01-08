@@ -1,5 +1,12 @@
 <div class="container"> 
-    <md-whiteframe class="md-whiteframe-1dp md-display-2 col-md-12 riverHeader" col-md-12>{{riverInfo.name}} | {{riverInfo.nameProper}}</md-whiteframe>
+    <md-whiteframe class="md-whiteframe-1dp md-display-2 col-md-12 riverHeader" col-md-12>{{riverInfo.name}} | {{riverInfo.nameProper}}
+      <span class="addFav" class="text-right">
+       <form method="post" action="/addFav/">
+        <input type="hidden" value="{{riverInfo.id}}" name="riverId">
+        <md-button class="md-raised md-cornered" type="submit" value="Add to rivers">Add to Favorite Rivers</md-button>
+      </form>
+      </span>
+  </md-whiteframe>
     <br>
     <br>
     <br>

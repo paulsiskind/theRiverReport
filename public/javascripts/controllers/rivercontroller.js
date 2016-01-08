@@ -6,7 +6,7 @@
     $cookies.put('lastName', response.data.lastName);
     $scope.user = $cookies.getAll()
     console.log(response.data);
-    console.log($scope.user);
+    console.log($scope.user, '>>><<<<<<');
         })
     
 
@@ -20,8 +20,8 @@
                     if(select === 'gear') {
                       $scope.viewBar = 'Gear';
                     }
-                    if(select === "messageboard"){
-                      $scope.viewBar = "MessageBoard"
+                    if(select === "favorites"){
+                      $scope.viewBar = "Favorites"
                     }
                     if(select === "announcements"){
                       $scope.viewBar = "Announcements"

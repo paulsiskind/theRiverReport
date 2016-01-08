@@ -1,0 +1,50 @@
+<md-whiteframe class="md-whiteframe-10dp md-display-5 well col-md-4">
+  <bold>Welcome </bold>
+  <h1>{{user.firstName}}</h1>
+  <li><a href="#" ng-click="showme=true">Edit Profile</a></li>
+    <form novalidate class="css-form" name="myForm" ng-show="showme" class="fade-in-out">
+      <p>Add Photo URL</p>
+      <form>
+        <input type="text" class="form-control">
+        <br>
+       <p>Add Alias</p>
+        <input type="text" class="form-control">
+        <br>
+        <p>Add Phone #</p>
+        <input type="text" class="form-control">
+        <br>
+        <button type="submit" class="btn btn-success" ng-click="showme=false">Update</button>
+        <button type="submit" class="btn btn-danger" ng-click="showme=false">Cancel</button>
+      </form>
+   
+</md-whiteframe>
+<md-whiteframe class="md-whiteframe-1dp md-display-5 well col-md-6">
+
+     <table class="table table-hover">
+          <th>Section</th>
+          <th>River Name</th>
+          <th>State</th>
+          <th>Class</th>
+          <th>Season</th>
+          <th>Flow</th>
+      
+        <tr ng-repeat="water in userFavs" ng-class="flows[water.name] >= water.recommend ? 'g':'r'">
+          <td><a href="/{{water.id}}">{{water.name}}</td>
+          <td>{{water.nameProper}}</a></td>
+          <td>{{water.state}} </td>
+          <td>{{water.class}} </td>
+          <td>{{water.season}} </td>
+          <td>
+             <span class="frozen" ng-if="flows[water.name] == -999999"> Frozen</span>  
+             <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span></td>
+
+        </tr>
+      
+      </table>
+
+       
+
+       </tr>
+      </table>
+    </table>
+</md-whiteframe>
