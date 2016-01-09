@@ -73,14 +73,14 @@ router.post('/addFav', function(req, res, next){
   });
 })
 
-router.post('/addLevel/:id', function(req, res, next){
+router.post('/addLevel', function(req, res, next){
   pg.connect(conString, function(err, client, done) {
 
     if (err) {
       return console.error('error fetching client from pool', err);
     }
-    console.log("I'm running!!!!!!!!!!!!!!!!!!!", req.body.riverLevel, req.params.id, 'params', req.location )
-    client.query('UPDATE favorites set riverLevel = $1 where riverId = $2',[req.body.riverLevel ,req.params.id], function(err, result) {
+    console.log("I'm running!!!!!!!!!!!!!!!!!!!", req.body.riverLevel, req.body.riverId)
+    client.query('UPDATE favorites set riverLevel = $1 where riverId = $2',[req.body.riverLevel ,req.body.riverId], function(err, result) {
       done();
       res.redirect('/favorites')
       if (err) {

@@ -75,8 +75,7 @@ li > a:hover, li > a:focus {
  
     color: green;
 }
-#slides_control > div{
-}
+
 img{
   margin:auto;
   width: 60%;
@@ -102,6 +101,7 @@ img{
    min-height: 0px; 
    background-color: rgb(35, 36, 43);
    color: white;
+   font-size: 20px;
 }
 
 

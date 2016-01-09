@@ -6,10 +6,12 @@
         <md-button class="md-raised md-cornered" type="submit" value="Add to rivers">Add to Favorite Rivers</md-button>
       </form>
  
-     <md-button><a href="#" ng-click="showit=!showit">Add user info</a></li>
-            <form form method="post" action="/addLevel/riverId" ng-show="showit" class="fade-in-out">
+     <md-button class="md-raised mdButton"><a href="#" ng-click="showit=!showit">SMS Level</a></li>
+            <form form method="post" action="/addLevel" ng-show="showit" class="fade-in-out">
    
             <p>Water Level</p>
+
+            <input type="hidden" value="{{riverInfo.id}}" name="riverId">
             <input type="number" class="form-control" name="riverLevel">
             <br>
             <button type="submit" class="btn btn-success" ng-click="showit=false">Update</button>
