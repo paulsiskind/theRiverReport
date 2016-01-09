@@ -1,47 +1,52 @@
 <md-whiteframe class="md-whiteframe-10dp md-display-5 well col-md-4">
   <bold>Welcome </bold>
   <h1>{{user.firstName}}</h1>
-  <li><a href="#" ng-click="showme=true">Add user info</a></li>
+  <li><a href="#" ng-click="showme=!showme">Add user info</a></li>
     <form form method="post" action="/addPhone" ng-show="showme" class="fade-in-out">
-     <!--  <p>Add Photo URL</p>
-      <form>
-        <input type="text" class="form-control">
-        <br>
-       <p>Add Alias</p>
-        <input type="text" class="form-control">
-        <br> -->
         <p>Add Phone #</p>
         <input type="text" class="form-control" name="phone">
         <br>
         <button type="submit" class="btn btn-success" ng-click="showme=false">Update</button>
-        <button type="cancel" class="btn btn-danger" ng-click="showme=false">Cancel</button>
       </form>
    
 </md-whiteframe>
-<md-whiteframe class="md-whiteframe-1dp md-display-5 well col-md-6">
+<md-whiteframe class="md-whiteframe-1dp md-display-5 well col-md-8">
 
-     <table class="table table-hover">
+     <table class="table">
           <th>Section</th>
           <th>River Name</th>
           <th>State</th>
           <th>Class</th>
           <th>Season</th>
           <th>Flow</th>
+      <!--     <th>SMS</th> -->
+          <th>Delete</th>
       
-        <tr ng-repeat="water in userFavs" ng-class="flows[water.name] >= water.recommend ? 'g':'r'">
-          <td><a href="/{{water.id}}">{{water.name}}</td>
-          <td>{{water.nameProper}}</a></td>
-          <td>{{water.state}} </td>
-          <td>{{water.class}} </td>
-          <td>{{water.season}} </td>
-          <td>
-             <span class="frozen" ng-if="flows[water.name] == -999999"> Frozen</span>  
-             <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span></td>
-          <td>
+        <tr class="flow" ng-repeat="water in userFavs | filter: search" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend)">
+       <!--  <tr ng-repeat="water in userFavs" ng-class="flows[water.name] >= water.recommend ? 'g':'r'"> -->
+          <td style="padding: 20px;"><a href="/{{water.id}}">{{water.name}}</td>
+          <td style="padding: 20px;">{{water.nameProper}}</a></td>
+          <td style="padding: 20px;">{{water.state}} </td>
+          <td style="padding: 20px;">{{water.id}} </td>
+          <td style="padding: 20px;">{{water.season}} </td>
+          <td style="padding: 20px;">
+            <span class="frozen five" ng-if="flows[water.name] == -999999"> Frozen</span>  
+            <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span></td>
+         <!--  <td style="padding: 20px;">
+            <md-button><a href="#" ng-click="showit=true">Add user info</a></li>
+            <form form method="post" action="/addLevel" ng-show="showit" class="fade-in-out">
+   
+            <p>Water Level</p>
+            <input type="text" class="form-control" name="riverLevel">
+            <br>
+            <button type="submit" class="btn btn-success" ng-click="showit=false">Update</button>
+            <button type="cancel" class="btn btn-danger" ng-click="showit=false">Cancel</button>
+            </form></md-button></td>   --> 
+          <td style="padding: 20px;">
             <form method="post" action="/deleteFav">
             <input type="hidden" value="{{water.id}}" name="riverId">
             <md-button class="md-raised md-cornered" type="submit" value="Add to rivers">Delete</md-button>
-      </form>
+      </form></td>
         </tr>
       
       </table>

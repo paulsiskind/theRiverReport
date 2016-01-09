@@ -27,8 +27,8 @@ router.post('/deleteFav', function(req, res, next){
     if (err) {
       return console.error('error fetching client from pool', err);
     }
-    console.log(req.user.facebookId, req.body.riverId, '<<<<<<>>>>>>>LLLLL')
-    client.query('DELETE FROM favorites where facebook_id = $1 and river_id = $2;',[req.user.facebookId, req.body.riverId], function(err, result) {
+    console.log(req.user.facebookId, req.body.riverId, '<<<<<<tacos>>>>>>>LLLLL')
+    client.query('DELETE FROM favorites where facebook_id = $1 and riverId = $2;',[req.user.facebookId, req.body.riverId], function(err, result) {
       done();
       res.redirect('/favorites')
       if (err) {
@@ -63,7 +63,7 @@ router.post('/addFav', function(req, res, next){
     if (err) {
       return console.error('error fetching client from pool', err);
     }
-    client.query('INSERT INTO favorites(facebook_id, river_id) VALUES($1, $2) returning id;',[req.user.facebookId, req.body.riverId], function(err, result) {
+    client.query('INSERT INTO favorites(facebook_id, riverId) VALUES($1, $2) returning id;',[req.user.facebookId, req.body.riverId], function(err, result) {
       done();
       res.redirect('/' + req.body.riverId)
       if (err) {
@@ -73,13 +73,29 @@ router.post('/addFav', function(req, res, next){
   });
 })
 
+router.post('/addLevel/:id', function(req, res, next){
+  pg.connect(conString, function(err, client, done) {
+
+    if (err) {
+      return console.error('error fetching client from pool', err);
+    }
+    console.log("I'm running!!!!!!!!!!!!!!!!!!!", req.body.riverLevel, req.params.id, 'params', req.location )
+    client.query('UPDATE favorites set riverLevel = $1 where riverId = $2',[req.body.riverLevel ,req.params.id], function(err, result) {
+      done();
+      res.redirect('/favorites')
+      if (err) {
+        return console.error('error running query', err);
+      }
+    });
+  });
+})
 // router.get('/isFav/:id', function(req, res, next){
   
 //   pg.connect(conString, function(err, client, done) {
 //     if (err) {
 //       return console.error('error fetching client from pool', err);
 //     }
-//     client.query('SELECT * FROM favorites WHERE (facebook_id = $1 and river_id = $2);',[req.user.facebookId, req.params.id], function(err, result) {
+//     client.query('SELECT * FROM favorites WHERE (facebook_id = $1 and riverId = $2);',[req.user.facebookId, req.params.id], function(err, result) {
 //       done();
 
 

@@ -8,20 +8,18 @@
 
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
     <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
     <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 
     <base href="/">
   <title>TheRiverReport</title>
 </head>
 <body>
     <div ng-controller="RiverController">
-     <md-toolbar layout="row" class="md-whiteframe-z35" >
-    
-        
+            
           <a class="navbar-brand" href="/">theRiverReport</a>
         
-        <div>
+        <div class="container-fluid c-navbar">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/map">Map</a></li>
             <!-- <li><a href="#" ng-click="showme=true">Submit Post</a></li> -->
@@ -59,7 +57,7 @@
               </li>
              </ul>
             </li> 
-            <ul class="nav navbar-nav text-right">
+            <ul class="nav navbar-nav navbar-right">
                  <li>
                 <a href="/auth/facebook" ng-hide="user.firstName" target="_self"> login
                   <span>
@@ -79,7 +77,6 @@
           </ul>
       </div>
       </div>
-    </md-toolbar>
 
       
        

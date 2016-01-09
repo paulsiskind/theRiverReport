@@ -3,7 +3,17 @@
        // $scope.riverId = $routeParams.riverId;
        // console.log($routeParams.riverId)
 
-        $http.get('/api/v1/coData').then(function (response) {
+   $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow){
+      console.log(actualFlow, recommendedFlow)
+      // completely frozen water
+      if(actualFlow === '-999999') return 'five'
+      if(actualFlow < recommendedFlow) return 'four'
+      if(recommendedFlow - actualFlow > 0) return 'three'
+      if(recommendedFlow - actualFlow > 200) return 'two'
+      return 'one'
+    }
+
+    $http.get('/api/v1/coData').then(function (response) {
       $scope.flows = {};
       $scope.coWaters = response.data;
 
@@ -17,7 +27,6 @@
         console.log($scope.coWaters)
 
     }); 
-
 
     $scope.state = function(choice){
       console.log(choice)

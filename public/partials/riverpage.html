@@ -1,19 +1,19 @@
 <div class="container"> 
     <md-whiteframe class="md-whiteframe-1dp md-display-2 col-md-12 riverHeader" col-md-12>{{riverInfo.name}} | {{riverInfo.nameProper}}
-      <span class="addFav" class="text-right">
+      <span ng-if='user.facebookId' class="addFav" class="text-right">
        <form method="post" action="/addFav/">
         <input type="hidden" value="{{riverInfo.id}}" name="riverId">
         <md-button class="md-raised md-cornered" type="submit" value="Add to rivers">Add to Favorite Rivers</md-button>
       </form>
  
-      <md-button class="md-raised md-cornered btn btn-success" ng-click="showme=true">Set water level for messaging</md-button>
-    <form novalidate class="css-form waterLevel col-md-4" name="myForm" ng-show="showme" class="fade-in-out"><br>
-        <p>Add Prefered Water Level</p>
-        <input type="number" class="form-control">
-        <br>
-        <button type="submit" class="btn btn-success" ng-click="showme=false">Update</button>
-        <button type="submit" class="btn btn-danger" ng-click="showme=false">Cancel</button>
-      </form>
+     <md-button><a href="#" ng-click="showit=!showit">Add user info</a></li>
+            <form form method="post" action="/addLevel/riverId" ng-show="showit" class="fade-in-out">
+   
+            <p>Water Level</p>
+            <input type="number" class="form-control" name="riverLevel">
+            <br>
+            <button type="submit" class="btn btn-success" ng-click="showit=false">Update</button>
+            </form></md-button></td>   
       </span>
 
   </md-whiteframe>
@@ -24,7 +24,7 @@
 
     <md-whiteframe class="md-whiteframe-3dp col-md-4 displayInfo">
     
-      <form action="/"+ river_id +"/addFlow" method="post">
+      
         <p>Location: {{riverInfo.nameProper}}</p>
         <p>Section: {{riverInfo.name}} </p>
         <p>Class:  {{riverInfo.class}} </p>
@@ -32,7 +32,7 @@
             <span class="frozen" ng-if="flows.timeSeries[0].values[0].value[0].value == -999999"> Frozen</span>  
             <span ng-if="flows.timeSeries[0].values[0].value[0].value != -999999">{{flows.timeSeries[0].values[0].value[0].value}}</span>
         </p>
-      </form>
+     
       <br>
       <h4>Long Term Forecast</h4>
       <p>Weather Station: {{weatherLocation}} <p>
@@ -49,7 +49,9 @@
       <br>
       <br>
     </md-whiteframe>
-    <div class="col-md-1"></div>
+
+
+    <div class="col-md-1"> .</div>
    
     <md-whiteframe class="md-whiteframe-15dp col-md-7 charts">
      <canvas id="bar" class="chart chart-line"  chart-data="data"
@@ -63,7 +65,7 @@
      chart-click="onClick" chart-series="series"
      chart-click="onClick">
      </canvas> 
-<p>{{chartSelect}}</p>
+
 <br>
 <br>
    </md-whiteframe>

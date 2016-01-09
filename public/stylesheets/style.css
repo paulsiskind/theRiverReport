@@ -9,15 +9,56 @@ a {
 /*.navbar{
   background-color: blue;
 }*/
-.frozen{
-  color: blue;
+.flow{
+  /*color: blue;*/
+  transition: ease-in .33s;
+  text-shadow: 1px 1px 1px rgba(0,0,0,.25);
+  color:white;
 }
-.r{
-   background-color: #F40713;
+
+
+tr.flow:hover{
+  background: rgba(0,0,0,.4);
 }
-.g{
-   background-color: #22FF4D;
+
+tr.flow a{
+  color:white;
 }
+
+table td{
+  padding: 200px;
+}
+
+.flow.five {
+   background-color: #235472;
+}
+
+.flow.four {
+   background-color: rgba(31, 99, 178, .5);
+}
+
+.flow.three {
+   background-color: rgba(31, 99, 178, .3);
+}
+
+.flow.two {
+   background-color: rgba(31, 99, 178, .2);
+}
+
+.flow.one {
+   background-color: rgba(31, 99, 178, .1);
+   color: black;
+  text-shadow: 1px 1px 1px rgba(255,255,255,.4);
+}
+.flow.one a {
+   color: black;
+  text-shadow: 1px 1px 1px rgba(255,255,255,.4);
+}
+.flow.one a:hover {
+   color: white;
+}
+
+
 .jumbotron .dropper{
   text-align: right;
 }
@@ -55,4 +96,25 @@ img{
 }
 .waterLevel{
   font-size: 16px;
+}
+
+.c-navbar {
+   min-height: 0px; 
+   background-color: rgb(35, 36, 43);
+   color: white;
+}
+
+
+.nav>li>a, .navbar-brand {
+  color: white;
+  transition: ease-in-out .5s;
+}
+
+ul.nav.navbar-nav li:hover{
+   background: rgb(55, 56, 63);
+   color: white;
+}
+ul.nav.navbar-nav li a:hover{
+   background: rgb(55, 56, 63);
+   color: white;
 }
