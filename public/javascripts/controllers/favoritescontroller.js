@@ -2,6 +2,14 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
   $scope.user = $cookies.getAll();
   $scope.flows = {};
 
+
+  $http.get('/usersData').then(function (response) {
+    $scope.usersData = response.data
+    console.log($scope.usersData, '-------------------taco----------------------')
+    $scope.userphone = $scope.usersData[0].userphone
+    console.log($scope.userphone);
+  });
+
   $http.get('/userFavorites').then(function (response) {
     $scope.favorites = response.data
     $http.get('/api/v1/coData').then(function (response) {
@@ -22,6 +30,18 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
         }
 
     }
+        for ( var i = 0; i < $scope.favorites.length; i++ ) {
+        for ( var e = 0; e < $scope.userFavs.length; e++ ) {
+          if($scope.favorites[i].riverid === $scope.userFavs[e].id){
+            $scope.userFavs[e]['riverlevel'] = $scope.favorites[i].riverlevel
+          }
+        }
+      }
+      console.log($scope.userFavs, '----------super Burito----------')
+    
+
+
+
 
     $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow){
       console.log(actualFlow, recommendedFlow)
@@ -31,6 +51,12 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
       if(recommendedFlow - actualFlow > 0) return 'three'
       if(recommendedFlow - actualFlow > 200) return 'two'
       return 'one'
+    }
+
+    $scope.idealRiverlevel = function(actualFlow, riverLevel){
+      if(riverLevel > actualFlow){
+        
+      }
     }
 
 

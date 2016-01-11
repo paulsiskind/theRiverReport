@@ -122,6 +122,21 @@ router.get('/userFavorites', function(req, res, next) {
   }) 
 });
 
+router.get('/usersData', function(req, res, next) {
+  pg.connect(conString, function(err, client, done) {
+    if (err) {
+      return console.error('error fetching client from pool', err);
+    }
+    client.query('SELECT * FROM users WHERE (facebookId = $1);',[req.user.facebookId], function(err, result) {
+      done();
+      
+      if (err) {
+        return console.error('error running query', err);
+      }
+      res.json(result.rows)
+    })
+  }) 
+});
 
 
 
