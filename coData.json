@@ -15,7 +15,12 @@
  {"id":"14", "USGSid":"06719505","name": "Black Rock", "nameProper":"Clear Creek", "class":"V", "state":"CO", "season": "Spring, Summer", "recommend":250,"type": "Feature","geometry":{"type":"Point", "coordinates":[-105.339271,39.740907]}, "latlng":[39.740907,-105.339271 ]},
  {"id":"15", "USGSid":"06719505","name": "Kermits", "nameProper":"Clear Creek", "class":"IV+", "state":"CO", "season": "Spring, Summer", "recommend":500,"type": "Feature","geometry":{"type":"Point", "coordinates":[-105.437792,39.746350]}, "latlng":[39.746350, -105.437792]},
  {"id":"16", "USGSid":"06716500","name": "Lawson to Idaho Springs", "nameProper":"Clear Creek", "class":"IV", "state":"CO", "season": "Spring, Summer", "recommend":500,"type": "Feature","geometry":{"type":"Point", "coordinates":[-105.637881, 39.762916]}, "latlng":[39.762916, -105.637881]},
- {"id":"17", "USGSid":"09058000","name":"Gore Canyon","nameProper":"Colorado River", "class":"V", "state":"CO","season":"All Year", "recommend":250,"type": "Feature", "geometry":{"type":"Point", "coordinates":[-106.50, 39.99 ]}, "latlng":[39.99, -106.50]},
+ {"id":"17", "USGSid":"09058000","name":"Gore Canyon","nameProper":"Colorado River", "class":"V", "state":"CO","season":"All Year", "recommend":250,"type": "Feature", "geometry":{"type":"Point", "coordinates":[-106.50, 39.99 ]}, "latlng":[39.99, -106.50],"images": [
+{
+"id": "img1",
+"url": "/images/gorerapid.jpg"
+}
+]},
  {"id":"18", "USGSid":"09058000","name":"Pumphouse CampGround to State Bridge","nameProper":"Colorado River", "class":"II", "state":"CO","season":"All Year", "recommend":500,"type": "Feature","geometry":{"type":"Point", "coordinates":[-106.510209,39.988024]}, "latlng":[39.988024, -106.510209]},
  {"id":"19", "USGSid":"09058000","name":"State Bridge to Burns","nameProper":"Colorado River", "state":"CO", "class":"II", "season":"All Year", "recommend":500,"type": "Feature","geometry":{"type":"Point", "coordinates":[-106.649001,39.858358]}, "latlng":[39.858358,-106.649001 ]},
  {"id":"20", "USGSid":"09058000","name":"Burns to Dotsero","nameProper":"Colorado River", "state":"CO", "class":"I", "season":"All Year", "recommend":500,"type": "Feature","geometry":{"type":"Point", "coordinates":[-106.887259,39.873430]}, "latlng":[39.873430,-106.887259 ]},

@@ -16,10 +16,11 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
               console.log($scope.allRivers[e])
 
               $scope.userFavs.push($scope.allRivers[e]);
-
+              
              
             }
         }
+
     }
 
     $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow){

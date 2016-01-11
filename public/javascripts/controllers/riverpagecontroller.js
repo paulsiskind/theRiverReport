@@ -26,12 +26,12 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $roo
         $scope.flows = response.data.value
         console.log($scope.flows)
     })
-  //     $http.get("//api.wunderground.com/api/2dc07206ff5e682e/geolookup/forecast/q/"+$scope.riverInfo.latlng +".json").then(function(response){
-  //     console.log(response.data, "Look Over Here!")
-  //     $scope.weatherUnder = response.data.forecast.txt_forecast.forecastday
-  //     $scope.weatherLocation = response.data.location.city
+      $http.get("//api.wunderground.com/api/2dc07206ff5e682e/geolookup/forecast/q/"+$scope.riverInfo.latlng +".json").then(function(response){
+      console.log(response.data, "Look Over Here!")
+      $scope.weatherUnder = response.data.forecast.txt_forecast.forecastday
+      $scope.weatherLocation = response.data.location.city
      
-  // })
+  })
    
 
     $http.get('//waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT=2015-01-04&parameterCd=00060,00065').then(function(response){

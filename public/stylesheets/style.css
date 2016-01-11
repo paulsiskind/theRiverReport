@@ -1,6 +1,14 @@
 body {
  
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px;
+  font-family: 'Questrial', sans-serif;
+  background: url('/images/sopris.jpg') no-repeat
+  center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;;
+  height: 100%;
 }
 
 a {
@@ -15,7 +23,11 @@ a {
   text-shadow: 1px 1px 1px rgba(0,0,0,.25);
   color:white;
 }
-
+.riverpageDashboard{
+  font-size: 30px;
+  font-style: bolder;
+  
+}
 
 tr.flow:hover{
   background: rgba(0,0,0,.4);
@@ -35,6 +47,9 @@ table td{
 
 .flow.four {
    background-color: rgba(31, 99, 178, .5);
+}
+.riverList{
+  background-color: white;
 }
 
 .flow.three {
@@ -79,6 +94,8 @@ li > a:hover, li > a:focus {
 img{
   margin:auto;
   width: 60%;
+  height:20%;
+
   
 }
 .charts{
@@ -92,6 +109,11 @@ img{
 .riverHeader{
   margin-top: 2%;
   padding: 1%;
+  font-family: 'Roboto', sans-serif;
+   -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+
 }
 .waterLevel{
   font-size: 16px;
@@ -118,3 +140,55 @@ ul.nav.navbar-nav li a:hover{
    background: rgb(55, 56, 63);
    color: white;
 }
+/*#inputs,
+#errors,
+#directions {
+    position: absolute;
+    width: 33.3333%;
+    max-width: 300px;
+    min-width: 200px;
+}
+
+#inputs {
+    z-index: 10;
+    top: 10px;
+    left: 10px;
+}
+
+#directions {
+    z-index: 99;
+    background: rgba(0,0,0,.8);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+}
+
+#errors {
+    z-index: 8;
+    opacity: 0;
+    padding: 10px;
+    border-radius: 0 0 3px 3px;
+    background: rgba(0,0,0,.25);
+    top: 90px;
+    left: 10px;
+}*/
+.charts, .displayInfo, .riverHeader{
+  background-color: white;
+   opacity: 0.9;
+   
+}
+#something{
+  background: url('/images/sopris.jpg') no-repeat
+  center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;;
+  height: 100%;
+  width: 100%;
+  
+
+}
+.grid-item { width: 200px; }
+.grid-item--width2 { width: 400px; }

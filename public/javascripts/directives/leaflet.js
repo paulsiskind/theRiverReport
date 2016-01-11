@@ -3,10 +3,6 @@
 app.directive('leafletDirective', function () {
   return {
     restrict: 'E',
-    scope: {
-      // data: 'api/v1/coData'
-      // markerCheck: '='
-    },
     replace: true,
     template: '<div></div>',
     link: function (scope, element, attrs) {
@@ -56,9 +52,28 @@ app.directive('leafletDirective', function () {
        clusters.addLayer(riverMarkers);
        map.addLayer(clusters);
        })
-
-
    
+//    L.mapbox.accessToken = 'pk.eyJ1IjoicGF1bHNpc2tpbmQiLCJhIjoiY2lobWxiMHI1MG90NXY1a2xxNnY2Znk3YSJ9.SfeALtaMIyM0YxvMolgvYw';
+//    var map = L.mapbox.map('map', 'mapbox.streets', {
+//     zoomControl: false
+// });
+
+//      var directions = L.mapbox.directions();
+
+//      var directionsLayer = L.mapbox.directions.layer(directions)
+//     .addTo(map);
+
+//     var directionsInputControl = L.mapbox.directions.inputControl('inputs', directions)
+//     .addTo(map);
+
+//     var directionsErrorsControl = L.mapbox.directions.errorsControl('errors', directions)
+//     .addTo(map);
+
+//     var directionsRoutesControl = L.mapbox.directions.routesControl('routes', directions)
+//     .addTo(map);
+
+//     var directionsInstructionsControl = L.mapbox.directions.instructionsControl('instructions', directions)
+//     .addTo(map);
     }
   }
 })

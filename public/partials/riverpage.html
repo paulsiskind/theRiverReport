@@ -18,6 +18,14 @@
             </form></md-button></td>   
       </span>
 
+<!--       <div class="grid">
+      <div class="grid-item"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" /></div>
+      <div class="grid-item grid-item--width2"><img src="riverInfo.photo" /></div>
+      <div class="grid-item">...</div>
+  ...
+</div> -->
+ <image-carousel ng-show="riverInfo.photo" images="riverInfo.images"></image-carousel>
+
   </md-whiteframe>
 
     <br>
@@ -26,7 +34,7 @@
 
     <md-whiteframe class="md-whiteframe-3dp col-md-4 displayInfo">
     
-      
+       <span class="riverpageDashboard">
         <p>Location: {{riverInfo.nameProper}}</p>
         <p>Section: {{riverInfo.name}} </p>
         <p>Class:  {{riverInfo.class}} </p>
@@ -34,6 +42,7 @@
             <span class="frozen" ng-if="flows.timeSeries[0].values[0].value[0].value == -999999"> Frozen</span>  
             <span ng-if="flows.timeSeries[0].values[0].value[0].value != -999999">{{flows.timeSeries[0].values[0].value[0].value}}</span>
         </p>
+      </span>
      
       <br>
       <h4>Long Term Forecast</h4>
@@ -53,9 +62,9 @@
     </md-whiteframe>
 
 
-    <div class="col-md-1"> .</div>
+    <!-- <div class="col-md-1"> .</div> -->
    
-    <md-whiteframe class="md-whiteframe-15dp col-md-7 charts">
+    <md-whiteframe class="md-whiteframe-7dp col-md-8 charts">
      <canvas id="bar" class="chart chart-line"  chart-data="data"
      chart-labels="labels" chart-legend="false" chart-series="series"
      chart-click="onClick" >

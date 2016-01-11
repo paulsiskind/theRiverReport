@@ -4,6 +4,7 @@
   <li><a href="#" ng-click="showme=!showme">Add user info</a></li>
     <form form method="post" action="/addPhone" ng-show="showme" class="fade-in-out">
         <p>Add Phone #</p>
+        <p>{{user.facebookId}}
         <input type="text" class="form-control" name="phone">
         <br>
         <button type="submit" class="btn btn-success" ng-click="showme=false">Update</button>
@@ -22,13 +23,13 @@
       <!--     <th>SMS</th> -->
           <th>Delete</th>
       
-        <tr class="flow" ng-repeat="water in userFavs | filter: search" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend)">
+        <tr class="flow" ng-repeat="water in userFavs| filter: search" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend)" ng-repeat="level in favorites">
        <!--  <tr ng-repeat="water in userFavs" ng-class="flows[water.name] >= water.recommend ? 'g':'r'"> -->
           <td style="padding: 20px;"><a href="/{{water.id}}">{{water.name}}</td>
           <td style="padding: 20px;">{{water.nameProper}}</a></td>
           <td style="padding: 20px;">{{water.state}} </td>
-          <td style="padding: 20px;">{{water.id}} </td>
-          <td style="padding: 20px;">{{water.season}} </td>
+          <td style="padding: 20px;">{{water.class}} </td>
+          <td style="padding: 20px;">{{}} </td>
           <td style="padding: 20px;">
             <span class="frozen five" ng-if="flows[water.name] == -999999"> Frozen</span>  
             <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span></td>
