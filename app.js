@@ -1,3 +1,4 @@
+require('dotenv').load()
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -7,13 +8,19 @@ var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
 var FacebookStrategy = require('passport-facebook');
 var passport = require('passport');
-require('dotenv').load()
+// var twilio = require('twilio');
+// var accountSid = TWILIO_ACCOUNT_SID;
+// var authToken = TWILIO_AUTH_TOKEN;
+var client = require('twilio')(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
+
+
 var pg = require('pg');
 var conString = process.env.DATABASE_URL || "postgres://@localhost/theriverreport";
 
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+// var twilio = require('./routes/twilio')
 
 // var cors = require('cors');
 var bodyParser = require('body-parser');
@@ -73,6 +80,18 @@ passport.use(new FacebookStrategy({
   }
 ));
 
+app.post('/twilio', function(req, res){
+client.messages.create({
+    to:'+15303860690',
+    from:'+17754130349',
+    body:'Gore Canyon is in'
+}, function(error, message) {
+    if (error) {
+        console.log(error.message);
+    }
+  });
+});
+
 app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/login' }),
   function(req, res) {
@@ -103,6 +122,8 @@ app.use(function(req, res, next){
   next()
 })
 app.use('/', routes);
+
+// app.use('/twiliotest', twilio)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -2,36 +2,39 @@
   
     </br>
   </br>
-    <md-whiteframe class="md-whiteframe-16dp md-display-2 col-md-12 riverHeader">The River Report</md-whiteframe>
-    
-    <ul class="nav navbar-nav">
-        <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><md-button class="md-raised md-primary dropdown-toggle">Choose a State</md-button></a>
-        <ul class="dropdown-menu">
-          <li><a href="#" ng-click="state('al')">Alabama</a></li>
-          <li><a href="#" ng-click="state('ak')">Alaska</a></li>
-          <li><a href="#" ng-click="state('az')">Arizona</a></li>
-          <li><a href="#" ng-click="state('ar')">Arkansas</a></li>
-          <li><a href="#" ng-click="state('co')">Colorado</a></li> 
+    <div class="riverHeader">theRiverReport</div>
+     
+     <div class='riverButtons'>
+        <ul class="nav navbar-nav-right">
+            <li class="dropdown">
+
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><md-button class="md-raised md-primary dropdown-toggle">Choose a State</md-button></a>
+            <ul class="dropdown-menu">
+              <li><a href="#" ng-click="state('al')">Alabama</a></li>
+              <li><a href="#" ng-click="state('ak')">Alaska</a></li>
+              <li><a href="#" ng-click="state('az')">Arizona</a></li>
+              <li><a href="#" ng-click="state('ar')">Arkansas</a></li>
+              <li><a href="#" ng-click="state('co')">Colorado</a></li> 
+           </ul>
+          </li>
+         </ul>
+
+
+       <ul class="nav navbar-nav-right">
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><md-button class="md-raised md-primary dropdown-toggle">Choose a Class</md-button></a>
+          <ul class="dropdown-menu">
+            <li><a href="#" ng-click="class('v')">Class V</a></li>
+            <li><a href="#" ng-click="class('iv')">Class IV</a></li>
+            <li><a href="#" ng-click="class('iii')">Class III</a></li>
+            <li><a href="#" ng-click="class('ii')">Class II</a></li>
+            <li><a href="#" ng-click="class('i')">Class I</a></li> 
+         </ul>
+        </li>
        </ul>
-      </li>
-     </ul>
-
-
-   <ul class="nav navbar-nav">
-      <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><md-button class="md-raised md-primary dropdown-toggle">Choose a Class</md-button></a>
-      <ul class="dropdown-menu">
-        <li><a href="#" ng-click="class('v')">Class V</a></li>
-        <li><a href="#" ng-click="class('iv')">Class IV</a></li>
-        <li><a href="#" ng-click="class('iii')">Class III</a></li>
-        <li><a href="#" ng-click="class('ii')">Class II</a></li>
-        <li><a href="#" ng-click="class('i')">Class I</a></li> 
-     </ul>
-    </li>
-   </ul>
- 
-  <div ng-show="showflag">
+     </div>
+ <br><br>
+<div class="spinner" ng-show="showflag">
 <svg version="1.1" 
   class="svg-loader" 
   xmlns="http://www.w3.org/2000/svg" 

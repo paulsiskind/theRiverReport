@@ -4,7 +4,7 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $roo
 
 
       $scope.riverId = $routeParams.riverId;
-       console.log($routeParams.riverId, "params")
+      
        $scope.user = $cookies.getAll();
        // $http.get('/isfav' + $location.path()).then(function (response){
        //  // console.log($scope.isfav);
@@ -12,22 +12,22 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $roo
        // })
 
        $http.get('/api/v1/coData').then(function (response) {
-       console.log(response)
+     
        $scope.coWaters = response.data;
        for(var i=0; i< $scope.coWaters.length;i++){
         if ($scope.coWaters[i].id === $scope.riverId){
           $scope.riverInfo = $scope.coWaters[i]
-          console.log($scope.riverInfo)
+          
         }
        }
    
 
       $http.get('//waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ $scope.riverInfo.USGSid +'&parameterCd=00060,00065').then(function(response){
         $scope.flows = response.data.value
-        console.log($scope.flows)
+      
     })
       $http.get("//api.wunderground.com/api/2dc07206ff5e682e/geolookup/forecast/q/"+$scope.riverInfo.latlng +".json").then(function(response){
-      console.log(response.data, "Look Over Here!")
+    
       $scope.weatherUnder = response.data.forecast.txt_forecast.forecastday
       $scope.weatherLocation = response.data.location.city
      
@@ -58,15 +58,15 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $roo
   $scope.data = [
    arr
   ];
-  console.log('$scope data', $scope.data);
+ 
 
   $scope.onClick = function (points, evt) {
-    console.log(points, evt);
+   
   };  
       $scope.chart = function(select) {
        $scope.chartSelect = "line";
        $scope.chartSelect = select;
-       console.log($scope.chartSelect)
+    
      }
   
     })
@@ -80,7 +80,7 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $roo
      {
        $scope.showflag = false;
      });
-   }, 2000);
+   }, 1500);
 
 
 

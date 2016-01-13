@@ -49,13 +49,13 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
         promises.push(p)
       });
       // end map
-              console.log($scope.userFavs, 'ldldldld')
+           
 
       Promise.all(promises).then(function(rivers){
           var rivers = rivers[0];
 
             for(var prop in rivers){
-              console.log(prop, rivers[prop])
+             
                for(var i =0; i<userFavs.length;i++){
                   if(prop === userFavs[i].name){
                      
@@ -67,14 +67,11 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
                 }
                }
             }
-          console.log($scope.ideal, '-----------tacs------------------')
-          // START call twilio API
-        
-           // if(water.riverLevel < actualFlow){
-           //    $scope.ideal.push(water);
-           //  }
-
-          // END call twilio API
+         
+         
+         if($scope.ideal[0].name === $scope.ideal[0].name){
+          $http.post('/twilio');
+         }
 
       });
 
@@ -82,11 +79,10 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
     });
   });
 
-  $scope.twillio = function(actualFlow, water){
-    console.log('twillio--->', actualFlow, water)
+
 
  
-  }
+  
 
   $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow){
     // completely frozen water

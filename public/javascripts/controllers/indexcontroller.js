@@ -4,7 +4,7 @@
        // console.log($routeParams.riverId)
 
    $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow){
-      console.log(actualFlow, recommendedFlow)
+     
       // completely frozen water
       if(actualFlow === '-999999') return 'five'
       if(actualFlow < recommendedFlow) return 'four'
@@ -24,15 +24,15 @@
           });
 
         });
-        console.log($scope.coWaters)
+       
 
     }); 
 
     $scope.state = function(choice){
-      console.log(choice)
+     
       if(choice === 'al'){
         $scope.viewBarState = 'Alabama'
-        console.log($scope.viewBarState)
+       
       }
       if(choice === 'ak'){
         $scope.viewBarState = "Alaska"
@@ -84,5 +84,5 @@
      {
        $scope.showflag = false;
      });
-   }, 2000);
+   }, 1500);
   })

@@ -3,11 +3,12 @@ body {
   font: 14px;
   font-family: 'Questrial', sans-serif;
   background: url('/images/sopris.jpg') no-repeat
-  center center fixed; 
-  -webkit-background-size: cover;
+  center fixed; 
+  background-attachment: fixed;
+/*  -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;;
+  background-size: cover;;*/
   height: 100%;
 }
 
@@ -107,12 +108,11 @@ img{
   padding-top:2%;
 }
 .riverHeader{
-  margin-top: 2%;
-  padding: 1%;
   font-family: 'Roboto', sans-serif;
-   -webkit-text-fill-color: white; /* Will override color (regardless of order) */
-   -webkit-text-stroke-width: 1px;
-   -webkit-text-stroke-color: black;
+  background: rgba(255,255,255,0.0);
+  font-size: 80px;
+  text-shadow: 2px 2px rgb(125,142,160);
+  font: bold;
 
 }
 .waterLevel{
@@ -141,7 +141,7 @@ ul.nav.navbar-nav li a:hover{
    color: white;
 }
 
-.charts, .displayInfo, .riverHeader{
+.charts, .displayInfo {
   background-color: white;
    opacity: 0.9;
    
@@ -172,7 +172,12 @@ ul.nav.navbar-nav li a:hover{
  bottom: 0;
  width: 100%;
 }
-
+.riverButtons{
+position: absolute;
+  top: 75;
+  right: 150;
+  display: inline-block;
+}
 
 
 
@@ -182,3 +187,20 @@ ul.nav.navbar-nav li a:hover{
   vertical-align: top;
 }
 
+.spinner{
+   width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+   width: 100%;
+   height: 100%;
+   top: 0px;
+   left: 0px;
+   position: fixed;
+   display: block;
+   opacity: 0.7;
+   background-color: #fff;
+   z-index: 99;
+   text-align: center;
+}

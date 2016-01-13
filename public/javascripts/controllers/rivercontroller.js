@@ -5,13 +5,12 @@
     $cookies.put('firstName', response.data.firstName);
     $cookies.put('lastName', response.data.lastName);
     $scope.user = $cookies.getAll()
-    console.log(response.data);
-    console.log($scope.user, '>>><<<<<<');
+  
         })
 
      
        $scope.locationData = $location.$$path
-      console.log($scope.locationData)
+
 
      $scope.order = function(select) {
                     if(select === 'rivers') {
