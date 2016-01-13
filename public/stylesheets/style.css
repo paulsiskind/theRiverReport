@@ -140,39 +140,7 @@ ul.nav.navbar-nav li a:hover{
    background: rgb(55, 56, 63);
    color: white;
 }
-/*#inputs,
-#errors,
-#directions {
-    position: absolute;
-    width: 33.3333%;
-    max-width: 300px;
-    min-width: 200px;
-}
 
-#inputs {
-    z-index: 10;
-    top: 10px;
-    left: 10px;
-}
-
-#directions {
-    z-index: 99;
-    background: rgba(0,0,0,.8);
-    top: 0;
-    right: 0;
-    bottom: 0;
-    overflow: auto;
-}
-
-#errors {
-    z-index: 8;
-    opacity: 0;
-    padding: 10px;
-    border-radius: 0 0 3px 3px;
-    background: rgba(0,0,0,.25);
-    top: 90px;
-    left: 10px;
-}*/
 .charts, .displayInfo, .riverHeader{
   background-color: white;
    opacity: 0.9;
@@ -187,8 +155,30 @@ ul.nav.navbar-nav li a:hover{
   background-size: cover;;
   height: 100%;
   width: 100%;
-  
+ position:absolute;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  left: 0;
+  right:0;
 
 }
-.grid-item { width: 200px; }
-.grid-item--width2 { width: 400px; }
+.riverPageIMG{
+  width:20%;
+  float: right;
+}
+.bottom{
+  position: absolute;
+ bottom: 0;
+ width: 100%;
+}
+
+
+
+
+.svg-loader{
+  height: 75vmin;
+  padding: 3vmin 20vmin;
+  vertical-align: top;
+}
+

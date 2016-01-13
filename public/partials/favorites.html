@@ -1,7 +1,7 @@
 <md-whiteframe class="md-whiteframe-10dp md-display-5 well col-md-4">
   <bold>Welcome </bold>
   <h1>{{user.firstName}}</h1>
-  <li><a href="#" ng-click="showme=!showme">Add user info</a></li>
+  <p><a href="#" ng-click="showme=!showme">Add user info</a></p>
     <form form method="post" action="/addPhone" ng-show="showme" class="fade-in-out">
         <p>Add Phone #</p>
         <p>Current phone: {{userphone}}</p>
@@ -9,6 +9,12 @@
         <br>
         <button type="submit" class="btn btn-success" ng-click="showme=false">Update</button>
       </form>
+      <div ng-show="{{ideal}}">
+        <h3>Favorite Rivers at Ideal flow</h3>
+          <div ng-repeat="fav in ideal">
+        <li>{{fav.name}}</li>
+      </div>
+    </div>
     
    
 </md-whiteframe>

@@ -1,6 +1,6 @@
 
 
-  app.config(function( $routeProvider, $locationProvider,$httpProvider,  $mdThemingProvider) {
+  app.config(function( $routeProvider, $locationProvider, $httpProvider,  $mdThemingProvider) {
     $mdThemingProvider.theme('default')
        .dark();
 
@@ -24,14 +24,6 @@
         controller: "IndexController"
         
       })
-      .when('/signin',{
-        templateUrl: 'partials/signin/signIn.html',
-        controller: 'SigninController'
-      })
-      .when('/signup',{
-        templateUrl: 'partials/signin/signUp.html',
-        controller: 'SigninController'
-      })
       .when('/gear',{
          templateUrl: 'partials/gear.html',
          controller: 'GearController'
@@ -40,7 +32,7 @@
       .when('/favorites', {
         templateUrl: 'partials/favorites.html',
         controller: 'FavoritesController'
-        // requiresLogin: true
+    
       })
 
       .when('/:riverId', {

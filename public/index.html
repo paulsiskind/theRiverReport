@@ -13,13 +13,11 @@
     <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
     <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
-
+    <img class="loader-icon spinning-cog hidden" src="http://pasqualevitiello.github.io/Tumblr-Style-Cog-Spinners/cogs/cog03.svg" data-cog="cog03">
     <base href="/">
   <title>TheRiverReport</title>
 </head>
 <body>
-    <script src='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.js'></script>
-    <link rel='stylesheet' href='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.css' type='text/css' />
     <div ng-controller="RiverController">
             
           <a class="navbar-brand" href="/">theRiverReport</a>
@@ -50,16 +48,6 @@
               </li>
              </ul>
             </li> 
-            <li>
-              <!-- <ul class="nav navbar-nav text-right">
-                <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Log In <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="/signin">Sign In</a></li>
-                  <li><a href="/signup">Sign Up</a></li>
-                  <li><a href="#">Edit</a></li>
-               </ul> -->
-              </li>
              </ul>
             </li> 
             <ul class="nav navbar-nav navbar-right">
@@ -129,11 +117,13 @@
     <script src="//rawgit.com/jtblin/angular-chart.js/master/dist/angular-chart.min.js"></script>
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-cookies.js"></script>
+   
     
     <script src='//api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
     <link href='//api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
     <link href='//api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
 
+   
     <!-- Setting the right viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 

@@ -25,6 +25,7 @@
     "request-json": "^0.5.4",
     "request-promise-json": "^1.0.4",
     "serve-favicon": "~2.3.0",
+    "twilio": "^2.8.0",
     "xml2js": "^0.4.15"
   }
 }

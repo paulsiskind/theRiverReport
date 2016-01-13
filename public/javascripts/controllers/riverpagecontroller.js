@@ -73,8 +73,14 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $roo
 
      })
  
-
- 
+     $scope.showflag = true;
+   setTimeout(function () 
+   {
+     $scope.$apply(function()
+     {
+       $scope.showflag = false;
+     });
+   }, 2000);
 
 
 
