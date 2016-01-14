@@ -1,4 +1,4 @@
-app.controller("RiverPageController", function($scope, $http, $routeParams, $rootScope, $location, $window, $cookies){
+app.controller("RiverPageController", function($scope, $http, $routeParams, $location, $window, $cookies){
   
 
 
@@ -6,10 +6,7 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $roo
       $scope.riverId = $routeParams.riverId;
       
        $scope.user = $cookies.getAll();
-       // $http.get('/isfav' + $location.path()).then(function (response){
-       //  // console.log($scope.isfav);
-       //  $scope.isfav = response.data;
-       // })
+      
 
        $http.get('/api/v1/coData').then(function (response) {
      

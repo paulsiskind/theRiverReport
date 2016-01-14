@@ -1,4 +1,4 @@
-  app.controller("RiverController", function($scope, $rootScope, $http, $location, $cookies, $routeParams){
+  app.controller("RiverController", function($scope, $http, $location, $cookies, $routeParams){
     
      $http.get('/_=_').then(function (response) {
     $cookies.put('facebookId', response.data.facebookId);
@@ -32,7 +32,7 @@
                     }
     
 
-  $scope.myInterval = 3000;
+  $scope.myInterval = 2000;
   $scope.slides = [
     {
       image: '/images/yule.jpg',
@@ -52,6 +52,8 @@
       text: "Stay informed on the latest conditions"
     }
   ];
+
+  
 
 
   })

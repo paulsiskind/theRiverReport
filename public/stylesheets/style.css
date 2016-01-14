@@ -2,24 +2,24 @@ body {
  
   font: 14px;
   font-family: 'Questrial', sans-serif;
-  background: url('/images/sopris.jpg') no-repeat
-  center fixed; 
-  background-attachment: fixed;
-/*  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;;*/
   height: 100%;
+}
+body, html{
+  background: none;
+}
+.taco{
+ 
+  background-color: white;
+  right: 0;
+
 }
 
 a {
   color: black;
 }
-/*.navbar{
-  background-color: blue;
-}*/
+
 .flow{
-  /*color: blue;*/
+
   transition: ease-in .33s;
   text-shadow: 1px 1px 1px rgba(0,0,0,.25);
   color:white;
@@ -83,14 +83,7 @@ table td{
    width:100%;
 }
 
-*/table{
-  font-size: 18px;
-}
 
-li > a:hover, li > a:focus {
- 
-    color: green;
-}
 
 img{
   margin:auto;
@@ -113,7 +106,15 @@ img{
   font-size: 80px;
   text-shadow: 2px 2px rgb(125,142,160);
   font: bold;
+  margin-bottom: 5%;
 
+}
+.riverHeader2{
+  font-family: 'Roboto', sans-serif;
+  background: rgba(255,255,255,0.0);
+  font-size: 40px;
+  text-shadow: 2px 2px rgb(125,142,160);
+  font: bold;
 }
 .waterLevel{
   font-size: 16px;
@@ -124,6 +125,10 @@ img{
    background-color: rgb(35, 36, 43);
    color: white;
    font-size: 20px;
+}
+.bottom{
+  position: absolute;
+  bottom: 0;
 }
 
 
@@ -153,7 +158,7 @@ ul.nav.navbar-nav li a:hover{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;;
-  height: 100%;
+  height: 75%;
   width: 100%;
  position:absolute;
   width: 100vw;
@@ -161,6 +166,7 @@ ul.nav.navbar-nav li a:hover{
   margin: 0;
   left: 0;
   right:0;
+  z-index: -1;
 
 }
 .riverPageIMG{
@@ -203,4 +209,21 @@ position: absolute;
    background-color: #fff;
    z-index: 99;
    text-align: center;
+}
+.backgroundImg{
+  top: 0;
+  z-index: -1;
+  position: fixed;
+  background: url('/images/sopris.jpg') no-repeat center fixed; 
+  background-attachment: fixed;
+/*  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;;*/
+  height: 100%;
+  width: 100%;
+}
+.middleText{
+  margin-top: 8%;
+  padding: 3%;
 }
