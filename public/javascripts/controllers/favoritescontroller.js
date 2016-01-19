@@ -69,9 +69,9 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
             }
          
          
-         // if($scope.ideal[0].name === $scope.ideal[0].name){
-         //  $http.post('/twilio');
-         // }
+         if($scope.ideal[0].name === $scope.ideal[0].name){
+          $http.post('/twilio');
+         }
 
       });
 

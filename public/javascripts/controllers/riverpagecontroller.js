@@ -77,7 +77,7 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
      {
        $scope.showflag = false;
      });
-   }, 1500);
+   }, 2000);
 
 
 
