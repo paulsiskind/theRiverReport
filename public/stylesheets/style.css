@@ -145,6 +145,9 @@ ul.nav.navbar-nav li a:hover{
    background: rgb(55, 56, 63);
    color: white;
 }
+/*.box>li>a:hover{
+  background: rgb(125,142,160);
+}*/
 
 .charts, .displayInfo {
   background-color: white;
