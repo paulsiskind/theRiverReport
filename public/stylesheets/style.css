@@ -134,7 +134,7 @@ img{
 
 .nav>li>a, .navbar-brand {
   color: white;
-  transition: ease-in-out .5s;
+  transition: ease-in-out .75s;
 }
 
 ul.nav.navbar-nav li:hover{
@@ -142,12 +142,12 @@ ul.nav.navbar-nav li:hover{
    color: white;
 }
 ul.nav.navbar-nav li a:hover{
-   background: rgb(55, 56, 63);
+   background: rgb(111,135,158);
    color: white;
 }
-/*.box>li>a:hover{
+ul.nav.navbar li a:hover{
   background: rgb(125,142,160);
-}*/
+}
 
 .charts, .displayInfo {
   background-color: white;
