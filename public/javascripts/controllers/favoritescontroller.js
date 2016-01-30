@@ -56,22 +56,27 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
 
             for(var prop in rivers){
              
+
+             
                for(var i =0; i<userFavs.length;i++){
+
                   if(prop === userFavs[i].name){
                      
-                      if(rivers[prop] > userFavs[i].riverlevel){
-                        
-                          $scope.ideal.push(userFavs[i])
-
-                      }
+                    if(userFavs[i].riverlevel != null){
+                        if(rivers[prop] > userFavs[i].riverlevel){
+                          console.log(rivers[prop], userFavs[i].riverlevel )
+                          
+                            $scope.ideal.push(userFavs[i])
+                         }
+                    }
                 }
                }
             }
          
          
-         if($scope.ideal[0].name === $scope.ideal[0].name){
-          $http.post('/twilio');
-         }
+         // if($scope.ideal[0].name === $scope.ideal[0].name){
+         //  $http.post('/twilio');
+         // }
 
       });
 
