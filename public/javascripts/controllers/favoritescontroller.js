@@ -2,6 +2,7 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
   $scope.user = $cookies.getAll();
   $scope.flows = {};
   $scope.ideal = []
+  $scope.showme =false
 
 
   $http.get('/usersData').then(function (response) {

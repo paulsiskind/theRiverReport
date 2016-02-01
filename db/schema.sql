@@ -12,6 +12,7 @@ CREATE TABLE users (
 CREATE TABLE favorites (
   id serial primary key,
   facebook_id varchar(60),
-  riverId varchar(10) CONSTRAINT must_be_different UNIQUE,
-  riverLevel int
+  riverId varchar(10),
+  riverLevel int CHECK (riverLevel > 0),
+  UNIQUE (facebook_id, riverId)
 );

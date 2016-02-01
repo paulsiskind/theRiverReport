@@ -27,7 +27,7 @@ router.post('/deleteFav', function(req, res, next){
     if (err) {
       return console.error('error fetching client from pool', err);
     }
-    console.log(req.user.facebookId, req.body.riverId, '<<<<<<tacos>>>>>>>LLLLL')
+    
     client.query('DELETE FROM favorites where facebook_id = $1 and riverId = $2;',[req.user.facebookId, req.body.riverId], function(err, result) {
       done();
       res.redirect('/favorites')
@@ -44,7 +44,7 @@ router.post('/addPhone', function(req, res, next){
     if (err) {
       return console.error('error fetching client from pool', err);
     }
-    console.log("I'm running!!!!!!!!!!!!!!!!!!!", req.body.phone ,req.user.facebookId )
+    
     client.query('UPDATE users set userphone = $1 where facebookid = $2',[req.body.phone ,req.user.facebookId], function(err, result) {
       done();
       res.redirect('/favorites')
@@ -79,7 +79,7 @@ router.post('/addLevel', function(req, res, next){
     if (err) {
       return console.error('error fetching client from pool', err);
     }
-    console.log("I'm running!!!!!!!!!!!!!!!!!!!", req.body.riverLevel, req.body.riverId)
+    
     client.query('UPDATE favorites set riverLevel = $1 where riverId = $2',[req.body.riverLevel ,req.body.riverId], function(err, result) {
       done();
       res.redirect('/favorites')
