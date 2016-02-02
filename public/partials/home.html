@@ -6,21 +6,41 @@
 
   <h1 class="text-center riverHeader"> Welcome to theRiverReport </h1>
   
+
   <div class="col-md-12">
-   <div id="slides_control carousel">
+   <div id="slides_control">
       <div>
-        <carousel interval="myInterval">
-          <slide ng-repeat="slide in slides" active="slide.active">
+        <uib-carousel interval="myInterval">
+          <uib-slide ng-repeat="slide in slides" active="slide.active">
             <img ng-src="{{slide.image}}">
             <div class="carousel-caption">
               <h4>{{slide.text}}</h4>
               <br>
             </div>
-          </slide>
-        </carousel>
+          </uib-slide>
+        </uib-carousel>
       </div>
     </div>
   </div>
+<!--  <div id="slides_control">
+      <div>
+    <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+      <uib-slide ng-repeat="slide in slides" active="slide.active">
+        <img ng-src="{{slide.image}}">
+        <div class="carousel-caption">
+        
+          <h4>{{slide.text}}</h4>
+        </div>
+      </uib-slide>
+    </uib-carousel>
+  </div>
+</div>
+</div> -->
+ 
+   
+
+
+<!-- End of test -->
 
 
   <div class="col-md-12 middleText" style="background: #fff;">
@@ -74,4 +94,5 @@
         </div>
 
     </div>
+  </div>
   </div>

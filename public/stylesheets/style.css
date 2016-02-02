@@ -92,6 +92,18 @@ img{
 
   
 }
+
+
+#slides_control {
+ /* position:absolute;*/
+  height: 70%;
+  width: 100%;
+  padding: 0%;
+/*  left:50%;
+  top:20px;
+ margin-left:-200px;*/
+}
+
 .charts{
   margin-top: 2%;
   padding-top: 2%

@@ -36,7 +36,7 @@
             <li>
               <ul class="nav navbar-nav">
                <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Displaying {{viewBar}}<span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Displaying <span ng-bind="viewBar"></span><span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="/rivers" ng-click="order('rivers')">Rivers</a></li>
                   <li><a href="#" ng-click="order('events')">Events</a></li>
@@ -85,13 +85,13 @@
     <script type="text/javascript" src="/javascripts/init.js"></script>
     <script type="text/javascript" src="/javascripts/app.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/favoritescontroller.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/gearcontroller.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/riverpagecontroller.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/rivercontroller.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/indexcontroller.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/mapcontroller.js"></script>
     <script type="text/javascript" src="/javascripts/config.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
 
 
 
@@ -110,7 +110,8 @@
     <script src="//rawgit.com/jtblin/angular-chart.js/master/dist/angular-chart.min.js"></script>
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-cookies.js"></script>
-   
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.1.2.js"></script>
+     <!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script> -->
     
     <script src='//api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
     <link href='//api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />

@@ -1,4 +1,4 @@
-var app = angular.module("theRiver", ['ngRoute', 'ngMaterial','chart.js', 'ngCookies' , 'ui.bootstrap'])
+var app = angular.module("theRiver", ['ngRoute', 'ngAnimate', 'ngMaterial','chart.js', 'ngCookies' , 'ui.bootstrap'])
 
 
 
