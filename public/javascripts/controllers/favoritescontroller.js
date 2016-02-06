@@ -1,14 +1,17 @@
 app.controller('FavoritesController', function ($scope, $http, $routeParams, $rootScope, $window, $cookies) {
   $scope.user = $cookies.getAll();
+  console.log($scope.user)
   $scope.flows = {};
   $scope.ideal = []
   $scope.showme =false
+
 
 
   $http.get('/usersData').then(function (response) {
     $scope.usersData = response.data
    
     $scope.userphone = $scope.usersData[0].userphone
+    $scope.userEmail = $scope.usersData[0].email
     
   });
 
@@ -74,6 +77,7 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
                }
             }
          
+
          
          // if($scope.ideal[0].name === $scope.ideal[0].name){
          //  $http.post('/twilio');

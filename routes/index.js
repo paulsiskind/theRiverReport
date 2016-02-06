@@ -45,7 +45,7 @@ router.post('/addPhone', function(req, res, next){
       return console.error('error fetching client from pool', err);
     }
     
-    client.query('UPDATE users set userphone = $1 where facebookid = $2',[req.body.phone ,req.user.facebookId], function(err, result) {
+    client.query('UPDATE users set userphone = $1, email = $2 where facebookid = $3',[req.body.phone, req.body.email, req.user.facebookId], function(err, result) {
       done();
       res.redirect('/favorites')
       if (err) {

@@ -5,11 +5,16 @@
       <md-whiteframe class="md-whiteframe-10dp md-display-5 well col-md-4">
         <bold>Welcome </bold>
         <h1>{{user.firstName}}</h1>
+        <h1>{{user.email}}</h1>
         <p><a href="#" ng-click="showme=!showme">Add user info</a></p>
           <form form method="post" action="/addPhone" ng-show="showme" class="fade-in-out">
               <p>Add Phone #</p>
               <p>Current phone: {{userphone}}</p>
               <input type="text" class="form-control" name="phone">
+              <br>
+              <p>Add Email</p>
+              <p>Current email: {{userEmail}} </p>
+              <input type="text" class="form-control" name="email">
               <br>
               <button type="submit" class="btn btn-success" ng-click="showme=false">Update</button>
             </form>

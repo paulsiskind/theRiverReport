@@ -61,7 +61,7 @@ passport.use(new FacebookStrategy({
     profileFields: ['id', 'displayName', 'link', 'photos', 'email']
   },
   function(accessToken, refreshToken, profile, done) {
-
+  
     var fullName = profile.displayName.split(" "),
         userFirstName = fullName[0],
         userLastName = fullName[1]
@@ -81,6 +81,7 @@ passport.use(new FacebookStrategy({
 ));
 
 app.post('/twilio', function(req, res){
+  
 client.messages.create({
     to:'+15303860690',
     from:'+17754130349',
