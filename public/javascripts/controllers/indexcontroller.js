@@ -85,4 +85,6 @@
        $scope.showflag = false;
      });
    }, 1500);
+
+  
   })

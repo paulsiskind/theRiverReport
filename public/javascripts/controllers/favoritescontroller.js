@@ -101,7 +101,15 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
     if(actualFlow < recommendedFlow) return 'four'
     if(recommendedFlow - actualFlow > 0) return 'three'
     if(recommendedFlow - actualFlow > 200) return 'two'
+    // if(aboveRecommend < actualFlow) returb ''
+    // if((aboveRecommend+(aboveRecommend * .5)) < actualFlow) return ''
+    // if((aboveRecommend * 2) < actualFlow) return ''
+    // if((aboveRecommend * 4) < actualFlow) return ''
+    // if((aboveRecommend * 6) < actualFlow) return ''
+    // if((aboveRecommend * 10) < actualFlow) return ''
+
     return 'one'
   }
+  //Add More Levels for future refactors if(aboveRecommend < actualFlow)
 
 });

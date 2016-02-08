@@ -7,7 +7,7 @@ CREATE TABLE users (
   lastName varchar(40),
   facebookId varchar(60),
   userPhone bigint,
-  email varchar(60) 
+  email varchar(60)
 );
 
 CREATE TABLE favorites (
