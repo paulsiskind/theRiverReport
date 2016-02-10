@@ -3,9 +3,11 @@ body {
   font: 14px;
   font-family: 'Questrial', sans-serif;
   height: 100%;
+  overflow-x: hidden;
 }
 body, html{
   background: none;
+/*  overflow-x: hidden;*/
 }
 .taco{
  
@@ -31,7 +33,7 @@ a {
 }
 
 tr.flow:hover{
-  background: rgba(0,0,0,.4);
+  background: rgba(8,109,35,.4);
 }
 
 tr.flow a{
@@ -42,15 +44,15 @@ table td{
   padding: 200px;
 }
 
+.riverList{
+  background-color: white;
+}
 .flow.five {
    background-color: #235472;
 }
 
 .flow.four {
    background-color: rgba(31, 99, 178, .5);
-}
-.riverList{
-  background-color: white;
 }
 
 .flow.three {
@@ -173,7 +175,7 @@ ul.nav.navbar li a:hover{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;;
-  height: 75%;
+  height: 120%;
   width: 100%;
  position:absolute;
   width: 100vw;
@@ -239,6 +241,12 @@ position: absolute;
   width: 100%;
 }
 .middleText{
-  margin-top: 8%;
+  margin-top: 50%;
   padding: 3%;
+  position: absolute;
+  left:0;
+  right:0;
 }
+/*.container-fluid{
+  position: relative;
+}*/

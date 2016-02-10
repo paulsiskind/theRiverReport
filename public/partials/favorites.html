@@ -40,7 +40,7 @@
             <!--     <th>SMS</th> -->
                 <th>Delete</th>
             
-              <tr class="flow" ng-repeat="water in userFavs | filter: search" data-twillio="flows[water.name], water" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend)">
+              <tr class="flow" ng-repeat="water in userFavs | filter: search" data-twillio="flows[water.name], water" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend, water.aboveRecommend)">
              <!--  <tr ng-repeat="water in userFavs" ng-class="flows[water.name] >= water.recommend ? 'g':'r'"> -->
                 <td style="padding: 20px;"><a href="/{{water.id}}">{{water.name}}</td>
                 <td style="padding: 20px;">{{water.nameProper}}</a></td>

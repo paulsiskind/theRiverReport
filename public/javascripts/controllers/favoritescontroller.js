@@ -94,19 +94,19 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
  
   
 
-  $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow){
+  $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow, aboveRecommend){
     // completely frozen water
     if(actualFlow === '-999999')  return 'five'
 
     if(actualFlow < recommendedFlow) return 'four'
     if(recommendedFlow - actualFlow > 0) return 'three'
     if(recommendedFlow - actualFlow > 200) return 'two'
-    // if(aboveRecommend < actualFlow) returb ''
-    // if((aboveRecommend+(aboveRecommend * .5)) < actualFlow) return ''
-    // if((aboveRecommend * 2) < actualFlow) return ''
-    // if((aboveRecommend * 4) < actualFlow) return ''
-    // if((aboveRecommend * 6) < actualFlow) return ''
-    // if((aboveRecommend * 10) < actualFlow) return ''
+    // if(aboveRecommend < actualFlow) returb 'six'
+    // if((aboveRecommend+(aboveRecommend * .5)) < actualFlow) return 'five'
+    // if((aboveRecommend * 2) < actualFlow) return 'four'
+    // if((aboveRecommend * 4) < actualFlow) return 'three'
+    // if((aboveRecommend * 6) < actualFlow) return 'two'
+    // if((aboveRecommend * 10) < actualFlow) return 'one'
 
     return 'one'
   }
