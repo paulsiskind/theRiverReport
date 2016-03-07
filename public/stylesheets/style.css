@@ -139,6 +139,8 @@ img{
    background-color: rgb(35, 36, 43);
    color: white;
    font-size: 20px;
+   right:0;
+   left:0;
 }
 .bottom{
   position: absolute;
@@ -241,12 +243,28 @@ position: absolute;
   width: 100%;
 }
 .middleText{
-  margin-top: 50%;
+  margin-top: 20%;
   padding: 3%;
   position: absolute;
   left:0;
   right:0;
+  background: #fff;
+  height: 100%;
+
 }
-/*.container-fluid{
-  position: relative;
-}*/
+
+#bottomImg{
+  margin-top: 90%;
+  padding: 3%;
+  position: absolute;
+  left:0;
+  right:0;
+  background: url('/images/yule.jpg')no-repeat center fixed; 
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;;
+  height:80%;
+
+}

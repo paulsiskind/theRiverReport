@@ -2,6 +2,22 @@
       
        // $scope.riverId = $routeParams.riverId;
        // console.log($routeParams.riverId)
+    $http.get('/api/v1/coData').then(function (response) {
+      $scope.flows = {};
+      $scope.coWaters = response.data;
+
+        $scope.coWaters.map(function(d){
+
+
+          return $http.get('//waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ d.USGSid +'&parameterCd=00060,00065').then(function(response){
+            $scope.flows[d.name] = response.data.value.timeSeries[0].values[0].value[0].value;
+    
+           
+          });
+
+        });
+       
+    }); 
 
    $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow){
      
@@ -13,20 +29,6 @@
       return 'one'
     }
 
-    $http.get('/api/v1/coData').then(function (response) {
-      $scope.flows = {};
-      $scope.coWaters = response.data;
-
-        $scope.coWaters.map(function(d){
-
-          return $http.get('//waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ d.USGSid +'&parameterCd=00060,00065').then(function(response){
-            $scope.flows[d.name] = response.data.value.timeSeries[0].values[0].value[0].value;
-          });
-
-        });
-       
-
-    }); 
 
     $scope.state = function(choice){
      
