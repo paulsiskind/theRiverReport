@@ -20,13 +20,14 @@
     }); 
 
    $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow){
-     
+      console.log(actualFlow - recommendedFlow)
       // completely frozen water
-      if(actualFlow === '-999999') return 'five'
-      if(actualFlow < recommendedFlow) return 'four'
-      if(recommendedFlow - actualFlow > 0) return 'three'
-      if(recommendedFlow - actualFlow > 200) return 'two'
-      return 'one'
+      if(actualFlow === '-999999') return 'nine'
+      if(actualFlow < recommendedFlow) return 'eight'
+      if(actualFlow - recommendedFlow > 0 && actualFlow - recommendedFlow < 200) return 'seven'
+      if(actualFlow - recommendedFlow > 200 && actualFlow - recommendedFlow < recommendedFlow) return 'six'
+      if(actualFlow - recommendedFlow > recommendedFlow) return 'five'
+      
     }
 
 

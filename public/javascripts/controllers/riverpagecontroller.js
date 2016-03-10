@@ -6,6 +6,8 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
       $scope.riverId = $routeParams.riverId;
       
        $scope.user = $cookies.getAll();
+
+
       
 
        $http.get('/api/v1/coData').then(function (response) {
@@ -46,38 +48,36 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
 
     return $scope.flowData;
     }).then(function(arr){
-  $scope.labels = [];
-  // $scope.series = ['Series A'];
-  for (var i = 0; i <= arr.length; i++) {
-    $scope.labels.push("-");
-  };
+           $scope.labels = [];
+           // $scope.series = ['Series A'];
+           for (var i = 0; i <= arr.length; i++) {
+                 $scope.labels.push("-");
+                 };
   
-  $scope.data = [
-   arr
-  ];
+           $scope.data = [
+                        arr
+           ];
  
 
-  $scope.onClick = function (points, evt) {
+           $scope.onClick = function (points, evt) {
    
-  };  
-      $scope.chart = function(select) {
-       $scope.chartSelect = "line";
-       $scope.chartSelect = select;
+           };  
+           $scope.chart = function(select) {
+              $scope.chartSelect = "line";
+              $scope.chartSelect = select;
     
-     }
+           }
   
     })
 
      })
  
      $scope.showflag = true;
-   setTimeout(function () 
-   {
-     $scope.$apply(function()
-     {
-       $scope.showflag = false;
-     });
-   }, 2000);
+     setTimeout(function (){
+       $scope.$apply(function(){
+          $scope.showflag = false;
+          });
+      }, 2000);
 
 
 

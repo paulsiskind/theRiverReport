@@ -33,7 +33,7 @@ a {
 }
 
 tr.flow:hover{
-  background: rgba(8,109,35,.4);
+  background: rgba(16,0,135,.4);
 }
 
 tr.flow a{
@@ -47,20 +47,23 @@ table td{
 .riverList{
   background-color: white;
 }
-.flow.five {
+.flow.nine {
    background-color: #235472;
 }
 
-.flow.four {
+.flow.eight {
    background-color: rgba(31, 99, 178, .5);
 }
 
-.flow.three {
-   background-color: rgba(31, 99, 178, .3);
+.flow.seven {
+   background-color: rgba(8,109,35,.4);
 }
 
-.flow.two {
-   background-color: rgba(31, 99, 178, .2);
+.flow.six {
+   background-color: #88e07b;
+}
+.flow.five{
+  background-color: #75f962;
 }
 
 .flow.one {
