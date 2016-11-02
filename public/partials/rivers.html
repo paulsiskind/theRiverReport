@@ -34,7 +34,7 @@
       </li>
     </ul>
   </div>
-<br><br>
+  <br><br>
 
   <div ng-include src= "'partials/spinner.html'"></div>
      
@@ -52,21 +52,17 @@
 
       <tr class="flow" ng-repeat="water in coWaters | filter: search | filter: {state:choice} | filter:{class:classSearch}" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend)">
 
-        <td style="padding: 20px;"><a href="/{{water.id}}">{{water.name}}</td>
-        <td style="padding: 20px;">{{water.nameProper}}</a></td>
+        <td style="padding: 20px;"><a href="/{{water.id}}">{{water.name}}</a></td>
+        <td style="padding: 20px;">{{water.nameProper}}</td>
         <td style="padding: 20px;">{{water.state}} </td>
         <td style="padding: 20px;">{{water.class}} </td>
         <td style="padding: 20px;">{{water.season}} </td>
         <td style="padding: 20px;">
           <span class="frozen five" ng-if="flows[water.name] == -999999">Frozen</span>  
-          <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span></td>
-      </tr>
-
-
-
-
-
-    
+          <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span>
+        </td>
+      </tr> 
     </table>
   </md-whiteframe>
 </div>
+

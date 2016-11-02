@@ -1,118 +1,103 @@
+<!DOCTYPE html>
 <html ng-app="theRiver">
-    <head>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <link href='//api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.mapbox.css' rel='stylesheet' />
+    <link href='//api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/css/font-awesome.min.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-
-        <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
-        <link href='//api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.mapbox.css' rel='stylesheet' />
-        <link href='//api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/css/font-awesome.min.css' rel='stylesheet' />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
-
-        <link rel="stylesheet" type="text/css" href="/bootstrap-3.3.5-dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
-        <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-        <script src="https://cdn.jsdelivr.net/angular.bootstrap/0.13.3/ui-bootstrap.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular-animate.js"></script>  
+    <link rel="stylesheet" type="text/css" href="/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/angular.bootstrap/0.13.3/ui-bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular-animate.js"></script>  
+    
+    <base href="/">
+    <title>TheRiverReport</title>
+  </head>
+  <body>
+    <div ng-controller="RiverController">
+            
+      <a href="/" class="navbar-brand" >theRiverReport</a> 
+      <div class="container-fluid c-navbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/map">Map</a></li>
+            <!-- <li><a href="#" ng-click="showme=true">Submit Post</a></li>
+            <li>
+            <form class="navbar-form" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search" ng-model="search">
+                </div>
+            </form>
+            </li>  -->
         
-        <base href="/">
-        <title>TheRiverReport</title>
-    </head>
-    <body>
-        <div ng-controller="RiverController">
-                
-            <a href="/" class="navbar-brand" >theRiverReport</a> 
-            <div class="container-fluid c-navbar">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="/map">Map</a></li>
-                    <!-- <li><a href="#" ng-click="showme=true">Submit Post</a></li>
-                    <li>
-                    <form class="navbar-form" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search" ng-model="search">
-                        </div>
-                    </form>
-                    </li>  -->
-                
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Displaying<span ng-bind="viewBar"></span><span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/rivers" ng-click="order('rivers')">Rivers</a></li>
-                                <li><a href="#" ng-click="order('events')">Events</a></li>
-                                <li><a href="/gear" ng-click="order('gear')">Gear</a></li>
-                                <li ng-if='user.facebookId'><a href="/favorites" ng-click="order('favorites')">Favorites</a></li>
-                                <li><a href="#" ng-click="order('announcements')">Announcements</a></li>
-                              
-                            </ul>
-                        </li>
-                    </ul>
-                
+            <ul class="nav navbar-nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Displaying<span ng-bind="viewBar"></span><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/rivers" ng-click="order('rivers')">Rivers</a></li>
+                  <li><a href="#" ng-click="order('events')">Events</a></li>
+                  <li><a href="/gear" ng-click="order('gear')">Gear</a></li>
+                  <li ng-if='user.facebookId'><a href="/favorites" ng-click="order('favorites')">Favorites</a></li>
+                  <li><a href="#" ng-click="order('announcements')">Announcements</a></li>
                 </ul>
-                 
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/auth/facebook" ng-hide="user.firstName" target="_self"> login
-                          <span>
-                            <i class="fa fa-facebook"></i>
-                          </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/logout" ng-show="user.firstName" target="_self"> logout
-                            <span><i class="fa fa-facebook"></i></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div ng-view></div>
-       <br>
-       <br>
-
+              </li>
+            </ul> 
+        </ul>      
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/auth/facebook" ng-hide="user.firstName" target="_self"> login
+              <span>
+                <i class="fa fa-facebook"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="/logout" ng-show="user.firstName" target="_self"> logout
+              <span><i class="fa fa-facebook"></i></span>
+            </a>
+          </li>
+        </ul>
       </div>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script type="text/javascript" src="/javascripts/init.js"></script>
-        <script type="text/javascript" src="/javascripts/app.js"></script>
-        <script type="text/javascript" src="/javascripts/controllers/favoritescontroller.js"></script>
-        <script type="text/javascript" src="/javascripts/controllers/gearcontroller.js"></script>
-        <script type="text/javascript" src="/javascripts/controllers/riverpagecontroller.js"></script>
-        <script type="text/javascript" src="/javascripts/controllers/rivercontroller.js"></script>
-        <script type="text/javascript" src="/javascripts/controllers/indexcontroller.js"></script>
-        <script type="text/javascript" src="/javascripts/controllers/mapcontroller.js"></script>
-        <script type="text/javascript" src="/javascripts/config.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
-        
-        <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
 
+    <div ng-view></div>    
+    <br>
+    <br>
 
+  </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <script type="text/javascript" src="/javascripts/init.js"></script>
+    <script type="text/javascript" src="/javascripts/app.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/favoritescontroller.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/gearcontroller.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/riverpagecontroller.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/rivercontroller.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/indexcontroller.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/mapcontroller.js"></script>
+    <script type="text/javascript" src="/javascripts/config.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>    
+    <!-- // <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script> -->
+    <script type="text/javascript" src="/javascripts/directives/funtimes.js"></script>
+    <script type="text/javascript" src="/javascripts/directives/leaflet.js"></script>
+    <script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script> 
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-aria.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-cookies.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.1.2.js"></script>    
+    <script src='//api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+    <link href='//api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+    <link href='//api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
+    <script src="cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
 
-        <script type="text/javascript" src="/javascripts/directives/funtimes.js"></script>
-        <script type="text/javascript" src="/javascripts/directives/leaflet.js"></script>
-        <script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-        
-        
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-aria.min.js"></script>
-      
-        <script src="//ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
-
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-cookies.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.js"></script>
-        <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.1.2.js"></script>
-       
-        
-        <script src='//api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
-        <link href='//api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
-        <link href='//api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
-        <!-- <script src="cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>-->
-
-       
-        <!-- Setting the right viewport -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
-    </body>
+    <!-- Setting the right viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  </body>
 </html>

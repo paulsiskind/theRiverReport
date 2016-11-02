@@ -33,16 +33,12 @@
         controller: 'FavoritesController'
     
       })
-
       .when('/:riverId', {
         templateUrl: 'partials/riverpage.html',
         controller: "RiverPageController",
-        requiresLogin: false
-       
+        requiresLogin: false       
       })
       .otherwise( {redirectTo: '/'
       })
-      $locationProvider.html5Mode(true)
-
-       
-      })
+      $locationProvider.html5Mode(true)   
+    })

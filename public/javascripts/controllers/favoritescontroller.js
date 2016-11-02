@@ -5,21 +5,16 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
   $scope.ideal = []
   $scope.showme =false
 
-
-
   $http.get('/usersData').then(function (response) {
-    $scope.usersData = response.data
-   
+    $scope.usersData = response.data   
     $scope.userphone = $scope.usersData[0].userphone
-    $scope.userEmail = $scope.usersData[0].email
-    
+    $scope.userEmail = $scope.usersData[0].email  
   });
 
   $http.get('/userFavorites').then(function (response) {
     $scope.favorites = response.data
 
     $http.get('/api/v1/coData').then(function (response) {
-
       $scope.allRivers = response.data;
       $scope.userFavs = [];
     
@@ -56,36 +51,25 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
            
 
       Promise.all(promises).then(function(rivers){
-          var rivers = rivers[0];
+        var rivers = rivers[0];
 
-            for(var prop in rivers){
-             
-
-             
-               for(var i =0; i<userFavs.length;i++){
-
-                  if(prop === userFavs[i].name){
+        for(var prop in rivers){
                      
-                    if(userFavs[i].riverlevel != null){
-                        if(rivers[prop] > userFavs[i].riverlevel){
-                          console.log(rivers[prop], userFavs[i].riverlevel )
-                          
-                            $scope.ideal.push(userFavs[i])
-                         }
-                    }
-                }
-               }
-            }
-         
+          for(var i =0; i<userFavs.length;i++){
 
-         
-         // if($scope.ideal[0].name === $scope.ideal[0].name){
-         //  $http.post('/twilio');
-         // }
-
+            if(prop === userFavs[i].name){
+               
+              if(userFavs[i].riverlevel != null){
+                if(rivers[prop] > userFavs[i].riverlevel){
+                  console.log(rivers[prop], userFavs[i].riverlevel )
+                  
+                  $scope.ideal.push(userFavs[i])
+                };
+              };
+            };
+          };
+        };
       });
-
-
     });
   });
 
@@ -101,8 +85,5 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
       if(actualFlow - recommendedFlow > 0 && actualFlow - recommendedFlow < 200) return 'seven'
       if(actualFlow - recommendedFlow > 200 && actualFlow - recommendedFlow < recommendedFlow) return 'six'
       if(actualFlow - recommendedFlow > recommendedFlow) return 'five'
-
-
   }
-
 });
