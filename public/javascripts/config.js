@@ -1,11 +1,10 @@
 
 
   app.config(function( $routeProvider, $locationProvider, $httpProvider,  $mdThemingProvider) {
-    $mdThemingProvider.theme('default')
-       .dark();
+   
 
     $routeProvider
-     .when('/_=_', {
+      .when('/_=_', {
         controller: 'RiverController',
         redirectTo: '/'
       })
