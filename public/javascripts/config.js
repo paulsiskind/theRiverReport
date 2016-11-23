@@ -5,12 +5,12 @@
 
     $routeProvider
       .when('/_=_', {
-        controller: 'RiverController',
+        controller: 'HomeController',
         redirectTo: '/'
       })
       .when('/', {
         templateUrl: 'partials/home.html',
-        controller: 'RiverController'
+        controller: 'HomeController'
       
       })
       .when('/map', {

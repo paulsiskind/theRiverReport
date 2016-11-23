@@ -1,13 +1,13 @@
 body {
  
-  font: 14px;
+  /*font: 14px;
   font-family: 'Questrial', sans-serif;
   height: 100%;
-  overflow-x: hidden;
+  overflow-x: hidden;*/
 }
 body, html{
-  background: none;
-/*  overflow-x: hidden;*/
+/*  background: none;
+  overflow-x: hidden;*/
 }
 .taco{
  
@@ -179,7 +179,7 @@ ul.nav.navbar li a:hover{
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;;
+  background-size: cover;
   height: 120%;
   width: 100%;
  position:absolute;
@@ -194,11 +194,6 @@ ul.nav.navbar li a:hover{
 .riverPageIMG{
   width:20%;
   float: right;
-}
-.bottom{
-  position: absolute;
- bottom: 0;
- width: 100%;
 }
 .riverButtons{
 position: absolute;
@@ -232,42 +227,90 @@ position: absolute;
    z-index: 99;
    text-align: center;
 }
-.backgroundImg{
-  top: 0;
-  z-index: -1;
-  position: fixed;
+#backgroundImg{
   background: url('/images/sopris.jpg') no-repeat center fixed; 
-  background-attachment: fixed;
-/*  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;;*/
-  height: 100%;
-  width: 100%;
-}
-.middleText{
-  margin-top: 20%;
-  padding: 3%;
-  position: absolute;
-  left:0;
-  right:0;
-  background: #fff;
-  height: 100%;
-
-}
-
-#bottomImg{
-  margin-top: 90%;
-  padding: 3%;
-  position: absolute;
-  left:0;
-  right:0;
-  background: url('/images/yule.jpg')no-repeat center fixed; 
-  background-attachment: fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;;
-  height:80%;
+  background-size: cover;
+  height: 1000px; 
+  margin: 0 auto; 
+  width: 100%; 
+  max-width: 1920px; 
+  position: relative; 
+}
+#backgroundImg article{
+  height: 458px; 
+  position: absolute; 
+  text-align: center; 
+  top: 150px; 
+  width: 100%; 
+}
+#middleText{
+  background: #fff;
+  min-height: 500px; 
+  height: 500px; 
+  margin: 0 auto; 
+  width: 100%; 
+  max-width: 1920px; 
+  position: relative; 
+  -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
+  box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+#middleText article{
+  height: 458px; 
+  position: absolute; 
+  text-align: center; 
+  top: 75px; 
+  width: 100%;
+}
 
+#bottomImg{ 
+ 
+  background: url('/images/yule.jpg')no-repeat center fixed; 
+/*  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  height: 1000px; 
+  margin: 0 auto; 
+  width: 100%; 
+  max-width: 1920px; 
+  position: relative; 
+  -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
+  box-shadow: 0 0 50px rgba(0,0,0,0.8);
+
+}
+#footer{
+ width: 100%;
+ height:80px;
+ position: absolute;
+ 
+
+}
+
+#backgroundImgRivers{
+  background: url('/images/yule.jpg')no-repeat center fixed; 
+/*  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  height: 100%; 
+  margin: 0 auto; 
+  width: 100%; 
+  max-width: 1920px; 
+  position: relative; 
+  -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
+  box-shadow: 0 0 50px rgba(0,0,0,0.8);
+  overflow: auto;
+}
+
+#backgroundImgRivers{
+  height: 100%; 
+  position: absolute; 
+  text-align: center; 
+  /*top: 150px;*/ 
+  width: 100%;
 }

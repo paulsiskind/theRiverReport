@@ -13,7 +13,7 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
 
   $http.get('/userFavorites').then(function (response) {
     $scope.favorites = response.data
-
+     console.log($scope.favorites)
     $http.get('/api/v1/coData').then(function (response) {
       $scope.allRivers = response.data;
       $scope.userFavs = [];

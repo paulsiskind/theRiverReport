@@ -40,7 +40,7 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
       $scope.labels = [];
        // $scope.series = ['Series A'];
       for (var i = 0; i <= arr.length; i++) {
-          $scope.labels.push("-");
+          $scope.labels.push(i);
       };
 
       $scope.data = [arr];

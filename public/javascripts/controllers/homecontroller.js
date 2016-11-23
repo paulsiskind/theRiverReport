@@ -1,4 +1,4 @@
-app.controller("RiverController", function($scope, $http, $location, $cookies, $routeParams){
+app.controller("HomeController", function($scope, $http, $location, $cookies, $routeParams){
   
   $http.get('/_=_').then(function (response) {
   $cookies.put('facebookId', response.data.facebookId);
@@ -53,4 +53,16 @@ app.controller("RiverController", function($scope, $http, $location, $cookies, $
       text: "Stay informed on the latest conditions"
     }
   ];
+
+  var $window = $(window); 
+  $('section[data-type="background"]').each(function(){
+    var $bgobj = $(this); // assigning the object     
+    $(window).scroll(function() {
+        var yPos = -($window.scrollTop() / $bgobj.data('speed'));              
+        // Put together our final background position
+        var coords = '50% '+ yPos + 'px';
+        // Move the background
+        $bgobj.css({ backgroundPosition: coords });
+    }); 
+  });   
 })
