@@ -41,10 +41,11 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
 
       // start map
       userFavs.map(function(favs){
-        var p = $http.get('//waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ favs["USGSid"] +'&parameterCd=00060,00065').then(function(response){
+        var p = $http.get('https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ favs["USGSid"] +'&parameterCd=00060,00065').then(function(response){
           $scope.flows[favs["name"]] = response.data.value.timeSeries[0].values[0].value[0].value;
           return $scope.flows;
         });
+        console.log('tacos', p)
         promises.push(p)
       });
       // end map

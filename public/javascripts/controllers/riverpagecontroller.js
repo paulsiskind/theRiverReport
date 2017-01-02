@@ -4,6 +4,7 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
   $scope.user = $cookies.getAll();
 
 
+      
     
 
   $http.get('/api/v1/coData').then(function (response) {  
@@ -14,17 +15,17 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
       };
     };
  
-    $http.get('//waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ $scope.riverInfo.USGSid +'&parameterCd=00060,00065').then(function(response){
+    $http.get('https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ $scope.riverInfo.USGSid +'&parameterCd=00060,00065').then(function(response){
       $scope.flows = response.data.value
     })
-    $http.get("//api.wunderground.com/api/2dc07206ff5e682e/geolookup/forecast/q/"+$scope.riverInfo.latlng +".json").then(function(response){
+    $http.get("https://api.wunderground.com/api/2dc07206ff5e682e/geolookup/forecast/q/"+$scope.riverInfo.latlng +".json").then(function(response){
       $scope.weatherUnder = response.data.forecast.txt_forecast.forecastday
       $scope.weatherLocation = response.data.location.city   
     })
  
-    $http.get('//waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT=2015-01-04&parameterCd=00060,00065').then(function(response){
+    $http.get('https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT=2015-09-04&parameterCd=00060,00065').then(function(response){
       $scope.flow = response.data.value.timeSeries[0].values[0].value;
-      $scope.flowData = [];
+      $scope.flowData = [];                                                          
 
       for (var i = 0; i < $scope.flow.length; i+=96) {
         if($scope.flow[i].value == '-999999'){
