@@ -23,7 +23,7 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
       $scope.weatherLocation = response.data.location.city   
     })
  
-    $http.get('https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT=2015-09-04&parameterCd=00060,00065').then(function(response){
+    $http.get('https://nwis.waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT=2015-09-04&parameterCd=00060,00065').then(function(response){
       $scope.flow = response.data.value.timeSeries[0].values[0].value;
       $scope.flowData = [];                                                          
 
