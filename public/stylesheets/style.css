@@ -1,71 +1,47 @@
-body {
- 
-  /*font: 14px;
-  font-family: 'Questrial', sans-serif;
-  height: 100%;
-  overflow-x: hidden;*/
-}
-body, html{
-/*  background: none;
-  overflow-x: hidden;*/
-}
+
 .taco{
- 
   background-color: white;
   right: 0;
-
 }
-
 a {
   color: black;
 }
-
 .flow{
-
   transition: ease-in .33s;
   text-shadow: 1px 1px 1px rgba(0,0,0,.25);
   color:white;
 }
 .riverpageDashboard{
   font-size: 30px;
-  font-style: bolder;
-  
+  font-style: bolder;  
 }
-
 tr.flow:hover{
   background: rgba(116,124,0,.4);
 }
-
 tr.flow a{
   color:white;
 }
-
 table td{
   padding: 200px;
 }
-
 .riverList{
   background-color: white;
 }
 .flow.nine {
    background-color: #235472;
 }
-
 .flow.eight {
    background-color: rgba(31, 99, 178, .5);
 }
-
 .flow.seven {
    background-color: rgba(8,109,35,.4);
 }
-
 .flow.six {
    background-color: #88e07b;
 }
 .flow.five{
   background-color: #75f962;
 }
-
 .flow.one {
    background-color: rgba(31, 99, 178, .1);
    color: black;
@@ -78,8 +54,6 @@ table td{
 .flow.one a:hover {
    color: white;
 }
-
-
 .jumbotron .dropper{
   text-align: right;
 }
@@ -87,28 +61,11 @@ table td{
    height: 100%;
    width:100%;
 }
-
-
-
 img{
   margin:auto;
   width: 60%;
   height:20%;
-
-  
 }
-
-
-#slides_control {
- /* position:absolute;*/
-  height: 70%;
-  width: 100%;
-  padding: 0%;
-/*  left:50%;
-  top:20px;
- margin-left:-200px;*/
-}
-
 .charts{
   margin-top: 2%;
   padding-top: 2%
@@ -124,7 +81,6 @@ img{
   text-shadow: 2px 2px rgb(125,142,160);
   font: bold;
   margin-bottom: 5%;
-
 }
 .riverHeader2{
   font-family: 'Roboto', sans-serif;
@@ -136,7 +92,6 @@ img{
 .waterLevel{
   font-size: 16px;
 }
-
 .c-navbar {
    min-height: 0px; 
    background-color: rgb(35, 36, 43);
@@ -149,13 +104,10 @@ img{
   position: absolute;
   bottom: 0;
 }
-
-
 .nav>li>a, .navbar-brand {
   color: white;
   transition: ease-in-out .75s;
 }
-
 ul.nav.navbar-nav li:hover{
    background: rgb(55, 56, 63);
    color: white;
@@ -167,11 +119,9 @@ ul.nav.navbar-nav li a:hover{
 ul.nav.navbar li a:hover{
   background: rgb(125,142,160);
 }
-
 .charts, .displayInfo {
   background-color: white;
-   opacity: 0.9;
-   
+   opacity: 0.9; 
 }
 #something{
   background: url('/images/sopris.jpg') no-repeat
@@ -182,50 +132,45 @@ ul.nav.navbar li a:hover{
   background-size: cover;
   height: 120%;
   width: 100%;
- position:absolute;
+  position:absolute;
   width: 100vw;
   padding: 0;
   margin: 0;
   left: 0;
   right:0;
   z-index: -1;
-
 }
 .riverPageIMG{
   width:20%;
   float: right;
 }
 .riverButtons{
-position: absolute;
+  position: absolute;
   top: 75;
   right: 150;
   display: inline-block;
 }
-
-
-
 .svg-loader{
   height: 75vmin;
   padding: 3vmin 20vmin;
   vertical-align: top;
 }
-
 .spinner{
-   width: 100%;
+  width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-   width: 100%;
-   height: 100%;
-   top: 0px;
-   left: 0px;
-   position: fixed;
-   display: block;
-   opacity: 0.7;
-   background-color: #fff;
-   z-index: 99;
-   text-align: center;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  position: fixed;
+  display: block;
+  opacity: 0.7;
+  background-color: #fff;
+  z-index: 99;
+  text-align: center;
 }
 #backgroundImg{
   -webkit-background-size: cover;
@@ -233,10 +178,8 @@ position: absolute;
   -o-background-size: cover;
   background-size: cover;
   height: 100vh; 
-  margin: 0 auto; 
   width: 100%; 
-  max-width: 1920px; 
-  position: relative; 
+  max-width: 1920px;    
 }
 #backgroundImg.zero{
   background: url('/images/sopris.jpg') no-repeat center fixed; 
@@ -266,7 +209,12 @@ position: absolute;
   -o-background-size: cover;
   background-size: cover;
 }
-
+.rightIntro.jumbotron{
+  opacity: 0.5;
+}
+.leftIntro.jumbotron{
+  opacity: 0.5;
+}
 #middleText{
   background: #fff;
   min-height: 500px; 
@@ -285,15 +233,8 @@ position: absolute;
   top: 75px; 
   width: 100%;
 }
-
 #bottomImg{ 
- 
   background: url('/images/yule.jpg')no-repeat center fixed; 
-/*  background-attachment: fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
   height: 1000px; 
   margin: 0 auto; 
   width: 100%; 
@@ -301,23 +242,14 @@ position: absolute;
   position: relative; 
   -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
   box-shadow: 0 0 50px rgba(0,0,0,0.8);
-
 }
 #footer{
  width: 100%;
  height:80px;
  position: absolute;
- 
-
 }
-
 #backgroundImgRivers{
   background: url('/images/yule.jpg')no-repeat center fixed; 
-/*  background-attachment: fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
   height: 100%; 
   margin: 0 auto; 
   width: 100%; 
@@ -327,11 +259,9 @@ position: absolute;
   box-shadow: 0 0 50px rgba(0,0,0,0.8);
   overflow: auto;
 }
-
 #backgroundImgRivers{
   height: 100%; 
   position: absolute; 
   text-align: center; 
-  /*top: 150px;*/ 
   width: 100%;
 }
