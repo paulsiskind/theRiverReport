@@ -228,24 +228,45 @@ position: absolute;
    text-align: center;
 }
 #backgroundImg{
-  background: url('/images/sopris.jpg') no-repeat center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 1000px; 
+  height: 100vh; 
   margin: 0 auto; 
   width: 100%; 
   max-width: 1920px; 
   position: relative; 
 }
-#backgroundImg article{
-  height: 458px; 
-  position: absolute; 
-  text-align: center; 
-  top: 150px; 
-  width: 100%; 
+#backgroundImg.zero{
+  background: url('/images/sopris.jpg') no-repeat center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
+#backgroundImg.one{
+  background: url('/images/yule.jpg') no-repeat center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#backgroundImg.two{
+  background: url('/images/obj.jpg') no-repeat center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#backgroundImg.three{
+  background: url('/images/tom.jpg') no-repeat center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 #middleText{
   background: #fff;
   min-height: 500px; 

@@ -1,17 +1,14 @@
-<section id="backgroundImg" data-type="background" data-speed="10">
+<section id="backgroundImg" data-type="background" data-speed="10" ng-class="setBackground()">
   <article>
-    <h1 class="text-center riverHeader"> Welcome to theRiverReport </h1>
-    <div class="col-md-12">
-      <div id="slides_control">      
-        <uib-carousel interval="myInterval">
-          <uib-slide ng-repeat="slide in slides" active="slide.active">
-            <img ng-src="{{slide.image}}">
-            <div class="carousel-caption">
-              <h4>{{slide.text}}</h4>
-              <br>
-            </div>
-          </uib-slide>
-        </uib-carousel>
+    <h1 class="text-left riverHeader">theRiverReport </h1>
+    <div class="container">
+      <div class="row">
+        <div class="leftIntro col-md-4 jumbotron">
+          <h1>I'm the left Side</h1>
+        </div>
+        <div class="rightIntro col-md-8 offset-md-4 jumbotron">
+          <h1>I'm the Right Side</h1>
+        </div>
       </div>
     </div>
   </article>

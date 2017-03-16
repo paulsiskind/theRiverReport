@@ -30,29 +30,65 @@ app.controller("HomeController", function($scope, $http, $location, $cookies, $r
     }
     $scope.select = select;
   }
-  
+  // var backGround = ["url('/images/yule.jpg')no-repeat center fixed",
+  //                   "url('/images/obj.jpg')no-repeat center fixed",
+  //                   "url('/images/grand.jpg')no-repeat center fixed",
+  //                   "url('/images/tom.jpg')no-repeat center fixed"]
+  // var tacos = "tacos"
+  //   var k = 0;
+  // function changeBackGround(){ 
+  //   $('#backgroundImg').css("background",backGround[k])
+  //   if(k===4){
+  //     k=0;
+  //   }
+  //   k++
+  //   setTimeout(function(){
+  //   changeBackGround();
+  // alert('tacos')
+  // }, 15000);
+  // };
 
-  $scope.myInterval = 3000;
-  // $scope.noWrapSlides = false;
-  $scope.slides = [
-    {
-      image: '/images/yule.jpg',
-      text: "A Home For Local Streamflows"
+  // setTimeout(function(){
+  // changeBackGround();
+  // alert('tacos')
+  // }, 15000);
+  var k=3;
+  setInterval(function(){
+    k++;
+    console.log('here', k)
+    $scope.setBackground()
+    $scope.$apply(); 
+  },30000)
 
-    },
-    {
-      image: '/images/obj.jpg',
-      text: "Find the nearest river to your current location"
-    },
-    {
-      image: '/images/grand.jpg',
-      text: "Plan your next adventure!"
-    },
-    {
-      image: '/images/tom.jpg',
-      text: "Stay informed on the latest conditions"
-    }
-  ];
+   $scope.setBackground = function(){
+    if(k==0) return 'zero'
+    if(k==1) return 'one'
+    if(k==2) return 'two'
+    if(k===3) return 'three'   
+    if(k===4) k=0;
+  }
+ 
+  // $scope.myInterval = 3000;
+  // // $scope.noWrapSlides = false;
+  // $scope.slides = [
+  //   {
+  //     image: '/images/yule.jpg',
+  //     text: "A Home For Local Streamflows"
+
+  //   },
+  //   {
+  //     image: '/images/obj.jpg',
+  //     text: "Find the nearest river to your current location"
+  //   },
+  //   {
+  //     image: '/images/grand.jpg',
+  //     text: "Plan your next adventure!"
+  //   },
+  //   {
+  //     image: '/images/tom.jpg',
+  //     text: "Stay informed on the latest conditions"
+  //   }
+  // ];
 
   var $window = $(window); 
   $('section[data-type="background"]').each(function(){
