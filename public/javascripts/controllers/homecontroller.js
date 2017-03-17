@@ -7,6 +7,7 @@ app.controller("HomeController", function($scope, $http, $location, $cookies, $r
   $scope.user = $cookies.getAll()
 
   })
+  
 
    
   $scope.locationData = $location.$$path
@@ -31,28 +32,23 @@ app.controller("HomeController", function($scope, $http, $location, $cookies, $r
     $scope.select = select;
   }
   
+  var k=0;
 
-  $scope.myInterval = 3000;
-  // $scope.noWrapSlides = false;
-  $scope.slides = [
-    {
-      image: '/images/yule.jpg',
-      text: "A Home For Local Streamflows"
 
-    },
-    {
-      image: '/images/obj.jpg',
-      text: "Find the nearest river to your current location"
-    },
-    {
-      image: '/images/grand.jpg',
-      text: "Plan your next adventure!"
-    },
-    {
-      image: '/images/tom.jpg',
-      text: "Stay informed on the latest conditions"
-    }
-  ];
+  $scope.setBackground = function(){
+    if(k==0) return 'zero'
+    if(k==1) return 'one'
+    if(k==2) return 'two'
+    if(k===3) return 'three'   
+    if(k===4) k=0;
+  }
+ 
+  setInterval(function(){
+    k++;
+    console.log('here', k)
+    $scope.setBackground()
+    $scope.$apply(); 
+  },30000)
 
   var $window = $(window); 
   $('section[data-type="background"]').each(function(){

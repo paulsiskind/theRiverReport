@@ -74,11 +74,6 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
     });
   });
 
-
-
- 
-  
-
   $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow, aboveRecommend){
     // completely frozen water
     if(actualFlow === '-999999') return 'nine'
@@ -87,4 +82,19 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
       if(actualFlow - recommendedFlow > 200 && actualFlow - recommendedFlow < recommendedFlow) return 'six'
       if(actualFlow - recommendedFlow > recommendedFlow) return 'five'
   }
+  var k =0;
+  $scope.setBackground = function(){
+    if(k==0) return 'zero'
+    if(k==1) return 'one'
+    if(k==2) return 'two'
+    if(k===3) return 'three'   
+    if(k===4) k=0;
+  }
+ 
+  setInterval(function(){
+    k++;
+    console.log('here', k)
+    $scope.setBackground()
+    $scope.$apply(); 
+  },30000)
 });
