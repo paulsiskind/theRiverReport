@@ -34,7 +34,6 @@ app.controller("HomeController", function($scope, $http, $location, $cookies, $r
   
   var k=0;
 
-
   $scope.setBackground = function(){
     if(k==0) return 'zero'
     if(k==1) return 'one'

@@ -1,0 +1,34 @@
+<md-whiteframe class="md-whiteframe-1dp md-display-5 well col-md-8">
+
+  <table class="table">
+    <th>Section</th>
+    <th>River Name</th>
+    <th>State</th>
+    <th>Class</th>
+    <th>Season</th>
+    <th>Users Level</th>
+    <th>Flow</th>
+    <th>Delete</th>
+  
+    <tr class="flow" ng-repeat="water in userFavs | filter: search" data-twillio="flows[water.name], water" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend, water.aboveRecommend)">
+   
+      <td style="padding: 20px;"><a href="/{{water.id}}">{{water.name}}</td>
+      <td style="padding: 20px;">{{water.nameProper}}</a></td>
+      <td style="padding: 20px;">{{water.state}} </td>
+      <td style="padding: 20px;">{{water.class}} </td>
+      <td style="padding: 20px;">{{water.season}} </td>
+      <td ng-if="user.facebookId" style="padding: 20px;">{{water.riverlevel}}</td>
+      <td style="padding: 20px;">
+        <span class="frozen five" ng-if="flows[water.name] == -999999"> Frozen</span>  
+        <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span>
+      </td>
+     
+      <td style="padding: 20px;">
+        <form method="post" action="/deleteFav">
+          <input type="hidden" value="{{water.id}}" name="riverId">
+          <md-button class="md-raised md-cornered" type="submit" value="Add to rivers">Delete</md-button>
+        </form>
+      </td>
+    </tr>  
+  </table>
+</md-whiteframe>

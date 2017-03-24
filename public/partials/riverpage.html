@@ -1,4 +1,4 @@
-<div class="backgroundImg"></div>
+<section id="backgroundImg" data-type="background" data-speed="10" ng-class="setBackground()" class="absoluteBackground">
 <div class="container"> 
   <br>
   <md-whiteframe class="md-whiteframe-1dp col-md-12 riverHeader2" col-md-12>
@@ -21,10 +21,6 @@
       </md-button>  
     </span>
   </md-whiteframe>
-
-  <br>
-  <br>
-  <br>
                   <!-- Animation -->
   <div ng-include src= "'partials/spinner.html'"></div>
 
@@ -50,10 +46,7 @@
     <p>{{weatherUnder[5].title}}: {{weatherUnder[5].fcttext}}</p>
     <p>{{weatherUnder[6].title}}: {{weatherUnder[6].fcttext}}</p>
     <p>{{weatherUnder[7].title}}: {{weatherUnder[7].fcttext}}</p>
-    <br>
-    <br>
-    <br>
-    <br>
+    
   </md-whiteframe>
 
   <md-whiteframe class="md-whiteframe-7dp col-md-8 charts">
@@ -72,3 +65,4 @@
     <br>
   </md-whiteframe>
 </div>
+</section>

@@ -78,11 +78,13 @@ img{
 }
 .charts{
   margin-top: 2%;
-  padding-top: 2%
+  padding-top: 2%;
+  height:140vh;
 }
 .displayInfo{
   margin-top: 2%;
   padding-top:2%;
+  height: 140vh;
 }
 .riverHeader{
   font-family: 'Roboto', sans-serif;
@@ -229,6 +231,10 @@ position: absolute;
   top: 150px; 
   width: 100%; 
 }
+#news{
+  opacity: .5;
+  margin-top: 50px;
+}
 #middleText{
   background: #fff;
   min-height: 500px; 
@@ -278,4 +284,7 @@ position: absolute;
   position: absolute; 
   text-align: center; 
   width: 100%;
+}
+.absoluteBackground{
+  height: 500vh;
 }

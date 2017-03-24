@@ -18,10 +18,10 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
     $http.get('https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ $scope.riverInfo.USGSid +'&parameterCd=00060,00065').then(function(response){
       $scope.flows = response.data.value
     })
-    // $http.get("https://api.wunderground.com/api/2dc07206ff5e682e/geolookup/forecast/q/"+$scope.riverInfo.latlng +".json").then(function(response){
-    //   $scope.weatherUnder = response.data.forecast.txt_forecast.forecastday
-    //   $scope.weatherLocation = response.data.location.city   
-    // })
+    $http.get("https://api.wunderground.com/api/2dc07206ff5e682e/geolookup/forecast/q/"+$scope.riverInfo.latlng +".json").then(function(response){
+      $scope.weatherUnder = response.data.forecast.txt_forecast.forecastday
+      $scope.weatherLocation = response.data.location.city   
+    })
  
     $http.get('https://nwis.waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT=2015-03-04&parameterCd=00060,00065').then(function(response){
       console.log(response)
@@ -139,6 +139,23 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
       }
     });
   });
+
+  var k=0;
+
+  $scope.setBackground = function(){
+    if(k==0) return 'zero'
+    if(k==1) return 'one'
+    if(k==2) return 'two'
+    if(k===3) return 'three'   
+    if(k===4) k=0;
+  }
+ 
+  setInterval(function(){
+    k++;
+    console.log('here', k)
+    $scope.setBackground()
+    $scope.$apply(); 
+  },30000)
 
   $scope.showflag = true;
   setTimeout(function (){
