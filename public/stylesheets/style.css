@@ -41,35 +41,35 @@ table td{
    background-color: #235472;
 }
 .flow.eight {
-   background-color: rgba(31, 99, 178, .5);
+   background-color: #339900;
 }
 .flow.seven {
-   background-color: rgba(8,109,35,.4);
+   background-color: #99cc33;
 }
 .flow.six {
-   background-color: #88e07b;
+   background-color: #ffcc00;
 }
 .flow.five{
-  background-color: #75f962;
+  background-color: #cc3300;
 }
 .flow.one {
-   background-color: rgba(31, 99, 178, .1);
-   color: black;
+  background-color: rgba(31, 99, 178, .1);
+  color: black;
   text-shadow: 1px 1px 1px rgba(255,255,255,.4);
 }
 .flow.one a {
-   color: black;
+  color: black;
   text-shadow: 1px 1px 1px rgba(255,255,255,.4);
 }
 .flow.one a:hover {
-   color: white;
+  color: white;
 }
 .jumbotron .dropper{
   text-align: right;
 }
 #map {
-   height: 100%;
-   width:100%;
+  height: 100%;
+  width:100%;
 }
 img{
   margin:auto;
@@ -106,12 +106,12 @@ img{
 }
 
 .c-navbar {
-   min-height: 0px; 
-   background-color: rgb(35, 36, 43);
-   color: white;
-   font-size: 20px;
-   right:0;
-   left:0;
+  min-height: 0px; 
+  background-color: rgb(35, 36, 43)
+  color: white;
+  font-size: 20px;
+  right:0;
+  let:0;
 }
 .bottom{
   position: absolute;
@@ -122,19 +122,19 @@ img{
   transition: ease-in-out .75s;
 }
 ul.nav.navbar-nav li:hover{
-   background: rgb(55, 56, 63);
-   color: white;
+  background: rgb(55, 56, 63);
+  color: white;
 }
 ul.nav.navbar-nav li a:hover{
-   background: rgb(111,135,158);
-   color: white;
+  background: rgb(111,135,158);
+  color: white;
 }
 ul.nav.navbar li a:hover{
   background: rgb(125,142,160);
 }
 .charts, .displayInfo {
   background-color: white;
-   opacity: 0.9;  
+  opacity: 0.9;  
 }
 #something{
   background: url('/images/sopris.jpg') no-repeat
