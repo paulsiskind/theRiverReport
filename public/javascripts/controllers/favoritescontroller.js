@@ -11,6 +11,11 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
     $scope.userEmail = $scope.usersData[0].email  
   });
 
+  $http.get('allUsersData').then(function(response){
+    $scope.awesome = response.data
+    console.log($scope.awesome, '>>>>>>>>tacos?????????>>>>>>>>>>>>>>>');
+  })
+
   $http.get('/userFavorites').then(function (response) {
     $scope.favorites = response.data
      console.log($scope.favorites)
@@ -65,10 +70,15 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
                   console.log(rivers[prop], userFavs[i].riverlevel )
                   
                   $scope.ideal.push(userFavs[i])
+                  console.log($scope.ideal, '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
                 };
               };
             };
           };
+         //   if($scope.ideal[0].name === $scope.ideal[0].name){
+         //    console.log('bitches')
+         //  $http.post('/twilio');
+         // }
         };
       });
     });

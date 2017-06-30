@@ -138,21 +138,21 @@ router.get('/usersData', function(req, res, next) {
   }) 
 });
 
-
-// router.get('/twiliotest', function(req, res){
-// client.messages.create({
-//     to:'+15303860690',
-//     from:'+17754130349',
-//     body:'Gore Canyon is in'
-// }, function(error, message) {
-//     if (error) {
-//         console.log(error.message);
-//        }
-//    });
-// });
-
-
-
+router.get('/allUsersData', function(req, res, next) {
+  pg.connect(conString, function(err, client, done) {
+    if (err) {
+      return console.error('error fetching client from pool', err);
+    }
+    client.query('SELECT * FROM users;', function(err, result) {
+      done();
+      
+      if (err) {
+        return console.error('error running query', err);
+      }
+      res.json(result.rows)
+    })
+  }) 
+});
 
 router.get('*', function(req, res, next) {
   res.sendFile('index.html', {
