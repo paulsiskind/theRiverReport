@@ -87,14 +87,18 @@ var app = {
       }
     console.log(app.users)
     }
+    var userFav = []
     for ( var i = 0; i < app.users.length; i++ ) {
       for(var y=0;y<app.users[i].favorites.length; y++){
-      		console.log('brent>>>>>>>>>>>>')
-
       	for(var p =0; p<app.riverData.length;p++){
-      		var urid = app.users[i].favorites[y].riverId;
-      		var rdid = app.riverData[p].USGSid
+      		var urid = app.users[i].favorites[y].riverid
+      		var rdid = app.riverData[p].id
       		console.log(urid, rdid, 'beasters')
+      		if(urid === rdid){
+      			
+      			app.users[i].favorites[y]['riverInfo'] = (app.riverData[p])
+      			console.log(app.users[i].favorites[y],'Osso dog')
+      		}
       	}
       }
     }
