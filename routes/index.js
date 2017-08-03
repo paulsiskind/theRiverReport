@@ -4,12 +4,16 @@ var pg = require('pg');
 var conString = process.env.DATABASE_URL || "postgres://@localhost/theriverreport";
 var coData = require('../coData.json')
 var caData = require('../caData.json')
+// var db = require('../queries');
+
+
 
 
 router.get('/_=_', function(req, res, next) {
  
   res.json(req.user)
 });
+// router.get('/getAllFavorite', db.getAllFavorite);
 
 router.get('/api/v1/coData', function(req, res, next) {
   res.json(coData)
@@ -107,11 +111,14 @@ router.post('/addLevel', function(req, res, next){
 // })
 
 router.get('/userFavorites', function(req, res, next) {
+      app()
   pg.connect(conString, function(err, client, done) {
+    //console.log(client)
     if (err) {
       return console.error('error fetching client from pool', err);
     }
     client.query('SELECT * FROM favorites WHERE (facebook_id = $1);',[req.user.facebookId], function(err, result) {
+
       done();
       
       if (err) {
@@ -139,11 +146,29 @@ router.get('/usersData', function(req, res, next) {
 });
 
 router.get('/allUsersData', function(req, res, next) {
+  app()
   pg.connect(conString, function(err, client, done) {
     if (err) {
       return console.error('error fetching client from pool', err);
     }
     client.query('SELECT * FROM users;', function(err, result) {
+      done();
+      
+      if (err) {
+        return console.error('error running query', err);
+      }
+      res.json(result.rows)
+    })
+  }) 
+});
+
+router.get('/allUsersFavorites', function(req, res, next) {
+  app()
+  pg.connect(conString, function(err, client, done) {
+    if (err) {
+      return console.error('error fetching client from pool', err);
+    }
+    client.query('SELECT * FROM favorites;', function(err, result) {
       done();
       
       if (err) {
@@ -160,7 +185,9 @@ router.get('*', function(req, res, next) {
   })
 });
 
-
+app = function(){
+  console.log('hello Bitches')
+}
 
 
 module.exports = router;

@@ -11,16 +11,12 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
     $scope.userEmail = $scope.usersData[0].email  
   });
 
-  $http.get('allUsersData').then(function(response){
-    $scope.awesome = response.data
-    console.log($scope.awesome, '>>>>>>>>tacos?????????>>>>>>>>>>>>>>>');
-  })
-
   $http.get('/userFavorites').then(function (response) {
     $scope.favorites = response.data
-     console.log($scope.favorites)
+      console.log($scope.favorites)
     $http.get('/api/v1/coData').then(function (response) {
       $scope.allRivers = response.data;
+      console.log(response.data, '>>>>>>>>>>>')
       $scope.userFavs = [];
     
       for ( var i = 0; i < $scope.favorites.length; i++ ) {
@@ -30,7 +26,7 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
           }
         }
       }
-
+      console.log($scope.userFavs, 'tacos')
       for ( var i = 0; i < $scope.favorites.length; i++ ) {
         for ( var e = 0; e < $scope.userFavs.length; e++ ) {
         if($scope.favorites[i].riverid === $scope.userFavs[e].id){
