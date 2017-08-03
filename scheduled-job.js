@@ -8,6 +8,10 @@ var app = {
 	favorites:[],
 	done: false,
 	riverData:[],
+	msgIdeal:[],
+	flag:false,
+  
+
 
 
 	getUsers: function(){
@@ -56,7 +60,6 @@ var app = {
 		  res.on('data',function(data){
 		    
 		    app.favorites = JSON.parse(data)
-		    console.log(app.favorites)
 		    app.insertFavorites()
 		  });
 		});
@@ -78,14 +81,13 @@ var app = {
       	// console.log(i, e)
       	var ab = app.users[i].facebookid.slice(1,10)
       	var ba = app.favorites[e].facebook_id.slice(1,10)
-      	console.log(ab, ba)
       	// console.log(parseInt(new BigNumber(parseInt(app.users[i].facebookId)), new BigNumber(parseInt(app.favorites[e].facebook_id))))
         if(ab === ba ){
-        	console.log("Hello")
+        	
           app.users[i].favorites.push(app.favorites[e]);
         }
       }
-    console.log(app.users)
+    // console.log(app.users)
     }
     var userFav = []
     for ( var i = 0; i < app.users.length; i++ ) {
@@ -93,11 +95,11 @@ var app = {
       	for(var p =0; p<app.riverData.length;p++){
       		var urid = app.users[i].favorites[y].riverid
       		var rdid = app.riverData[p].id
-      		console.log(urid, rdid, 'beasters')
+      		// console.log(urid, rdid, 'beasters')
       		if(urid === rdid){
       			
       			app.users[i].favorites[y]['riverInfo'] = (app.riverData[p])
-      			console.log(app.users[i].favorites[y],'Osso dog')
+      			// console.log(app.users[i].favorites[y],'Osso dog')
       		}
       	}
       }
@@ -120,11 +122,11 @@ var app = {
 
 		console.log("Start");
 		var x = http.request(options,function(res){
-		  console.log("Connected");
+		  // console.log("Connected");
 		  res.on('data',function(data){
 		    
 		    app.riverData = JSON.parse(data)
-		    console.log(app.riverData)
+		    // console.log(app.riverData)
 		  });
 		});
 
@@ -136,17 +138,38 @@ var app = {
 
 	getRiverLevels:function(){
 	
-    for(var i=0; i<app.users.length; i++){
+    var promises = []
 
-    }
-    //path: 'https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites=09070500&parameterCd=00060,00065',
-    request
-    	.get('https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites=09070500&parameterCd=00060,00065', function (error, response, body) {
-		  console.log('error:', error); // Print the error if one occurred 
-		  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
-		  var tacoTruck = JSON.parse(body)
-		  console.log('body:', tacoTruck.value.timeSeries[0].values[0].value[0].value); // Print the HTML for the Google homepage. 
-		});
+      // start map
+    app.users.map(function(favs){
+    	console.log(favs)
+      favs.favorites.map(function(river){
+		    var p = 
+		    request
+		    	.get('https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ river.riverInfo.USGSid +'&parameterCd=00060,00065', function (error, response, body) {
+				  // console.log('error:', error); // Print the error if one occurred 
+				  // console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
+				  var tacoTruck = JSON.parse(body)
+				  var riverLevel = tacoTruck.value.timeSeries[0].values[0].value[0].value
+				  var ideal = river.riverlevel
+				  // console.log(riverLevel, ideal);
+
+				  if(ideal !== null){
+				  	if(riverLevel >= ideal){
+				  	  // console.log(favs)
+				  	  app.msgIdeal.push(favs)
+				  	  app.msgIdeal.good.push(river)
+				  	  app.text()
+				  	};
+				  };
+				});
+      })
+    })
+	},
+
+	text:function(){
+		console.log('Texting Happens Here', app.msgIdeal)
+
 	},
 
 	run: function(){
