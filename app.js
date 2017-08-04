@@ -11,7 +11,7 @@ var passport = require('passport');
 // var twilio = require('twilio');
 // var accountSid = TWILIO_ACCOUNT_SID;
 // var authToken = TWILIO_AUTH_TOKEN;
-var client = require('twilio')(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
+// var client = require('twilio')(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
 
 
 var pg = require('pg');
@@ -80,18 +80,18 @@ passport.use(new FacebookStrategy({
   }
 ));
 
-app.post('/twilio', function(req, res){
+// app.post('/twilio', function(req, res){
   
-client.messages.create({
-    to:'+15303860690',
-    from:'+17754130349',
-    body:'Gore Canyon is in!'
-}, function(error, message) {
-    if (error) {
-        console.log(error.message);
-    }
-  });
-});
+// client.messages.create({
+//     to:'+15303860690',
+//     from:'+17754130349',
+//     body:'Gore Canyon is in!'
+// }, function(error, message) {
+//     if (error) {
+//         console.log(error.message);
+//     }
+//   });
+// });
 
 app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/login' }),
