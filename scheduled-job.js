@@ -11,20 +11,15 @@ var app = {
 
 	users:[],
 	favorites:[],
-	done: false,
 	riverData:[],
 	msgIdeal:[],
-	flag:false,
 	counter:0,
-	ghost:[],
   
-  everyThingIsDone: function(){
-		
-		
-	if(app.counter === app.users.length){
-			app.result = true;
+  everyThingIsDone: function(){		
+		if(app.counter === app.users.length){
+				app.result = true;
 		}
-		 return app.result
+		return app.result
 	},
 	checkIfComplete: function(){
 		if(app.result == true){
@@ -46,48 +41,31 @@ var app = {
         accept: 'application/json'
 	    }
 		};
-
-		console.log("Start");
 		var x = http.request(options,function(res){
-		  console.log("Connected");
-		  res.on('data',function(data){
-		    
+		  res.on('data',function(data){    
 		    app.users = JSON.parse(data)
 		    app.getFavorites()
-		    console.log(app.users)
 		  });
 		});
-
 		x.end();
-
-
 	},
-
 	getFavorites: function(){
-    console.log('Heeeelo')
 		var options = {
     host: 'localhost',
     port: 3000,
     path: '/allUsersFavorites/',
     method: 'GET',
-    // 'req.user.facebookid': users[0].facebookid,
 	    headers: {
 	        accept: 'application/json',       
 		  }
 		};
-
-		console.log("Start");
 		var x = http.request(options,function(res){
-		  console.log("Connected Bitches");
-		  res.on('data',function(data){
-		    
+		  res.on('data',function(data){   
 		    app.favorites = JSON.parse(data)
 		    app.insertFavorites()
 		  });
 		});
-
 		x.end();
-
 	},
 
 	insertFavorites: function(){
@@ -95,21 +73,14 @@ var app = {
   	for(var x=0;x<app.users.length;x++){
   		app.users[x].favorites=[];
   	}
-
-
-		console.log('tacos Trucks', app.favorites.length)
 		for ( var i = 0; i < app.users.length; i++ ) {
       for ( var e = 0; e < app.favorites.length; e++ ) {
-      	// console.log(i, e)
       	var ab = app.users[i].facebookid.slice(1,10)
       	var ba = app.favorites[e].facebook_id.slice(1,10)
-      	// console.log(parseInt(new BigNumber(parseInt(app.users[i].facebookId)), new BigNumber(parseInt(app.favorites[e].facebook_id))))
-        if(ab === ba ){
-        	
+        if(ab === ba ){ 	
           app.users[i].favorites.push(app.favorites[e]);
         }
       }
-    // console.log(app.users)
     }
     var userFav = []
     for ( var i = 0; i < app.users.length; i++ ) {
@@ -117,11 +88,9 @@ var app = {
       	for(var p =0; p<app.riverData.length;p++){
       		var urid = app.users[i].favorites[y].riverid
       		var rdid = app.riverData[p].id
-      		// console.log(urid, rdid, 'beasters')
-      		if(urid === rdid){
-      			
+
+      		if(urid === rdid){     			
       			app.users[i].favorites[y]['riverInfo'] = (app.riverData[p])
-      			// console.log(app.users[i].favorites[y],'Osso dog')
       		}
       	}
       }
@@ -144,18 +113,11 @@ var app = {
 
 		console.log("Start");
 		var x = http.request(options,function(res){
-		  // console.log("Connected");
 		  res.on('data',function(data){
-		    
 		    app.riverData = JSON.parse(data)
-		    // console.log(app.riverData)
 		  });
 		});
-
 		x.end();
-
-
-
 	},
 
 	getRiverLevels:function(){
@@ -174,13 +136,9 @@ var app = {
 				  var tacoTruck = JSON.parse(body)
 				  var riverLevel = tacoTruck.value.timeSeries[0].values[0].value[0].value
 				  var ideal = river.riverlevel
-				 // console.log(riverLevel, ideal);
-
+	
 				  if(ideal !== null){
-				  	 // 	app.msgIdeal.push(favs)
-
 				  	if(riverLevel >= ideal){
-				  	//  console.log(riverLevel)
 				  	  app.msgIdeal.push(river)
 				  	  app.msgIdeal['Current'].push(riverLevel)
 				  	};
@@ -189,7 +147,6 @@ var app = {
 				});
       })
     })
-             // app.text();
 	},
 
 	text:function(){
@@ -205,38 +162,43 @@ var app = {
       	// console.log(i, e)
       	var ab = app.users[i].facebookid.slice(1,10)
       	var ba = app.msgIdeal[e].facebook_id.slice(1,10)
-      	// console.log(parseInt(new BigNumber(parseInt(app.users[i].facebookId)), new BigNumber(parseInt(app.favorites[e].facebook_id))))
-        if(ab === ba ){
-        	
+        if(ab === ba ){   	
           app.users[i].ideal.push(app.favorites[e]);
         }
         if(e===app.msgIdeal.length){
         }
       }
-    // console.log(app.users)
     }
-        	app.twil()
+      app.twil()
 	},
 
 	twil:function(){
 		console.log("I'm Last!")
-    for(var i=0; i<app.users.length;i++){
-    	//console.log(app.users[i].ideal)
-    	app.ghost = app.users[i].ideal;
-     // if(app.users.hasOwnProperty('ideal')){
-      	console.log('sending msg to:', app.users[i].userphone)
+		var user = app.users
+		var greeting = '\n' + '\n' +'\n' +
+
+		               "Greetings, dear customer. I hope you enjoy the river report"+ '\n' +
+		               "This is a laybor of love for the kayaking community" + '\n' +
+		               "Thank You theRiverReport" + '\n'
+    for(var i=0; i<user.length;i++){	
+		var tacos = []
+
+    	for(var j=0; j< user[i].ideal.length;j++){
+          tacos.push(user[i].ideal[j])
+    	};
+     	console.log('sending msg to:', user[i].userphone, tacos, greeting)
+     	if(tacos.length > 0){
 				client.messages.create({
-				    to: app.users[i].userphone,
+				    to:'', //user[i].userphone,
 				    from:"+19707103177",
-				    body: 'Tacos love Gore Canyon',
+				    body: tacos,
 				}, function(error, message) {
 				    if (error) {
 				        console.log(error.message);
 				    }
 				  });
-		//	}
-		}
-
+			}
+  	};
 	},
 
 
