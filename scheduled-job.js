@@ -1,6 +1,5 @@
 require('dotenv').load()
 var http = require('http');
-var BigNumber = require('bignumber.js');
 var request = require('request');
 var client = require('twilio')(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
 
