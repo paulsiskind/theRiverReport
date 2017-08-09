@@ -11,6 +11,10 @@ var app = {
 	users:[],
 	favorites:[],
 	riverData:[],
+<<<<<<< HEAD
+=======
+	msgIdeal:[],
+>>>>>>> 0ad3b7e
 	counter:0,
   
   everyThingIsDone: function(){		
@@ -30,6 +34,7 @@ var app = {
 
 
 	getUsers: function(){
+<<<<<<< HEAD
 
     request
     	.get('http://theriverreport.herokuapp.com/allUsersData', function(error, response, body){
@@ -59,6 +64,56 @@ var app = {
   	}		
 	},
 
+=======
+		var options = {
+    host: 'localhost',
+    port: 3000,
+    path: '/allUsersData',
+    method: 'GET',
+    headers: {
+        accept: 'application/json'
+	    }
+		};
+		var x = http.request(options,function(res){
+		  res.on('data',function(data){    
+		    app.users = JSON.parse(data)
+		    app.getFavorites()
+		  });
+		});
+		x.end();
+	},
+	getFavorites: function(){
+		var options = {
+    host: 'localhost',
+    port: 3000,
+    path: '/allUsersFavorites/',
+    method: 'GET',
+	    headers: {
+	        accept: 'application/json',       
+		  }
+		};
+		var x = http.request(options,function(res){
+		  res.on('data',function(data){   
+		    app.favorites = JSON.parse(data)
+		    app.addToObj()
+		    app.insertFavorites()
+		  });
+		});
+		x.end();
+	},
+
+	addToObj: function(){
+
+		for(var i=0;i<app.favorites.length; i++){
+			app.favorites[i]['Current'] = 0;
+			app.favorites[i]['in'] = false;
+		}
+  	for(var x=0;x<app.users.length;x++){
+  		app.users[x].favorites=[];
+  	}		
+	},
+
+>>>>>>> 0ad3b7e
 	insertFavorites: function(){
   
 		for ( var i = 0; i < app.users.length; i++ ) {
@@ -89,11 +144,32 @@ var app = {
 	},
 
 	getRiverData:function(){
+<<<<<<< HEAD
  
     request
 			.get('http://theriverreport.herokuapp.com/api/v1/coData', function(error, response, body){
 					app.riverData = JSON.parse(body)
 			})
+=======
+
+		var options = {
+    host: 'localhost',
+    port: 3000,
+    path: '/api/v1/coData',
+    method: 'GET',
+    headers: {
+        accept: 'application/json'
+	    }
+		};
+
+		console.log("Start");
+		var x = http.request(options,function(res){
+		  res.on('data',function(data){
+		    app.riverData = JSON.parse(data)
+		  });
+		});
+		x.end();
+>>>>>>> 0ad3b7e
 	},
 
 	getRiverLevels:function(){
