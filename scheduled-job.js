@@ -119,8 +119,8 @@ var app = {
 				  	  river.in = true;
 				  	};
 				  };
-				  app.everyThingIsDone()
 				});
+				  app.everyThingIsDone()
       })
     })
 	},
