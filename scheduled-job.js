@@ -11,7 +11,6 @@ var app = {
 	users:[],
 	favorites:[],
 	riverData:[],
-	msgIdeal:[],
 	counter:0,
   
   everyThingIsDone: function(){		
@@ -31,41 +30,22 @@ var app = {
 
 
 	getUsers: function(){
-		var options = {
-    host: 'localhost',
-    port: 3000,
-    path: '/allUsersData',
-    method: 'GET',
-    headers: {
-        accept: 'application/json'
-	    }
-		};
-		var x = http.request(options,function(res){
-		  res.on('data',function(data){    
-		    app.users = JSON.parse(data)
-		    app.getFavorites()
-		  });
-		});
-		x.end();
+
+    request
+    	.get('http://theriverreport.herokuapp.com/allUsersData', function(error, response, body){
+		    app.users = JSON.parse(body)
+		    console.log(app.users)
+		    app.getFavorites()   		
+    	})
 	},
 	getFavorites: function(){
-		var options = {
-    host: 'localhost',
-    port: 3000,
-    path: '/allUsersFavorites/',
-    method: 'GET',
-	    headers: {
-	        accept: 'application/json',       
-		  }
-		};
-		var x = http.request(options,function(res){
-		  res.on('data',function(data){   
-		    app.favorites = JSON.parse(data)
+
+		request
+			.get('http://theriverreport.herokuapp.com/allUsersFavorites', function(error, response, body){
+				app.favorites = JSON.parse(body)
 		    app.addToObj()
 		    app.insertFavorites()
-		  });
-		});
-		x.end();
+			})
 	},
 
 	addToObj: function(){
@@ -109,24 +89,11 @@ var app = {
 	},
 
 	getRiverData:function(){
-
-		var options = {
-    host: 'localhost',
-    port: 3000,
-    path: '/api/v1/coData',
-    method: 'GET',
-    headers: {
-        accept: 'application/json'
-	    }
-		};
-
-		console.log("Start");
-		var x = http.request(options,function(res){
-		  res.on('data',function(data){
-		    app.riverData = JSON.parse(data)
-		  });
-		});
-		x.end();
+ 
+    request
+			.get('http://theriverreport.herokuapp.com/api/v1/coData', function(error, response, body){
+					app.riverData = JSON.parse(body)
+			})
 	},
 
 	getRiverLevels:function(){
@@ -193,16 +160,11 @@ var app = {
 			}
 	},
 
-
-
 	run: function(){
 		app.checkIfComplete()
     app.getRiverData()
 		app.getUsers()
-
 	}
-
-
 }
 
 app.run()
