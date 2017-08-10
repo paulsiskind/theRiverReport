@@ -20,7 +20,7 @@ var app = {
 			app.twil()
      
 		}else{
-			setTimeout(function(){app.checkIfComplete()}, 1200);		
+			setTimeout(function(){app.checkIfComplete()}, 600);		
 		}
 	},
 
@@ -95,10 +95,12 @@ var app = {
 	 
       // start map
     app.users.map(function(favs){
+    	var promises = []
     	app.counter++
     	console.log(app.counter, app.users.length)
-      favs.favorites.map(function(river){
 
+      favs.favorites.map(function(river){
+      var p =
 		    request
 		    	.get('https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ river.riverInfo.USGSid +'&parameterCd=00060,00065', function (error, response, body) {
 				  // console.log('error:', error); // Print the error if one occurred 
@@ -114,7 +116,8 @@ var app = {
 				  	};
 				  };
 				});
-				  app.everyThingIsDone()
+		    	promises.push(p)
+				//  app.everyThingIsDone()
       })
     })
 	},

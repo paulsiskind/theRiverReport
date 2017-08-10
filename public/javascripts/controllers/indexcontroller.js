@@ -49,6 +49,9 @@
       if(choice === 'co'){
         $scope.viewBarState = "Colorado"
       }
+      if(choice === 'wy'){
+        $scope.viewBarState = "Wyoming"
+      }
       $scope.choice = choice;
     }
 
