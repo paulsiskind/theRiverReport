@@ -185,9 +185,5 @@ router.get('*', function(req, res, next) {
   })
 });
 
-app = function(){
-  console.log('hello Bitches')
-}
-
 
 module.exports = router;

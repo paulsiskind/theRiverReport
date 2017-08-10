@@ -20,7 +20,7 @@ var app = {
 			app.twil()
      
 		}else{
-			setTimeout(function(){app.checkIfComplete()}, 600);		
+			setTimeout(function(){app.checkIfComplete()}, 1000);		
 		}
 	},
 
@@ -95,12 +95,12 @@ var app = {
 	 
       // start map
     app.users.map(function(favs){
-    	var promises = []
+    	
     	app.counter++
     	console.log(app.counter, app.users.length)
 
       favs.favorites.map(function(river){
-      var p =
+     
 		    request
 		    	.get('https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ river.riverInfo.USGSid +'&parameterCd=00060,00065', function (error, response, body) {
 				  // console.log('error:', error); // Print the error if one occurred 
@@ -108,16 +108,15 @@ var app = {
 				  var tacoTruck = JSON.parse(body)
 				  var riverLevel = tacoTruck.value.timeSeries[0].values[0].value[0].value
 				  var ideal = river.riverlevel
-	        console.log(riverLevel)
+	        console.log(river.riverInfo.name, riverLevel)
 				  if(ideal !== null){
 				  	if(riverLevel >= ideal){
 				  	  river.Current = riverLevel
 				  	  river.in = true;
 				  	};
 				  };
-				});
-		    	promises.push(p)
-				//  app.everyThingIsDone()
+				});   	
+				app.everyThingIsDone()
       })
     })
 	},
@@ -142,17 +141,17 @@ var app = {
     	var greeting = '\n' + 'Thank you for using theRiverReport'
 	
     	console.log('sending msg to:', user[i].userphone, msg.join(' '))
-	     	if(msg.length>0){
-					client.messages.create({
-					    to: user[i].userphone, 
-					    from:"+19707103508",
-					    body: msg.join(' ') + greeting,
-					}, function(error, message) {
-					    if (error) {
-					        console.log(error.message);
-					    }
-					  });
-				}
+	   //   	if(msg.length>0){
+				// 	client.messages.create({
+				// 	    to: user[i].userphone, 
+				// 	    from:"+19707103508",
+				// 	    body: msg.join(' ') + greeting,
+				// 	}, function(error, message) {
+				// 	    if (error) {
+				// 	        console.log(error.message);
+				// 	    }
+				// 	  });
+				// }
 			}
 	},
 
