@@ -185,5 +185,9 @@ router.get('*', function(req, res, next) {
   })
 });
 
+app = function(){
+  console.log('Cheese Please')
+}
+
 
 module.exports = router;
