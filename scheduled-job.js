@@ -1,10 +1,6 @@
 require('dotenv').load()
-var http = require('http');
 var request = require('request');
 var client = require('twilio')(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
-
-
-
 
 var app = {
 
@@ -27,7 +23,6 @@ var app = {
 			setTimeout(function(){app.checkIfComplete()}, 1200);		
 		}
 	},
-
 
 	getUsers: function(){
 
@@ -98,7 +93,6 @@ var app = {
 
 	getRiverLevels:function(){
 	 
-
       // start map
     app.users.map(function(favs){
     	app.counter++
@@ -130,7 +124,6 @@ var app = {
 		var user = app.users
 		var num = 1;
 		
-
     for(var i=0; i<user.length;i++){	
     	var msg = []
     	var sendMsg = [];
