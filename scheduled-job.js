@@ -179,17 +179,17 @@ var app = {
     	var greeting = '\n' + 'Thank you for using theRiverReport!'
 	
     	console.log('sending msg to:', user[i].userphone, msg.join(' '))
-	   //   	if(msg.length>0){
-				// 	client.messages.create({
-				// 	    to: user[i].userphone, 
-				// 	    from:"+19707103508",
-				// 	    body: msg.join(' ') + greeting,
-				// 	}, function(error, message) {
-				// 	    if (error) {
-				// 	        console.log(error.message);
-				// 	    }
-				// 	  });
-				// }
+	     	if(msg.length>0){
+					client.messages.create({
+					    to: user[i].userphone, 
+					    from:"+19707103508",
+					    body: msg.join(' ') + greeting,
+					}, function(error, message) {
+					    if (error) {
+					        console.log(error.message);
+					    }
+					  });
+				}
 			}
 	},
 
