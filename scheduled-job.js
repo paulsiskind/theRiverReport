@@ -138,7 +138,6 @@ var app = {
       
       favs.favorites.map(function(river){
      
-				app.counterTwo++
 		    request
 		    	.get('https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ river.riverInfo.USGSid +'&parameterCd=00060,00065', function (error, response, body) {
 				  // console.log('error:', error); // Print the error if one occurred 
@@ -154,6 +153,7 @@ var app = {
 				  	};
 				  };
 				});   	
+				app.counterTwo++
 				app.everyThingIsDone()
       })
     }
