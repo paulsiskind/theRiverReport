@@ -94,11 +94,42 @@ var app = {
 	getRiverLevels:function(){
 	 
       // start map
-    app.users.map(function(favs){
-    	
+
+    // for(var i=0;i<app.users.length;i++){
+    // 	app.counter++
+    // 	for(var j=0;j<app.users[i].favorites.length;j++){
+
+				//   var ideal = app.users[i].favorites[j].riverlevel;
+				//   var usgs = app.users[i].favorites[j].riverInfo.USGSid;
+				//   var river = app.users[i].favorites[j].riverInfo.name
+				//   var current = app.users[i].favorites[j].Current;
+				//   var riverIn = app.users[i].favorites[j].in
+    // 		  console.log(river)
+    // 		request
+		  //   	.get('https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ usgs +'&parameterCd=00060,00065', function (error, response, body) {
+				//   // console.log('error:', error); // Print the error if one occurred 
+				//   // console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
+				//   var tacoTruck = JSON.parse(body)
+				//   var riverLevel = tacoTruck.value.timeSeries[0].values[0].value[0].value
+	   //      console.log(river, riverLevel)
+				//   if(ideal !== null){
+				//   	if(riverLevel >= ideal){
+				//   	  current = riverLevel
+				//   	  riverIn = true;
+				//   	};
+				//   };
+				// });   	
+				// app.everyThingIsDone()
+    // 	}
+    // }
+
+
+
+    for(var i=0;i<app.users.length;i++){
+    	var favs = app.users[i]
     	app.counter++
     	console.log(app.counter, app.users.length)
-
+      
       favs.favorites.map(function(river){
      
 		    request
@@ -118,7 +149,7 @@ var app = {
 				});   	
 				app.everyThingIsDone()
       })
-    })
+    }
 	},
 
 	twil:function(){
@@ -138,20 +169,20 @@ var app = {
          
     		};
     	};
-    	var greeting = '\n' + 'Thank you for using theRiverReport'
+    	var greeting = '\n' + 'Thank you for using theRiverReport!'
 	
     	console.log('sending msg to:', user[i].userphone, msg.join(' '))
-	   //   	if(msg.length>0){
-				// 	client.messages.create({
-				// 	    to: user[i].userphone, 
-				// 	    from:"+19707103508",
-				// 	    body: msg.join(' ') + greeting,
-				// 	}, function(error, message) {
-				// 	    if (error) {
-				// 	        console.log(error.message);
-				// 	    }
-				// 	  });
-				// }
+	     	if(msg.length>0){
+					client.messages.create({
+					    to: user[i].userphone, 
+					    from:"+19707103508",
+					    body: msg.join(' ') + greeting,
+					}, function(error, message) {
+					    if (error) {
+					        console.log(error.message);
+					    }
+					  });
+				}
 			}
 	},
 
