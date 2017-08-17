@@ -7,11 +7,17 @@ var app = {
 	users:[],
 	favorites:[],
 	riverData:[],
+	result: false,
 	counter:0,
+	counterTwo:0,
   
   everyThingIsDone: function(){		
 		if(app.counter === app.users.length){
-				app.result = true;
+			console.log(app.users.length, app.counterTwo)
+					console.log(app.users[app.users.length-1].favorites.length)
+				if(app.counterTwo === app.users[app.users.length-1].favorites.length){
+					app.result = true;
+				}
 		}
 		return app.result
 	},
@@ -132,6 +138,7 @@ var app = {
       
       favs.favorites.map(function(river){
      
+				app.counterTwo++
 		    request
 		    	.get('https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ river.riverInfo.USGSid +'&parameterCd=00060,00065', function (error, response, body) {
 				  // console.log('error:', error); // Print the error if one occurred 
@@ -172,17 +179,17 @@ var app = {
     	var greeting = '\n' + 'Thank you for using theRiverReport!'
 	
     	console.log('sending msg to:', user[i].userphone, msg.join(' '))
-	     	if(msg.length>0){
-					client.messages.create({
-					    to: user[i].userphone, 
-					    from:"+19707103508",
-					    body: msg.join(' ') + greeting,
-					}, function(error, message) {
-					    if (error) {
-					        console.log(error.message);
-					    }
-					  });
-				}
+	   //   	if(msg.length>0){
+				// 	client.messages.create({
+				// 	    to: user[i].userphone, 
+				// 	    from:"+19707103508",
+				// 	    body: msg.join(' ') + greeting,
+				// 	}, function(error, message) {
+				// 	    if (error) {
+				// 	        console.log(error.message);
+				// 	    }
+				// 	  });
+				// }
 			}
 	},
 
