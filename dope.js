@@ -8,21 +8,16 @@ var app = {
 	favorites:[],
 	riverData:[],
 	counter:0,
-	counterTwo:0,
+
   
   everyThingIsDone: function(){		
-		if(app.counter > app.users.length-1){
-			app.counterTwo++
-			console.log(app.users.length, app.counterTwo)
-					console.log(app.users[app.users.length-1].favorites.length)
-				if(app.counterTwo === app.users[app.users.length-1].favorites.length){
-		      app.twil()
-				}
+		app.counter++
+		console.log(app.counter, app.favorites.length)
+		if(app.counter === app.favorites.length){
+      app.twil()
 		}
 	},
-
 	getUsers: function(){
-
     request
     	.get('http://theriverreport.herokuapp.com/allUsersData', function(error, response, body){
 		    app.users = JSON.parse(body)
@@ -31,7 +26,6 @@ var app = {
     	})
 	},
 	getFavorites: function(){
-
 		request
 			.get('http://theriverreport.herokuapp.com/allUsersFavorites', function(error, response, body){
 				app.favorites = JSON.parse(body)
@@ -39,7 +33,6 @@ var app = {
 		    app.insertFavorites()
 			})
 	},
-
 	addToObj: function(){
 
 		for(var i=0;i<app.favorites.length; i++){
@@ -50,7 +43,6 @@ var app = {
   		app.users[x].favorites=[];
   	}		
 	},
-
 	insertFavorites: function(){
   
 		for ( var i = 0; i < app.users.length; i++ ) {
@@ -80,22 +72,18 @@ var app = {
 	},
 
 	getRiverData:function(){
- 
     request
 			.get('http://theriverreport.herokuapp.com/api/v1/coData', function(error, response, body){
 					app.riverData = JSON.parse(body)
 			})
 	},
-
 	getRiverLevels:function(){
 	 
     for(var i=0;i<app.users.length;i++){
+    	
     	var favs = app.users[i];
-    	app.counter++
-    	console.log(app.counter, app.users.length)
       
-      favs.favorites.map(function(river){
-     
+      favs.favorites.map(function(river){   
 		    request
 		    	.get('https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ river.riverInfo.USGSid +'&parameterCd=00060,00065', function (error, response, body) {
 				  // console.log('error:', error); // Print the error if one occurred 
@@ -115,7 +103,6 @@ var app = {
       })
     }
 	},
-
 	twil:function(){
 		console.log("I'm Last!")
 		var user = app.users;
@@ -124,17 +111,16 @@ var app = {
     for(var i=0; i<user.length;i++){	
     	var msg = [];
     	var sendMsg = [];
-			var flag = false;
+
     	for(var j=0; j<user[i].favorites.length; j++){
     		if(user[i].favorites[j].in === true){
     			console.log(user[i].firstname, num++, user[i].favorites[j].Current, user[i].favorites[j].riverlevel, user[i].favorites[j].riverInfo.name)
           msg.push(user[i].favorites[j].riverInfo.name + ' is in! ' 
-                              + 'The Current flow is: '+ user[i].favorites[j].Current + '. Your recommended level is: ' + user[i].favorites[j].riverlevel + '.' + '\n')
+          + 'The Current flow is: '+ user[i].favorites[j].Current + '. Your recommended level is: ' + user[i].favorites[j].riverlevel + '.' + '\n')
          
     		};
     	};
-    	var greeting = '\n' + 'Thank you for using theRiverReport!'
-	
+    	var greeting = '\n' + 'Thank you for using theRiverReport!'	
     	console.log('sending msg to:', user[i].userphone, msg.join(' '))
 	   //   	if(msg.length>0){
 				// 	client.messages.create({

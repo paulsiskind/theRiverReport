@@ -16,7 +16,7 @@ var app = {
 			console.log(app.users.length, app.counterTwo)
 					console.log(app.users[app.users.length-1].favorites.length)
 				if(app.counterTwo === app.users[app.users.length-1].favorites.length){
-		      app.twil()
+		      app.finish()
 				}
 		}
 	},
@@ -114,6 +114,11 @@ var app = {
 				});   	
       })
     }
+	},
+
+	finish:function(){
+		return 'What up Homie'
+
 	},
 
 	twil:function(){
