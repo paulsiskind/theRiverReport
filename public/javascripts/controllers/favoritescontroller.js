@@ -4,16 +4,20 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
   $scope.flows = {};
   $scope.ideal = []
   $scope.showme =false
+  
 
   $http.get('/usersData').then(function (response) {
+    console.log(response)
     $scope.usersData = response.data   
     $scope.userphone = $scope.usersData[0].userphone
-    $scope.userEmail = $scope.usersData[0].email  
+    $scope.userEmail = $scope.usersData[0].email 
+    $scope.textAlert = $scope.usersData[0].textalert
+    $scope.emailAlert = $scope.usersData[0].emailalert
   });
-
+  console.log($scope.emailAlert, $scope.userphone, '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
   $http.get('/userFavorites').then(function (response) {
     $scope.favorites = response.data
-      console.log($scope.favorites)
+     
     $http.get('/api/v1/coData').then(function (response) {
       $scope.allRivers = response.data;
       console.log(response.data, '>>>>>>>>>>>')
@@ -26,7 +30,7 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
           }
         }
       }
-      console.log($scope.userFavs, 'tacos')
+    
       for ( var i = 0; i < $scope.favorites.length; i++ ) {
         for ( var e = 0; e < $scope.userFavs.length; e++ ) {
         if($scope.favorites[i].riverid === $scope.userFavs[e].id){
@@ -80,6 +84,26 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
     });
   });
 
+  $scope.textAlertChange = function(){
+    console.log($scope.textAlert, 'Bitches Love Bono')
+    $http.post('/textAlert')
+    $http({
+        url: '/textAlert',
+        method: "POST",
+        data: { 'textAlert' : $scope.textAlert}
+    })
+  }
+
+  $scope.emailAlertChange = function(){
+    console.log($scope.emailAlert, '')
+    $http.post('/textAlert')
+    $http({
+        url: '/emailAlert',
+        method: "POST",
+        data: { 'emailAlert' : $scope.emailAlert}
+    })
+  }
+
   $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow, aboveRecommend){
     // completely frozen water
     if(actualFlow === '-999999') return 'nine'
@@ -99,7 +123,6 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
  
   setInterval(function(){
     k++;
-    console.log('here', k)
     $scope.setBackground()
     $scope.$apply(); 
   },30000)

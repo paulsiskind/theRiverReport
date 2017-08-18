@@ -44,7 +44,6 @@ app.controller("HomeController", function($scope, $http, $location, $cookies, $r
  
   setInterval(function(){
     k++;
-    console.log('here', k)
     $scope.setBackground()
     $scope.$apply(); 
   },30000)

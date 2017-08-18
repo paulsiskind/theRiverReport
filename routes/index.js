@@ -59,6 +59,44 @@ router.post('/addPhone', function(req, res, next){
   });
 })
 
+router.post('/textAlert', function(req, res, next){
+  pg.connect(conString, function(err, client, done) {
+
+    if (err) {
+      return console.error('error fetching client from pool', err);
+    }
+    
+    client.query('UPDATE users set textAlert = $1 where facebookid = $2',[req.body.textAlert, req.user.facebookId], function(err, result) {
+      console.log(req.body.textAlert, req.user.facebookId, 'tacos')
+      done();
+
+      res.redirect('/favorites')
+      if (err) {
+        return console.error('error running query', err);
+      }
+    });
+  });
+})
+
+router.post('/emailAlert', function(req, res, next){
+  pg.connect(conString, function(err, client, done) {
+
+    if (err) {
+      return console.error('error fetching client from pool', err);
+    }
+    
+    client.query('UPDATE users set emailAlert = $1 where facebookid = $2',[req.body.emailAlert, req.user.facebookId], function(err, result) {
+      console.log(req.body.emailAlert, req.user.facebookId, 'tacos')
+      done();
+
+      res.redirect('/favorites')
+      if (err) {
+        return console.error('error running query', err);
+      }
+    });
+  });
+})
+
 // update users set userphone=5303860690 where facebookid = '10153566999344667';
 
 router.post('/addFav', function(req, res, next){

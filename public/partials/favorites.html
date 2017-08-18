@@ -13,6 +13,16 @@
       <p>Current email: {{userEmail}}</p>
       <input type="text" class="form-control" name="email">
       <br>
+      <input type="hidden" value="{{textAlert}}" name="textAlert">
+      <md-switch ng-model="textAlert" aria-label="Text Alert Switch" class="md-primary" ng-change="textAlertChange()">
+        Text Alert: {{textAlert}}
+      </md-switch>
+      <br>
+      <md-switch ng-model="emailAlert" aria-label="Email on off switch"  class="md-primary" ng-change="emailAlertChange()">
+          Email Alert: {{emailAlert}}
+      </md-switch>
+     <!-- //   ng-true-value="'On'" ng-false-value="'Off'" -->
+      <br>
       <button type="submit" class="btn btn-success" ng-click="showme=false">Update</button>
     </form>
     <div ng-if='ideal[0].name'>
