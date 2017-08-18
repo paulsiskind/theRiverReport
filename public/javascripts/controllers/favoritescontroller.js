@@ -1,26 +1,23 @@
 app.controller('FavoritesController', function ($scope, $http, $routeParams, $rootScope, $window, $cookies) {
   $scope.user = $cookies.getAll();
-  console.log($scope.user)
   $scope.flows = {};
   $scope.ideal = []
   $scope.showme =false
   
 
   $http.get('/usersData').then(function (response) {
-    console.log(response)
     $scope.usersData = response.data   
     $scope.userphone = $scope.usersData[0].userphone
     $scope.userEmail = $scope.usersData[0].email 
     $scope.textAlert = $scope.usersData[0].textalert
     $scope.emailAlert = $scope.usersData[0].emailalert
   });
-  console.log($scope.emailAlert, $scope.userphone, '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+
   $http.get('/userFavorites').then(function (response) {
     $scope.favorites = response.data
      
     $http.get('/api/v1/coData').then(function (response) {
       $scope.allRivers = response.data;
-      console.log(response.data, '>>>>>>>>>>>')
       $scope.userFavs = [];
     
       for ( var i = 0; i < $scope.favorites.length; i++ ) {
@@ -50,7 +47,6 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
           $scope.flows[favs["name"]] = response.data.value.timeSeries[0].values[0].value[0].value;
           return $scope.flows;
         });
-        console.log('tacos', p)
         promises.push(p)
       });
       // end map
@@ -67,26 +63,18 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
                
               if(userFavs[i].riverlevel != null){
                 if(rivers[prop] > userFavs[i].riverlevel){
-                  console.log(rivers[prop], userFavs[i].riverlevel )
                   
                   $scope.ideal.push(userFavs[i])
-                  console.log($scope.ideal, '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
                 };
               };
             };
           };
-         //   if($scope.ideal[0].name === $scope.ideal[0].name){
-         //    console.log('bitches')
-         //  $http.post('/twilio');
-         // }
         };
       });
     });
   });
 
   $scope.textAlertChange = function(){
-    console.log($scope.textAlert, 'Bitches Love Bono')
-    $http.post('/textAlert')
     $http({
         url: '/textAlert',
         method: "POST",
@@ -95,8 +83,6 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
   }
 
   $scope.emailAlertChange = function(){
-    console.log($scope.emailAlert, '')
-    $http.post('/textAlert')
     $http({
         url: '/emailAlert',
         method: "POST",

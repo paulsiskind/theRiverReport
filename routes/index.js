@@ -67,7 +67,7 @@ router.post('/textAlert', function(req, res, next){
     }
     
     client.query('UPDATE users set textAlert = $1 where facebookid = $2',[req.body.textAlert, req.user.facebookId], function(err, result) {
-      console.log(req.body.textAlert, req.user.facebookId, 'tacos')
+      console.log(req.body.textAlert, req.user.facebookId, 'bees')
       done();
 
       res.redirect('/favorites')

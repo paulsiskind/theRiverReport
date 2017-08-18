@@ -3,10 +3,6 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
   $scope.riverId = $routeParams.riverId;  
   $scope.user = $cookies.getAll();
 
-
-      
-    
-
   $http.get('/api/v1/coData').then(function (response) {  
     $scope.coWaters = response.data;
     for(var i=0; i< $scope.coWaters.length;i++){
@@ -24,7 +20,6 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
     })
  
     $http.get('https://nwis.waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT=2015-03-04&parameterCd=00060,00065').then(function(response){
-      console.log(response)
       $scope.flow = response.data.value.timeSeries[0].values[0].value;
       $scope.flowData = [];                                                          
 
@@ -43,90 +38,6 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
        // $scope.series = ['Series A'];
       for (var i = 0; i <= arr.length; i++) {
         $scope.labels.push('|');
-       
-        // if(i===0){
-        //   $scope.labels.push('March');
-        // }
-        // else if(i===28){
-        //   $scope.labels.push('March');
-        //   console.log('tacios')
-        // }
-        // else if(i===58){
-        //   $scope.labels.push('May')
-        // }
-        // else if(i===88){
-        //   $scope.labels.push('June');
-        // }
-        // else if(i===118){
-        //   $scope.labels.push('July');
-        // }
-        // else if(i===148){
-        //   $scope.labels.push('August');
-        // }
-        // else if(i===178){
-        //   $scope.labels.push('September');
-        // }
-        // else if(i===208){
-        //   $scope.labels.push('October');
-        //   console.log('Here')
-        // }
-        // else if(i===238){
-        //   $scope.labels.push('November');
-        // }
-        // else if(i===268){
-        //   $scope.labels.push('December');
-        // }
-        // else if(i===298){
-        //   $scope.labels.push('January');
-        // }
-        // else if(i===328){
-        //   $scope.labels.push('Febuary');
-        // }
-        //  if(i===358){
-        //   $scope.labels.push('March');
-        // }
-        // else if(i===388){
-        //   $scope.labels.push('March');
-        //   console.log('tacios')
-        // }
-        // else if(i===418){
-        //   $scope.labels.push('May')
-        // }
-        // else if(i===448){
-        //   $scope.labels.push('June');
-        // }
-        // else if(i===478){
-        //   $scope.labels.push('July');
-        // }
-        // else if(i===508){
-        //   $scope.labels.push('August');
-        // }
-        // else if(i===538){
-        //   $scope.labels.push('September');
-        // }
-        // else if(i===568){
-        //   $scope.labels.push('October');
-        //   console.log('Here')
-        // }
-        // else if(i===598){
-        //   $scope.labels.push('November');
-        // }
-        // else if(i===628){
-        //   $scope.labels.push('December');
-        // }
-        // else if(i===658){
-        //   $scope.labels.push('January');
-        // }
-        // else if(i===688){
-        //   $scope.labels.push('Febuary');
-        // }
-        // else if(i===718){
-        //   $scope.labels.push('March');
-        // }
-        // else{
-        //   $scope.labels.push(i);
-        // }
-        // console.log($scope.labels)
       };
 
       $scope.data = [arr];
