@@ -81,6 +81,7 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
         data: { 'textAlert' : $scope.textAlert}
     })
   }
+  
 
   $scope.emailAlertChange = function(){
     $http({

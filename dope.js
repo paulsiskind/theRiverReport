@@ -1,7 +1,13 @@
 require('dotenv').load()
 var request = require('request');
 var client = require('twilio')(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
-
+// var smtpTransport = nodemailer.createTransport({
+//        service: "Gmail", 
+//        auth: {
+//            // user: "",
+//            // pass: ""
+//        	}     
+// });
 var app = {
 
 	users:[],
@@ -123,6 +129,7 @@ var app = {
     	var greeting = '\n' + 'Thank you for using theRiverReport!'	
     	console.log('sending msg to:', user[i].userphone, msg.join(' '), user[i].textalert)
     		if(user[i].textalert === true){
+
     			console.log('inside')
 		     	if(msg.length>0){
 						client.messages.create({
@@ -138,6 +145,27 @@ var app = {
 						console.log("No message to send")
 					}
 				}
+				if(user[i].emailalert === true){	
+							console.log('email Alert')
+					// var mailData = {
+     //        from:' ',
+     //        to: user[i].email,
+     //        subject: 'RiverReport Alerts',
+     //        text: 'Say Something',
+     //        html: '<h4>'+ 'Rivers Are In!'+'.'+'</h4>'				           
+     //        +'<br>'+'<p>'+ msg.join(' ') + greeting+'</p>'         
+     //      };
+        
+	        // smtpTransport.sendMail(mailData, function(err, info){
+     
+	        //   if(err){
+	        //     console.log('there was an error')
+	        //   }else{					          
+	        //   console.log('Message sent: '+ info.response);
+	        //   					    
+	        //   }
+	        // })
+				}	
 			}
 	},
 

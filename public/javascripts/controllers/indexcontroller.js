@@ -31,8 +31,7 @@
     $scope.state = function(choice){
      
       if(choice === 'al'){
-        $scope.viewBarState = 'Alabama'
-       
+        $scope.viewBarState = 'Alabama'  
       }
       if(choice === 'ak'){
         $scope.viewBarState = "Alaska"
@@ -49,15 +48,20 @@
       if(choice === 'co'){
         $scope.viewBarState = "Colorado"
       }
+      if(choice === 'nm'){
+        $scope.viewBarState = "New Mexico"
+      }
       if(choice === 'wy'){
         $scope.viewBarState = "Wyoming"
       }
       $scope.choice = choice;
     }
 
+  $scope.state('co');
+
    $scope.class = function(select){
     if(select === 'v'){
-      $scope.viewBarClass = ' Class V'
+      $scope.viewBarClass = 'Class V'
       $scope.classSearch = 'V'
     }
     if(select === 'iv'){
