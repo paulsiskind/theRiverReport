@@ -7,6 +7,13 @@ app.controller("HomeController", function($scope, $http, $location, $cookies, $r
   $scope.user = $cookies.getAll()
 
   })
+
+  $http.get('/api/v1/newFeed').then(function (response) {  
+    console.log(response)
+    $scope.newsFeed = response.data;
+  });
+
+  
   
 
    

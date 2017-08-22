@@ -1,4 +1,7 @@
-<div id="backgroundImg" ng-class="setBackground()" class="absoluteBackground">
+<!-- <div id="backgroundImg" ng-class="setBackground()" class="absoluteBackground" layout="row" layout-xs="column"> -->
+ 
+ <div layout="row" layout-xs="column" ng-class="setBackground()">
+ 
   <md-whiteframe class="md-whiteframe-10dp md-display-5 well col-md-4">
     <bold>Welcome</bold>
     <h1>{{user.firstName}}</h1>
@@ -13,9 +16,6 @@
       <p>Current email: {{userEmail}}</p>
       <input type="text" class="form-control" name="email">
       <br>
-
-      
-     //   ng-true-value="'On'" ng-false-value="'Off'"
       <br>
       <button type="submit" class="btn btn-success" ng-click="showme=false">Update</button>
     </form>
@@ -38,7 +38,7 @@
     </div>     
   </md-whiteframe>
 
-  <md-whiteframe class="md-whiteframe-1dp md-display-5 well col-md-8">
+  <md-whiteframe flex md-truncate class="md-whiteframe-1dp md-display-5 well col-md-8">
 
     <table class="table">
       <th>Section</th>

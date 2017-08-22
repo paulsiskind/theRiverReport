@@ -3,7 +3,7 @@ var router = express.Router();
 var pg = require('pg');
 var conString = process.env.DATABASE_URL || "postgres://@localhost/theriverreport";
 var coData = require('../coData.json')
-var caData = require('../caData.json')
+var newsFeed = require('../newFeed.json')
 // var db = require('../queries');
 
 
@@ -13,14 +13,14 @@ router.get('/_=_', function(req, res, next) {
  
   res.json(req.user)
 });
-// router.get('/getAllFavorite', db.getAllFavorite);
 
 router.get('/api/v1/coData', function(req, res, next) {
   res.json(coData)
 });
 
-router.get('/api/v1/caData', function(req, res, next){
-  res.json(caData)
+router.get('/api/v1/newFeed', function(req, res, next){
+  console.log('heeeeeeelo')
+  res.json(newsFeed)
 });
 
 
