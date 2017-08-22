@@ -9,9 +9,18 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
     $scope.usersData = response.data   
     $scope.userphone = $scope.usersData[0].userphone
     $scope.userEmail = $scope.usersData[0].email 
-    $scope.textAlert = $scope.usersData[0].textalert
-    $scope.emailAlert = $scope.usersData[0].emailalert
+    $scope.textAlert = $scope.changeTrueToOn($scope.usersData[0].textalert)
+    $scope.emailAlert =$scope.changeTrueToOn($scope.usersData[0].emailalert)
   });
+
+  $scope.changeTrueToOn = function(response){
+    if(response === true){
+      return 'On'
+    }
+    if(response === false){
+      return 'Off'
+    }
+  }
 
   $http.get('/userFavorites').then(function (response) {
     $scope.favorites = response.data
