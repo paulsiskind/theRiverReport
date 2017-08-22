@@ -2,41 +2,148 @@
   <div class="container">    
     </br>
     </br>
-    <div class="riverHeader">theRiverReport</div>     
-    <div class='riverButtons'>
-      <ul class="nav navbar">
-        <li class="dropdown box">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><md-button class="md-raised md-primary dropdown-toggle" ng-default="state('co')">Choose a State</md-button></a>
-          <ul class="dropdown-menu">
-            <li><a href="#" ng-click="state('al')">Alabama</a></li>
-            <li><a href="#" ng-click="state('ak')">Alaska</a></li>
-            <li><a href="#" ng-click="state('az')">Arizona</a></li>
-            <li><a href="#" ng-click="state('ar')">Arkansas</a></li>
-            <li><a href="#" ng-click="state('co')">Colorado</a></li> 
-            <li><a href="#" ng-click="state('nm')">New Mexico</a></li> 
-            <li><a href="#" ng-click="state('wy')">Wyoming</a></li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar">
-        <li class="dropdown box">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><md-button class="md-raised md-primary dropdown-toggle">Choose a Class</md-button></a>
-          <ul class="dropdown-menu">
-            <li><a href="#" ng-click="class('v')">Class V</a></li>
-            <li><a href="#" ng-click="class('iv')">Class IV</a></li>
-            <li><a href="#" ng-click="class('iii')">Class III</a></li>
-            <li><a href="#" ng-click="class('ii')">Class II</a></li>
-            <li><a href="#" ng-click="class('i')">Class I</a></li> 
-          </ul>
-        </li>
-      </ul>
-    </div>
+   <!--  <div class="riverHeader">theRiverReport</div>   -->
+
+    <!-- <div class='riverButtons' flex md-truncate layout="column">
+    
+      <md-button class="md-raised md-primary dropdown-toggle" >
+        <md-menu-bar>
+          <md-menu>
+            <md-button  ng-click="$mdOpenMenu()" ng-default="state('co')">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Choose a Class<span ng-bind="viewBar"></span><span class="caret"></span></a>
+            </md-button>
+            <md-menu-content>   
+              <md-menu-item>
+                <md-button>
+                   <a href="#" ng-click="state('co')">Colorado</a>
+                </md-button>  
+              </md-menu-item>        
+              <md-menu-item>
+                <md-button>
+                 <a href="#" ng-click="state('nm')">New Mexico</a>
+                </md-button>  
+              </md-menu-item>
+              <md-menu-item>
+                <md-button>
+                  <a href="#" ng-click="state('wy')">Wyoming</a>
+                </md-button>  
+              </md-menu-item>         
+            </md-menu-content>
+          </md-menu>   
+        </md-menu-bar>
+      </md-button>
+
+      <md-button class="md-raised md-primary dropdown-toggle">
+        <md-menu-bar>
+          <md-menu>
+            <md-button  ng-click="$mdOpenMenu()">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Choose a State<span ng-bind="viewBar"></span><span class="caret"></span></a>
+            </md-button>
+            <md-menu-content>   
+              <md-menu-item>
+                <md-button>
+                   <a href="#" ng-click="class('v')">Class V</a>
+                </md-button>  
+              </md-menu-item>        
+              <md-menu-item>
+                <md-button>
+                 <a href="#" ng-click="class('iv')">Class IV</a>
+                </md-button>  
+              </md-menu-item>
+              <md-menu-item>
+                <md-button>
+                 <a href="#" ng-click="class('iii')">Class III</a>
+                </md-button>  
+              </md-menu-item>   
+              <md-menu-item>
+                <md-button>
+                 <a href="#" ng-click="class('ii')">Class II</a>
+                </md-button>  
+              </md-menu-item>   
+              <md-menu-item>
+                <md-button>
+                 <a href="#" ng-click="class('i')">Class I</a>
+                </md-button>  
+              </md-menu-item>   
+            </md-menu-content>
+          </md-menu>   
+        </md-menu-bar>
+      </md-button>
+    </div> -->
     <br><br>
 
     <div ng-include src= "'partials/spinner.html'"></div>
        
     <md-whiteframe class="md-whiteframe-24dp md-display-2 col-md-12 riverList">
+    <div flex md-truncate layout="row">
     {{viewBarState}} {{viewBarClass}} {{flows.weather}} {{search}}
+
+    <div flex md-truncate layout="row" layout-align="end start">
+      <md-button class="md-raised md-primary dropdown-toggle" >
+        <md-menu-bar>
+          <md-menu>
+            <md-button  ng-click="$mdOpenMenu()" ng-default="state('co')">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Choose a Class<span ng-bind="viewBar"></span><span class="caret"></span></a>
+            </md-button>
+            <md-menu-content>   
+              <md-menu-item>
+                <md-button>
+                   <a href="#" ng-click="state('co')">Colorado</a>
+                </md-button>  
+              </md-menu-item>        
+              <md-menu-item>
+                <md-button>
+                 <a href="#" ng-click="state('nm')">New Mexico</a>
+                </md-button>  
+              </md-menu-item>
+              <md-menu-item>
+                <md-button>
+                  <a href="#" ng-click="state('wy')">Wyoming</a>
+                </md-button>  
+              </md-menu-item>         
+            </md-menu-content>
+          </md-menu>   
+        </md-menu-bar>
+      </md-button>
+
+      <md-button class="md-raised md-primary dropdown-toggle">
+        <md-menu-bar>
+          <md-menu>
+            <md-button  ng-click="$mdOpenMenu()">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Choose a State<span ng-bind="viewBar"></span><span class="caret"></span></a>
+            </md-button>
+            <md-menu-content>   
+              <md-menu-item>
+                <md-button>
+                   <a href="#" ng-click="class('v')">Class V</a>
+                </md-button>  
+              </md-menu-item>        
+              <md-menu-item>
+                <md-button>
+                 <a href="#" ng-click="class('iv')">Class IV</a>
+                </md-button>  
+              </md-menu-item>
+              <md-menu-item>
+                <md-button>
+                 <a href="#" ng-click="class('iii')">Class III</a>
+                </md-button>  
+              </md-menu-item>   
+              <md-menu-item>
+                <md-button>
+                 <a href="#" ng-click="class('ii')">Class II</a>
+                </md-button>  
+              </md-menu-item>   
+              <md-menu-item>
+                <md-button>
+                 <a href="#" ng-click="class('i')">Class I</a>
+                </md-button>  
+              </md-menu-item>   
+            </md-menu-content>
+          </md-menu>   
+        </md-menu-bar>
+      </md-button>
+    </div>
+    </div>
       </br>
 
       <table class="table">

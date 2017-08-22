@@ -6,46 +6,13 @@ body {
   overflow-x: hidden;*/
 }
 body, html{
-/*  background: none;*/
-  overflow-x: hidden;
+/*  background: none;
+  overflow-x: hidden;*/
 }
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-    ng-cloak {
-  display: none !important;
+        display: none !important;
 }
-.md-toolbar-tools > * {
-  margin: 0;
-}
-/*.md-toolbar {
-  min-height: 0px; 
-  background-color: rgb(35, 36, 43);
-  color: white;
-  font-size: 20px;
-  right:0;
-  left:0;
-}*/
-.bottom{
-  position: absolute;
-  bottom: 0;
-}
-.nav>li>a, .navbar-brand {
-  color: white;
-  transition: ease-in-out .75s;
-}
-ul.nav.navbar-nav li:hover{
-  background: rgb(55, 56, 63);
-  color: white;
-}
-ul.nav.navbar-nav li a:hover{
-  background: rgb(111,135,158);
-  color: white;
-}
-ul.nav.navbar li a:hover{
-  background: rgb(125,142,160);
-}
-.charts, .displayInfo {
-  background-color: white;
-  opacity: 0.9;  
-}
+
 .taco{ 
   background-color: white;
   right: 0;
@@ -142,6 +109,37 @@ img{
   font-size: 16px;
 }
 
+.c-navbar {
+  min-height: 0px; 
+  background-color: rgb(35, 36, 43);
+  color: white;
+  font-size: 20px;
+  right:0;
+  let:0;
+}
+.bottom{
+  position: absolute;
+  bottom: 0;
+}
+.nav>li>a, .navbar-brand {
+  color: white;
+  transition: ease-in-out .75s;
+}
+ul.nav.navbar-nav li:hover{
+  background: rgb(55, 56, 63);
+  color: white;
+}
+ul.nav.navbar-nav li a:hover{
+  background: rgb(111,135,158);
+  color: white;
+}
+ul.nav.navbar li a:hover{
+  background: rgb(125,142,160);
+}
+.charts, .displayInfo {
+  background-color: white;
+  opacity: 0.9;  
+}
 #something{
   background: url('/images/sopris.jpg') no-repeat
   center center fixed; 
