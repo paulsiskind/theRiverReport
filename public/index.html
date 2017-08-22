@@ -21,20 +21,12 @@
     <title>TheRiverReport</title>
   </head>
   <body>
-    <div ng-controller="HomeController">
+    <div ng-controller="HomeController" ng-cloak>
             
-      <a href="/" class="navbar-brand" >theRiverReport</a> 
-      <div class="container-fluid c-navbar">
+     <!--  <a href="/" class="navbar-brand" >theRiverReport</a>  -->
+      <!-- <div class="container-fluid c-navbar">
         <ul class="nav navbar-nav">
           <li class="active"><a href="/map">Map</a></li>
-          <!-- <li><a href="#" ng-click="showme=true">Submit Post</a></li>
-          <li>
-          <form class="navbar-form" role="search">
-              <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search" ng-model="search">
-              </div>
-          </form>
-          </li>  -->
         
           <ul class="nav navbar-nav">
             <li class="dropdown">
@@ -66,17 +58,68 @@
             </a>
           </li>
         </ul>
-      </div>
+      </div> -->
+
+      <md-toolbar class="md-hue-9 mainToolBar">
+        <div class="md-toolbar-tools">
+          <div flex md-truncate layout="row" layout-align="start center">
+          <span><h2><a href="/">theRiverReport</a></h2></span>
+          <md-menu-bar>
+            <md-menu>
+              <md-button class="md-button md-raised md-default" ng-click="$mdOpenMenu()">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Displaying <span ng-bind="viewBar"></span><span class="caret"></span></a>
+              </md-button>
+              <md-menu-content>   
+                <md-menu-item>
+                  <md-button>
+                     <span class="active"><a href="/map">Map</a></span>
+                  </md-button>  
+                </md-menu-item>        
+                <md-menu-item>
+                  <md-button>
+                    <a href="/rivers" ng-click="order('rivers')">Rivers</a>
+                  </md-button>  
+                </md-menu-item>
+                <md-menu-item>
+                  <md-button ng-disable="true">
+                    <a href="#" ng-click="order('events')">Events</a>
+                  </md-button>  
+                </md-menu-item>
+                <md-menu-item>
+                  <md-button ng-disable="true">
+                    <a href="#" ng-click="order('gear')">Gear</a>
+                  </md-button>  
+                </md-menu-item>
+                <md-menu-item>
+                  <md-button ng-disable="true">
+                    <div ng-if='user.facebookId'><a href="/favorites" ng-click="order('favorites')">Favorites</a></div>
+                  </md-button>  
+                </md-menu-item>
+                <md-menu-item>
+                  <md-button ng-disable="true">
+                    <a href="#" ng-click="order('announcements')">Announcements</a>
+                  </md-button>  
+                </md-menu-item>           
+              </md-menu-content>
+            </md-menu>   
+          </md-menu-bar>
+          </div>
+          <md-button>
+              <a href="/auth/facebook" ng-hide="user.firstName" target="_self"> login
+                <span>
+                  <i class="fa fa-facebook"></i>
+                </span>
+              </a>
+              <a href="/logout" ng-show="user.firstName" target="_self"> logout
+                <span><i class="fa fa-facebook"></i></span>
+              </a>  
+          </md-button>
+        </div>
+      </md-toolbar>
     </div>
 
       <div ng-view></div>
-     <br>
-     <br>
-     <!--  <div class="c-navbar bottom">
-        <div class="navbar-text pull-right ">
-         <a href="https://paulsiskind.herokuapp.com/"><p>©BrokenPaddleProductions</p></a>
-        </div>
-      </div> -->
+    
     <script type="text/javascript" src="/javascripts/init.js"></script>
     <script type="text/javascript" src="/javascripts/app.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/favoritescontroller.js"></script>
