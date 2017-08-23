@@ -73,16 +73,16 @@
     <br><br>
 
     <div ng-include src= "'partials/spinner.html'"></div>
-       
+      
     <md-whiteframe class="md-whiteframe-24dp md-display-2 col-xs-12 riverList">
-      <div flex md-truncate layout="row">
+      <div flex layout="row">
       {{viewBarState}} {{viewBarClass}} {{flows.weather}} {{search}}
         <div flex md-truncate layout="row" layout-align="end start" layout-xs="column">
-          <md-button class="md-raised md-primary dropdown-toggle" >
+          <md-button class="md-raised md-primary" >
             <md-menu-bar>
               <md-menu>
-                <md-button  ng-click="$mdOpenMenu()" ng-default="state('co')">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Choose a Class<span ng-bind="viewBar"></span><span class="caret"></span></a>
+                <md-button  ng-click="$mdMenu.open()" ng-default="state('co')">
+                 State
                 </md-button>
                 <md-menu-content>   
                   <md-menu-item>
@@ -108,8 +108,8 @@
           <md-button class="md-raised md-primary dropdown-toggle">
             <md-menu-bar>
               <md-menu>
-                <md-button  ng-click="$mdOpenMenu()">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Choose a State<span ng-bind="viewBar"></span><span class="caret"></span></a>
+                <md-button  ng-click="$mdMenu.open()">
+                  Class
                 </md-button>
                 <md-menu-content>   
                   <md-menu-item>
