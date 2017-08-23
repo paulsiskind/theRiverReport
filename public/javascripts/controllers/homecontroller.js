@@ -9,7 +9,7 @@ app.controller("HomeController", function($scope, $http, $location, $cookies, $r
   })
 
   $http.get('/api/v1/newFeed').then(function (response) {  
-    console.log(response)
+    console.log(response.data[0])
     $scope.newsFeed = response.data;
   });
 

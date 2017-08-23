@@ -8,62 +8,14 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 jumbotron" id="news">
-          <div class="col-md-4 leftColumn">
-            <h4>
-              <a href="http://jacksonkayak.com/blog/kayak/antix/">New Jackson Antix
-              </a> 
-            </h4>
-            <h4>
-              <a href="https://www.liquidlogickayaks.com/customer-service/recycling/">How to recycle your boat
-              </a> 
-            </h4>
-            <h4>
-              <a href="https://www.liquidlogickayaks.com/product/LRJEGR17.html">Return of the Jefe
-              </a> 
-            </h4>
-            <h4>
-              <a href="https://www.liquidlogickayaks.com/2016/03/the-development-of-the-liquidlogic-kayaks-mullet/">The Mullet Story
-              </a> 
-            </h4>
-          </div>
-          <div class="col-md-4 middleColumn">
-            <h4>
-              <a href="http://jacksonkayak.com/blog/kayak/Nirvana/">New Jackson Nirvana
-              </a> 
-            </h4>
-            <h4>
-              <a href="https://www.youtube.com/watch?v=sS4w1kqzKuw">Piroette the Mullet
-              </a> 
-            </h4>
-            <h4>
-              <a href="http://www.sitezed.com/the-daniel-effect/">The Daniel Effect
-              </a> 
-            </h4>
-            <h4>
-              <a href="http://www.sitezed.com/falling/">Falling
-              </a> 
-            </h4>
-          </div>
-          <div class="col-md-4 rightColumn">
-            <h4>
-              <a href="http://jacksonkayak.com/blog/kayak/zen/">Jackson zen
-              </a> 
-            </h4>
-            <h4>
-              <a href="http://www.pyranha.com/kayaks.php?kayak=Machno">New Machno
-              </a> 
-            </h4>
-            <h4>
-              <a href="http://www.pyranha.com/kayaks.php?kayak=9R%20L">9rL
-              </a> 
-            </h4>
-            <h4>
-              <a href="http://dbpmagazineonline.com/">DBP
-              </a> 
-            </h4>
+          <div class="columns">
+            <div ng-repeat="article in newsFeed">
+              <a href={{article.url}}>
+                <h4>{{article.Tag}}</h4>
+              </a>
+            </div>
           </div>
         </div>
-       <!--  <div class="offset-md-2 col-md-6 jumbotron"></div> -->
       </div>
     </div>
   </article>

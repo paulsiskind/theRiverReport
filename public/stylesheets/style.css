@@ -10,9 +10,12 @@ body, html{
   overflow-x: hidden;*/
 }
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-    ng-cloak {
-        display: none !important;
-}
+  display: none !important;
 
+}
+.columns{
+  columns: 3;
+}
 .taco{ 
   background-color: white;
   right: 0;
