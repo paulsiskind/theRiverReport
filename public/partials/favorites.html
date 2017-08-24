@@ -1,8 +1,8 @@
-<!-- <div id="backgroundImg" ng-class="setBackground()" class="absoluteBackground" layout="row" layout-xs="column"> -->
+<!-- <!-<div id="backgroundImg" ng-class="setBackground()" class="absoluteBackground" layout="row" layout-xs="column"> -->
  
- <div layout="row" layout-xs="column" ng-class="setBackground()">
- 
-  <md-whiteframe class="md-whiteframe-10dp md-display-5 well col-md-4">
+<!--  <div layout="row" layout-xs="column" ng-class="setBackground()">
+ --> 
+<!--   <md-whiteframe class="md-whiteframe-10dp md-display-5 well col-md-4">
     <bold>Welcome</bold>
     <h1>{{user.firstName}}</h1>
     <h1>{{user.email}}</h1>
@@ -36,9 +36,9 @@
         <li>{{fav.name}}</li>
       </div>
     </div>     
-  </md-whiteframe>
+  </md-whiteframe> -->
 
-  <md-whiteframe flex md-truncate class="md-whiteframe-1dp md-display-5 well col-md-8">
+<!--   <md-whiteframe flex class="md-whiteframe-1dp md-display-5 well col-md-8">
 
     <table class="table">
       <th>Section</th>
@@ -71,6 +71,112 @@
         </td>
       </tr>  
     </table>
-  </md-whiteframe>
-</div>
+  </md-whiteframe> -->
+<!-- </div> -->
+
+
+<div layout="column" style="height:800px;" ng-cloak>
+  <section layout="row" flex>
+    <md-sidenav
+        class="md-sidenav-left"
+        md-component-id="left"
+        md-is-locked-open="$mdMedia('gt-md')"
+        md-whiteframe="4">
+
+      <md-toolbar>
+        <h1 class="md-toolbar-tools">Welcome {{user.firstName}}</h1>
+      </md-toolbar>
+      <md-content layout-padding ng-controller="LeftCtrl">
+        <md-button ng-click="close()" class="md-primary" hide-gt-md>
+          Close Sidenav 
+        </md-button>
+        <p hide show-gt-md>
+          This sidenav is locked open on your device. To go back to the default behavior,
+          narrow your display.
+        </p>
+  
+        <p><a href="#" ng-click="showme=!showme">Add user info</a></p>
+        <form form method="post" action="/addPhone" ng-show="showme" class="fade-in-out">
+          <p>Add Phone #</p>
+          <p>Current phone: {{userphone}}</p>
+          <input type="text" class="form-control" name="phone">
+          <br>
+          <p>Add Email</p>
+          <p>Current email: {{userEmail}}</p>
+          <input type="text" class="form-control" name="email">
+          <br>
+          <br>
+          <button type="submit" class="btn btn-success" ng-click="showme=false">Update</button>
+        </form>
         
+        <div class="textAlerts">
+          <md-switch ng-model="textAlert" value="textAlert" aria-label="Text Alert Switch" class="md-primary" ng-change="textAlertChange()" ng-true-value="'On'" ng-false-value="'Off'">
+            Text Alert: {{textAlert}}
+          </md-switch>
+        </div>
+        <div class="emailAlerts">
+          <md-switch ng-model="emailAlert" aria-label="Email on off switch"  class="md-primary" ng-change="emailAlertChange()" ng-true-value="'On'" ng-false-value="'Off'">
+              Email Alert: {{emailAlert}}
+          </md-switch>
+        </div>
+        <div ng-if='ideal[0].name'>
+          <h3>Favorite Rivers at Ideal flow</h3>
+          <div ng-repeat="fav in ideal">
+            <li>{{fav.name}}</li>
+          </div>
+        </div>     
+ 
+      </md-content>
+
+    </md-sidenav>
+
+    <md-content flex layout-padding>
+
+      <div layout="column" layout-align="top center">
+       
+
+        <div>
+          <md-button ng-click="toggleLeft()"
+            class="md-primary" hide-gt-md>
+            Toggle left
+          </md-button>
+        </div>
+
+        <md-whiteframe flex class="md-whiteframe-1dp md-display-5 well">
+          <table class="table">
+            <th>Section</th>
+            <th>River Name</th>
+            <th>State</th>
+            <th>Class</th>
+            <th>Season</th>
+            <th>Users Level</th>
+            <th>Flow</th>
+            <th>Delete</th>
+          
+            <tr class="flow" ng-repeat="water in userFavs | filter: search" data-twillio="flows[water.name], water" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend, water.aboveRecommend)">
+           
+              <td style="padding: 20px;"><a href="/{{water.id}}">{{water.name}}</td>
+              <td style="padding: 20px;">{{water.nameProper}}</a></td>
+              <td style="padding: 20px;">{{water.state}} </td>
+              <td style="padding: 20px;">{{water.class}} </td>
+              <td style="padding: 20px;">{{water.season}} </td>
+              <td ng-if='user.facebookId' style="padding: 20px;">{{water.riverlevel}}</td>
+              <td style="padding: 20px;">
+                <span class="frozen five" ng-if="flows[water.name] == -999999"> Frozen</span>  
+                <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span>
+              </td>
+             
+              <td style="padding: 20px;">
+                <form method="post" action="/deleteFav">
+                  <input type="hidden" value="{{water.id}}" name="riverId">
+                  <md-button class="md-raised md-cornered" type="submit" value="Add to rivers">Delete</md-button>
+                </form>
+              </td>
+            </tr>  
+          </table>
+        </md-whiteframe>
+      </div>
+    </md-content>
+  </section>
+</div>
+         
