@@ -1,4 +1,4 @@
-<div id="backgroundImgRivers">
+<!-- <div id="backgroundImgRivers">
   <div class="container">    
   
     <br><br>
@@ -99,4 +99,122 @@
       </table>
     </md-whiteframe>
   </div>
+</div> -->
+
+<!-- //////////////////////// -->
+
+
+<div layout="column" style="height:500px;">
+
+  <section layout="row" flex>
+
+    <md-sidenav
+        class="md-sidenav-left"
+        md-component-id="left"
+        md-is-locked-open="$mdMedia('gt-md')"
+        md-whiteframe="3">
+
+      <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Menu</h1>
+      </md-toolbar>
+      <md-content layout-padding ng-controller="LeftCtrl">
+        <md-button ng-click="close()" class="md-primary" hide-gt-md>
+          Close Sidenav Left
+        </md-button>
+
+        <div flex layout="column" layout-align="end start">
+          <md-button class="md-raised md-primary" >
+            <md-menu-bar>
+              <md-menu>
+                <md-button  ng-click="$mdMenu.open()" ng-default="state('co')">
+                 State
+                </md-button>
+                <md-menu-content>   
+                  <md-menu-item>
+                    <md-button>
+                       <a href="#" ng-click="state('co')">Colorado</a>
+                    </md-button>  
+                  </md-menu-item>        
+                  <md-menu-item>
+                    <md-button>
+                     <a href="#" ng-click="state('nm')">New Mexico</a>
+                    </md-button>  
+                  </md-menu-item>
+                  <md-menu-item>
+                    <md-button>
+                      <a href="#" ng-click="state('wy')">Wyoming</a>
+                    </md-button>  
+                  </md-menu-item>         
+                </md-menu-content>
+              </md-menu>   
+            </md-menu-bar>
+          </md-button>
+
+          <md-button class="md-raised md-primary dropdown-toggle">
+            <md-menu-bar>
+              <md-menu>
+                <md-button  ng-click="$mdMenu.open()">
+                  Class
+                </md-button>
+                <md-menu-content>   
+                  <md-menu-item>
+                    <md-button>
+                       <a href="#" ng-click="class('v')">Class V</a>
+                    </md-button>  
+                  </md-menu-item>        
+                  <md-menu-item>
+                    <md-button>
+                     <a href="#" ng-click="class('iv')">Class IV</a>
+                    </md-button>  
+                  </md-menu-item>
+                  <md-menu-item>
+                    <md-button>
+                     <a href="#" ng-click="class('iii')">Class III</a>
+                    </md-button>  
+                  </md-menu-item>   
+                  <md-menu-item>
+                    <md-button>
+                     <a href="#" ng-click="class('ii')">Class II</a>
+                    </md-button>  
+                  </md-menu-item>   
+                  <md-menu-item>
+                    <md-button>
+                     <a href="#" ng-click="class('i')">Class I</a>
+                    </md-button>  
+                  </md-menu-item>   
+                </md-menu-content>
+              </md-menu>   
+            </md-menu-bar>
+          </md-button>
+        </div>
+     
+      
+      </md-content>
+
+    </md-sidenav>
+
+    <md-content flex layout-padding>
+
+      <div layout="column" layout-align="top center">
+        <p>
+        The left sidenav will 'lock open' on a medium (>=960px wide) device.
+        </p>
+        <p>
+        The right sidenav will focus on a specific child element.
+        </p>
+
+        <div>
+          <md-button ng-click="toggleLeft()"
+            class="md-primary" hide-gt-md>
+            Toggle left
+          </md-button>
+        </div>
+
+        <div>
+        </div>
+      </div>
+
+      <div flex></div>
+    </md-content>
+  </section>
 </div>
