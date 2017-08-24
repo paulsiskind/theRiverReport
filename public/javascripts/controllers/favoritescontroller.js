@@ -128,10 +128,6 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
   ///////////////
 
     $scope.toggleLeft = buildDelayedToggler('left');
-    $scope.toggleRight = buildToggler('right');
-    $scope.isOpenRight = function(){
-      return $mdSidenav('right').isOpen();
-    };
 
     /**
      * Supplies a function that will continue to operate until the
@@ -164,17 +160,6 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
             $log.debug("toggle " + navID + " is done");
           });
       }, 200);
-    }
-
-    function buildToggler(navID) {
-      return function() {
-        // Component lookup should always be available since we are not using `ng-if`
-        $mdSidenav(navID)
-          .toggle()
-          .then(function () {
-            $log.debug("toggle " + navID + " is done");
-          });
-      };
     }
   
    $scope.close = function () {
