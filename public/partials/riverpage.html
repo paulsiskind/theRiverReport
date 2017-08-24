@@ -1,4 +1,4 @@
-<section id="backgroundImg" data-type="background" data-speed="10" ng-class="setBackground()" class="absoluteBackground">
+<!-- <section id="backgroundImg" data-type="background" data-speed="10" ng-class="setBackground()" class="absoluteBackground">
   <div class="container"> 
     <br>
     <md-whiteframe class="md-whiteframe-1dp col-md-12 riverHeader2" col-md-12>
@@ -21,7 +21,7 @@
         </md-button>  
       </span>
     </md-whiteframe>
-                    <!-- Animation -->
+                   
     <div ng-include src= "'partials/spinner.html'"></div>
     <div layout-xs="column">
       <md-whiteframe class="md-whiteframe-3dp col-md-4 displayInfo">
@@ -66,4 +66,128 @@
       </md-whiteframe>
     </div>
   </div>
-</section>
+</section> -->
+
+
+
+<!-- ////////New Theming  -->
+
+<div layout="column" style="height:800px;" ng-cloak>
+
+  <section layout="row" flex>
+
+    <md-sidenav
+        class="md-sidenav-left"
+        md-component-id="left"
+        md-is-locked-open="$mdMedia('gt-md')"
+        md-whiteframe="4">
+
+      <md-toolbar>
+        <h1 class="md-toolbar-tools">River Info</h1>
+      </md-toolbar>
+      <md-content layout-padding ng-controller="LeftCtrl">
+        <md-button ng-click="close()" class="md-primary" hide-gt-md>
+          Close River Info
+        </md-button>
+
+        <div flex layout="column">
+
+          <span class="riverpageDashboard">
+            <p>Location: {{riverInfo.nameProper}}</p>
+            <p>Section: {{riverInfo.name}} </p>
+            <p>Class:  {{riverInfo.class}} </p>
+            <p>CFS: 
+              <span class="frozen" ng-if="flows.timeSeries[0].values[0].value[0].value == -999999"> Frozen</span>  
+              <span ng-if="flows.timeSeries[0].values[0].value[0].value != -999999">{{flows.timeSeries[0].values[0].value[0].value}}</span>
+            </p>
+          </span>    
+        
+          <span ng-if='user.facebookId' class="addFav" class="text-right">
+            <form method="post" action="/addFav/">
+              <input type="hidden" value="{{riverInfo.id}}" name="riverId">
+              <md-button class="md-raised md-cornered md-primary" type="submit" value="Add to rivers">Add to Favorite Rivers</md-button>
+            </form>
+
+            <md-button class="md-raised md-primary">
+              <p ng-click="showit=!showit">SMS Level</p>
+              <form form method="post" action="/addLevel" ng-show="showit" class="fade-in-out">
+                <p>Water Level</p>
+                <input type="hidden" value="{{riverInfo.id}}" name="riverId">
+                <input type="number" class="form-control" name="riverLevel">
+                <br>
+                <button type="submit" class="btn btn-success" ng-click="showit=false">Update</button>
+              </form>
+            </md-button>  
+          </span>
+        </div>
+        
+      </md-content>
+
+    </md-sidenav>
+
+    <md-content flex layout-padding>
+
+      <div layout="column" layout-align="top center">
+
+        <div>
+          <md-button ng-click="toggleLeft()"
+            class="md-primary" hide-gt-md>
+            River Info
+          </md-button>
+        </div>  
+
+        <div>
+          <md-button ng-click="toggleRight()"
+            ng-hide="isOpenRight()"
+            class="md-primary">
+            Weather
+          </md-button>   
+        </div>
+
+        <div class="md-whiteframe-3dp charts col-md-12" layout="column">
+          <canvas id="bar" class="chart chart-line"  chart-data="data"
+            chart-labels="labels" chart-legend="true" chart-series="series"
+            chart-click="onClick" >
+          </canvas> 
+          <br>
+          <br>
+          <canvas id="bar" class="chart chart-bar"  chart-data="data"
+            chart-labels="labels" chart-legend="false" chart-series="series"
+            chart-click="onClick" chart-series="series"
+            chart-click="onClick">
+          </canvas> 
+          <br>
+          <br>
+        </div>  
+      </div>
+    </md-content>
+
+    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+
+      <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">Weather</h1>
+      </md-toolbar>
+      <md-content ng-controller="RightCtrl" layout-padding>
+       
+        <md-button ng-click="close()" class="md-primary">
+          Close Weather
+        </md-button>
+
+        <h4>Long Term Forecast</h4>
+        <p>Weather Station: {{weatherLocation}}</p>
+        <p>{{weatherUnder[0].title}}: {{weatherUnder[0].fcttext}}</p>
+        <p>{{weatherUnder[1].title}}: {{weatherUnder[1].fcttext}}</p>
+        <p>{{weatherUnder[2].title}}: {{weatherUnder[2].fcttext}}</p>
+        <p>{{weatherUnder[3].title}}: {{weatherUnder[3].fcttext}}</p>
+        <p>{{weatherUnder[4].title}}: {{weatherUnder[4].fcttext}}</p>
+        <p>{{weatherUnder[5].title}}: {{weatherUnder[5].fcttext}}</p>
+        <p>{{weatherUnder[6].title}}: {{weatherUnder[6].fcttext}}</p>
+        <p>{{weatherUnder[7].title}}: {{weatherUnder[7].fcttext}}</p>
+      </md-content>
+
+    </md-sidenav>
+
+  </section>
+</div>
+
+

@@ -24,6 +24,12 @@
       });
     }); 
 
+    $scope.myFilter = " ";
+
+    $scope.myFilterFunction = function(filter){
+      $scope.newFilter = filter
+    }
+
     $scope.state = function(choice){
      
       if(choice === 'al'){

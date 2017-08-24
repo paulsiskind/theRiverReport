@@ -104,7 +104,7 @@
 <!-- //////////////////////// -->
 
 
-<div layout="column" style="height:500px;">
+<div layout="column" style="height:800px;">
 
   <section layout="row" flex>
 
@@ -121,6 +121,18 @@
         <md-button ng-click="close()" class="md-primary" hide-gt-md>
           Close Sidenav Left
         </md-button>
+        
+          <md-input-container>
+            <label for="testInput">Search Rivers</label>
+            <input type="text"
+                   ng-model="myFilter" 
+                   ng-keydown="myFilterFunction(myFilter)"
+
+                   md-autofocus>
+          </md-input-container>
+        
+
+        <p>{{myFilter}}</p>
 
         <div flex layout="column" layout-align="end start">
           <md-button class="md-raised md-primary" >
@@ -150,7 +162,7 @@
             </md-menu-bar>
           </md-button>
 
-          <md-button class="md-raised md-primary dropdown-toggle">
+          <md-button class="md-raised md-primary">
             <md-menu-bar>
               <md-menu>
                 <md-button  ng-click="$mdMenu.open()">
@@ -186,6 +198,7 @@
               </md-menu>   
             </md-menu-bar>
           </md-button>
+
         </div>
      
       
@@ -196,13 +209,6 @@
     <md-content flex layout-padding>
 
       <div layout="column" layout-align="top center">
-        <p>
-        The left sidenav will 'lock open' on a medium (>=960px wide) device.
-        </p>
-        <p>
-        The right sidenav will focus on a specific child element.
-        </p>
-
         <div>
           <md-button ng-click="toggleLeft()"
             class="md-primary" hide-gt-md>
@@ -210,11 +216,37 @@
           </md-button>
         </div>
 
-        <div>
+    
+      <md-whiteframe class="md-whiteframe-8dp md-display-2 riverList">
+        <div flex layout="row">
+          {{viewBarState}} {{viewBarClass}} {{myFilter}}
         </div>
-      </div>
+        <table class="table">
+          <th>Section</th>
+          <th>River Name</th>
+          <th>State</th>
+          <th>Class</th>
+          <th>Season</th>
+          <th>Flow</th>
 
-      <div flex></div>
+          <tr class="flow" ng-repeat="water in coWaters | filter:newFilter | filter: {state:choice} | filter:{class:classSearch}| filter:myFilter" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend)">
+
+            <td style="padding: 20px;"><a href="/{{water.id}}">{{water.name}}</a></td>
+            <td style="padding: 20px;">{{water.nameProper}}</td>
+            <td style="padding: 20px;">{{water.state}} </td>
+            <td style="padding: 20px;">{{water.class}} </td>
+            <td style="padding: 20px;">{{water.season}}</td>
+            <td style="padding: 20px;">
+              <span class="frozen five" ng-if="flows[water.name] == -999999">Frozen</span>  
+              <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span>
+            </td>
+          </tr> 
+        </table>
+      </md-whiteframe>
+      
+    </div>
+
+      
     </md-content>
   </section>
 </div>
