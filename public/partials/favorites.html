@@ -94,8 +94,8 @@
           This sidenav is locked open on your device. To go back to the default behavior,
           narrow your display.
         </p>
-  
-        <p><a href="#" ng-click="showme=!showme">Add user info</a></p>
+        <md-button class="md-primary" ng-click="showme=!showme"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></md-button>
+        <!-- <p><a href="#" ng-click="showme=!showme">Add user info</a></p> -->
         <form form method="post" action="/addPhone" ng-show="showme" class="fade-in-out">
           <p>Add Phone #</p>
           <p>Current phone: {{userphone}}</p>
@@ -105,8 +105,8 @@
           <p>Current email: {{userEmail}}</p>
           <input type="text" class="form-control" name="email">
           <br>
-          <br>
-          <button type="submit" class="btn btn-success" ng-click="showme=false">Update</button>
+          
+          <md-button type="submit" class="md-raised md-primary" ng-click="showme=false">Update</md-button>
         </form>
         
         <div class="textAlerts">
