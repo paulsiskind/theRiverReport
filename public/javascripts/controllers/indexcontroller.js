@@ -33,30 +33,42 @@
     $scope.state = function(choice){
      
       if(choice === 'al'){
-        $scope.viewBarState = 'Alabama'  
+        $scope.viewBarState = 'Alabama' 
+        $scope.choice = choice; 
       }
       if(choice === 'ak'){
         $scope.viewBarState = "Alaska"
+        $scope.choice = choice;
+      }
+      if(choice === 'all'){
+        $scope.viewBarState = 'Display All'
+        $scope.choice = '';
       }
       if(choice === 'az'){
         $scope.viewBarState = 'Arizona'
+        $scope.choice = choice;
       }
       if(choice === 'ar'){
         $scope.viewBarState = 'Arkansas'
+        $scope.choice = choice;
       }
       if(choice === 'ca'){
         $scope.viewBarState = "California"
+        $scope.choice = choice;
       }
       if(choice === 'co'){
         $scope.viewBarState = "Colorado"
+        $scope.choice = choice;
       }
       if(choice === 'nm'){
         $scope.viewBarState = "New Mexico"
+        $scope.choice = choice;
       }
       if(choice === 'wy'){
         $scope.viewBarState = "Wyoming"
+        $scope.choice = choice;
       }
-      $scope.choice = choice;
+      
     }
 
     $scope.state('co');

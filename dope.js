@@ -1,13 +1,14 @@
 require('dotenv').load()
 var request = require('request');
 var client = require('twilio')(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
-// var smtpTransport = nodemailer.createTransport({
-//        service: "Gmail", 
-//        auth: {
-//            // user: "",
-//            // pass: ""
-//        	}     
-// });
+var	nodemailer = require('nodemailer');
+var smtpTransport = nodemailer.createTransport({
+       service: "Gmail", 
+       auth: {
+          user: process.env.emailAddress,
+          pass: process.env.emailPass
+       	}     
+});
 var app = {
 
 	users:[],
@@ -142,30 +143,35 @@ var app = {
 						    }
 						  });
 					}else{
-						console.log("No message to send")
+						console.log("No text message to send")
 					}
 				}
 				if(user[i].emailalert === true){	
 							console.log('email Alert')
-					// var mailData = {
-     //        from:' ',
-     //        to: user[i].email,
-     //        subject: 'RiverReport Alerts',
-     //        text: 'Say Something',
-     //        html: '<h4>'+ 'Rivers Are In!'+'.'+'</h4>'				           
-     //        +'<br>'+'<p>'+ msg.join(' ') + greeting+'</p>'         
-     //      };
-        
-	        // smtpTransport.sendMail(mailData, function(err, info){
-     
-	        //   if(err){
-	        //     console.log('there was an error')
-	        //   }else{					          
-	        //   console.log('Message sent: '+ info.response);
-	        //   					    
-	        //   }
-	        // })
-				}	
+					if(msg.length>0){
+						var mailData = {
+	            from:' ',
+	            to: user[i].email,
+	            subject: 'theRiverReport Alerts',
+	            text: 'Say Something',
+	            html: '<h4>'+ 'Rivers Are In!'+'.'+'</h4>'				           
+	            +'<br>'+'<p>'+ msg.join(' ') + greeting+'</p>'         
+	          };
+	        
+		        smtpTransport.sendMail(mailData, function(err, info){
+	     
+		          if(err){
+		            console.log('there was an error')
+		          }else{					          
+		          console.log('Message sent: '+ info.response);
+		          					    
+		          }
+		        })
+		      }
+					else{
+						console.log('No email to send')
+					}	
+				}
 			}
 	},
 

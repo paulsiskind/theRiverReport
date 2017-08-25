@@ -1,32 +1,20 @@
 require('dotenv').config({path: __dirname + '/.env'})
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var cookieSession = require('cookie-session');
-var FacebookStrategy = require('passport-facebook');
-var passport = require('passport');
-// var twilio = require('twilio');
-// var accountSid = TWILIO_ACCOUNT_SID;
-// var authToken = TWILIO_AUTH_TOKEN;
-// var client = require('twilio')(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const cookieSession = require('cookie-session');
+const FacebookStrategy = require('passport-facebook');
+const passport = require('passport');
 
+const pg = require('pg');
+const conString = process.env.DATABASE_URL || "postgres://@localhost/theriverreport";
 
-var pg = require('pg');
-var conString = process.env.DATABASE_URL || "postgres://@localhost/theriverreport";
-
-
-var routes = require('./routes/index');
-var users = require('./routes/users');
-// var twilio = require('./routes/twilio')
-
-// var cors = require('cors');
-var bodyParser = require('body-parser');
-
-
-var app = express();
+const routes = require('./routes/index');
+const users = require('./routes/users');
+const app = express();
 // configure the app to use bodyParser()
 app.use(bodyParser.urlencoded({
     extended: false

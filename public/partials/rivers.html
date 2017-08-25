@@ -1,109 +1,3 @@
-<!-- <div id="backgroundImgRivers">
-  <div class="container">    
-  
-    <br><br>
-
-    <div ng-include src= "'partials/spinner.html'"></div>
-      
-    <md-whiteframe class="md-whiteframe-24dp md-display-2 col-xs-12 riverList">
-      <div flex layout="row">
-      {{viewBarState}} {{viewBarClass}} {{flows.weather}} {{search}}
-        <div flex md-truncate layout="row" layout-align="end start" layout-xs="column">
-          <md-button class="md-raised md-primary" >
-            <md-menu-bar>
-              <md-menu>
-                <md-button  ng-click="$mdMenu.open()" ng-default="state('co')">
-                 State
-                </md-button>
-                <md-menu-content>   
-                  <md-menu-item>
-                    <md-button>
-                       <a href="#" ng-click="state('co')">Colorado</a>
-                    </md-button>  
-                  </md-menu-item>        
-                  <md-menu-item>
-                    <md-button>
-                     <a href="#" ng-click="state('nm')">New Mexico</a>
-                    </md-button>  
-                  </md-menu-item>
-                  <md-menu-item>
-                    <md-button>
-                      <a href="#" ng-click="state('wy')">Wyoming</a>
-                    </md-button>  
-                  </md-menu-item>         
-                </md-menu-content>
-              </md-menu>   
-            </md-menu-bar>
-          </md-button>
-
-          <md-button class="md-raised md-primary dropdown-toggle">
-            <md-menu-bar>
-              <md-menu>
-                <md-button  ng-click="$mdMenu.open()">
-                  Class
-                </md-button>
-                <md-menu-content>   
-                  <md-menu-item>
-                    <md-button>
-                       <a href="#" ng-click="class('v')">Class V</a>
-                    </md-button>  
-                  </md-menu-item>        
-                  <md-menu-item>
-                    <md-button>
-                     <a href="#" ng-click="class('iv')">Class IV</a>
-                    </md-button>  
-                  </md-menu-item>
-                  <md-menu-item>
-                    <md-button>
-                     <a href="#" ng-click="class('iii')">Class III</a>
-                    </md-button>  
-                  </md-menu-item>   
-                  <md-menu-item>
-                    <md-button>
-                     <a href="#" ng-click="class('ii')">Class II</a>
-                    </md-button>  
-                  </md-menu-item>   
-                  <md-menu-item>
-                    <md-button>
-                     <a href="#" ng-click="class('i')">Class I</a>
-                    </md-button>  
-                  </md-menu-item>   
-                </md-menu-content>
-              </md-menu>   
-            </md-menu-bar>
-          </md-button>
-        </div>
-      </div>
-    </br>
-
-      <table class="table">
-        <th>Section</th>
-        <th>River Name</th>
-        <th>State</th>
-        <th>Class</th>
-        <th>Season</th>
-        <th>Flow</th>
-
-        <tr class="flow" ng-repeat="water in coWaters | filter: search | filter: {state:choice} | filter:{class:classSearch}" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend)">
-
-          <td style="padding: 20px;"><a href="/{{water.id}}">{{water.name}}</a></td>
-          <td style="padding: 20px;">{{water.nameProper}}</td>
-          <td style="padding: 20px;">{{water.state}} </td>
-          <td style="padding: 20px;">{{water.class}} </td>
-          <td style="padding: 20px;">{{water.season}} </td>
-          <td style="padding: 20px;">
-            <span class="frozen five" ng-if="flows[water.name] == -999999">Frozen</span>  
-            <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span>
-          </td>
-        </tr> 
-      </table>
-    </md-whiteframe>
-  </div>
-</div> -->
-
-<!-- //////////////////////// -->
-
-
 <div layout="column" style="height:800px;">
 
   <section layout="row" flex>
@@ -112,27 +6,28 @@
         class="md-sidenav-left"
         md-component-id="left"
         md-is-locked-open="$mdMedia('gt-md')"
-        md-whiteframe="3">
+        md-whiteframe="3"
+        layout="column"
+        flex
+        >
 
       <md-toolbar class="md-theme-indigo">
         <h1 class="md-toolbar-tools">Menu</h1>
       </md-toolbar>
       <md-content layout-padding ng-controller="LeftCtrl">
         <md-button ng-click="close()" class="md-primary" hide-gt-md>
-          Close Sidenav Left
+          Close Menu
         </md-button>
         
+        <div>
           <md-input-container>
             <label for="testInput">Search Rivers</label>
             <input type="text"
                    ng-model="myFilter" 
                    ng-keydown="myFilterFunction(myFilter)"
-
                    md-autofocus>
           </md-input-container>
-        
-      
-        <p>{{myFilter}}</p>
+        </div>
 
         <div flex layout="column" layout-align="end start">
           <md-button class="md-raised md-primary" >
@@ -142,6 +37,11 @@
                  State
                 </md-button>
                 <md-menu-content>   
+                 <md-menu-item>
+                    <md-button>
+                       <a href="#" ng-click="state('all')">All</a>
+                    </md-button>  
+                  </md-menu-item>        
                   <md-menu-item>
                     <md-button>
                        <a href="#" ng-click="state('co')">Colorado</a>

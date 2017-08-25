@@ -16,6 +16,12 @@ body, html{
 .columns{
   columns: 3;
 }
+.table>tbody>tr>td{
+  width: 80vh;
+}
+.table>tbody>tr>th{
+  width: 80vh;
+}
 .taco{ 
   background-color: white;
   right: 0;
@@ -38,9 +44,7 @@ tr.flow:hover{
 tr.flow a{
   color:white;
 }
-table td{
-  padding: 200px;
-}
+
 .riverList{
   background-color: white;
 }
