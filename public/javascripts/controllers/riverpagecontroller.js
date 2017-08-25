@@ -1,16 +1,89 @@
-app.controller("RiverPageController", function($scope, $http, $routeParams, $location, $window, $cookies, $timeout, $mdSidenav, $log){
+app.controller("RiverPageController", function($scope, $http, $routeParams, $location, $window, $cookies, $timeout, $mdSidenav, $log, moment){
   
   $scope.riverId = $routeParams.riverId;  
   $scope.user = $cookies.getAll();
 
-  $http.get('/api/v1/coData').then(function (response) {  
-    $scope.coWaters = response.data;
+
+  
+
+  // create a new time variable with the current date
+  $scope.date = new moment();
+
+  $scope.dateFunction = function(taco){
+    // $scope.userRefinedDate = $scope.userDate.slice(0,11);
+    
+    jerry = moment(taco).format('YY-MM-DD')
+    
+    $scope.customCal(jerry)
+
+    // console.log($scope.userRefinedDate)   
+  }
+
+  $scope.customCal = function(jerry){
+    console.log('https://nwis.waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT='+jerry+'&parameterCd=00060,00065')
+    $http.get('https://nwis.waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT=20'+jerry+'&parameterCd=00060,00065').then(function(response){
+      $scope.flow = response.data.value.timeSeries[0].values[0].value;
+      $scope.flowData = [];                                                          
+
+      for (var i = 0; i < $scope.flow.length; i+=112) {
+        if($scope.flow[i].value == '-999999'){
+          $scope.flowData.push(1)
+        }
+        else{
+          $scope.flowData.push(Number($scope.flow[i].value));
+        }
+      };
+
+      return $scope.flowData;
+    }).then(function(arr){
+      $scope.labels = [];
+       // $scope.series = ['Series A'];
+      for (var i = 0; i <= arr.length; i++) {
+        $scope.labels.push('|');
+      };
+
+      $scope.data = [arr];
+
+      $scope.onClick = function (points, evt) {
+
+      };  
+      $scope.chart = function(select) {
+        $scope.chartSelect = "line";
+        $scope.chartSelect = select;
+      }
+    });
+
+
+  }
+
+
+  // console.log($scope.date);
+
+  // var ctrl.myDate = new Date();
+  // console.log(this.myDate)
+
+  // var ctrl.minDate = new Date(
+  //   this.myDate.getFullYear(),
+  //   this.myDate.getMonth() - 2,
+  //   this.myDate.getDate()
+
+  // );
+
+  // var ctrl.maxDate = new Date(
+  //   this.myDate.getFullYear(),
+  //   this.myDate.getMonth() + 2,
+  //   this.myDate.getDate()
+  // );
+
+
+    $http.get('/api/v1/coData').then(function (response) {  
+      $scope.coWaters = response.data;
     for(var i=0; i< $scope.coWaters.length;i++){
       if ($scope.coWaters[i].id === $scope.riverId){
         $scope.riverInfo = $scope.coWaters[i]    
       };
     };
- 
+    
     $http.get('https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ $scope.riverInfo.USGSid +'&parameterCd=00060,00065').then(function(response){
       $scope.flows = response.data.value
     })

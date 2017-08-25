@@ -33,7 +33,7 @@ a {
   font-style: bolder; 
 }
 tr.flow:hover{
-  background: rgba(116,124,0,.4);
+  background: #3fb599;
 }
 tr.flow a{
   color:white;
