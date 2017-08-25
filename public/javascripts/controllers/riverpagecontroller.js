@@ -12,16 +12,16 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
   $scope.dateFunction = function(taco){
     // $scope.userRefinedDate = $scope.userDate.slice(0,11);
     
-    jerry = moment(taco).format('YY-MM-DD')
+    let jerry = moment(taco).format('YY-MM-DD')
     
     $scope.customCal(jerry)
 
     // console.log($scope.userRefinedDate)   
   }
 
-  $scope.customCal = function(jerry){
-    console.log('https://nwis.waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT='+jerry+'&parameterCd=00060,00065')
-    $http.get('https://nwis.waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT=20'+jerry+'&parameterCd=00060,00065').then(function(response){
+  $scope.customCal = function(date){
+   // console.log('https://nwis.waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT='+date+'&parameterCd=00060,00065')
+    $http.get('https://nwis.waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT=20'+date+'&parameterCd=00060,00065').then(function(response){
       $scope.flow = response.data.value.timeSeries[0].values[0].value;
       $scope.flowData = [];                                                          
 

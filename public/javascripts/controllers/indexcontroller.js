@@ -24,8 +24,6 @@
       });
     }); 
 
-    $scope.myFilter = " ";
-
     $scope.myFilterFunction = function(filter){
       $scope.newFilter = filter
     }
