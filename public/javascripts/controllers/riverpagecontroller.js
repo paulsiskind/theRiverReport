@@ -30,13 +30,13 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
       for (var i = 0; i < $scope.flow.length; i+=112) {
         if($scope.flow[i].value == '-999999'){
           $scope.flowData.push(1)
-         $scope.dateData.push(moment($scope.flow[i].dateTime).format('MM-DD-YY'))
+          $scope.dateData.push(moment($scope.flow[i].dateTime).format('MM-DD-YY'))
         }
         else{
           console.log(moment($scope.flow[i].dateTime).format('MM-DD-YY'))
           $scope.flowData.push(Number($scope.flow[i].value));
           $scope.dateData.push(moment($scope.flow[i].dateTime).format('MM-DD-YY'))
-         // let burro = moment($scope.flow[i].dateTime).format('DD-MM-YY')
+        
         }
       };
 
@@ -49,7 +49,7 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
 
       };
       console.log(flow[0], flow[1])
-    //  $scope.labels = [date];
+    
       $scope.data = [flow[0]];
     
 
@@ -94,32 +94,39 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
     $http.get('https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ $scope.riverInfo.USGSid +'&parameterCd=00060,00065').then(function(response){
       $scope.flows = response.data.value
     })
-    // $http.get("https://api.wunderground.com/api/2dc07206ff5e682e/geolookup/forecast/q/"+$scope.riverInfo.latlng +".json").then(function(response){
-    //   $scope.weatherUnder = response.data.forecast.txt_forecast.forecastday
-    //   $scope.weatherLocation = response.data.location.city   
-    // })
+    $http.get("https://api.wunderground.com/api/2dc07206ff5e682e/geolookup/forecast/q/"+$scope.riverInfo.latlng +".json").then(function(response){
+      $scope.weatherUnder = response.data.forecast.txt_forecast.forecastday
+      $scope.weatherLocation = response.data.location.city   
+    })
  
     $http.get('https://nwis.waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT=2017-01-04&parameterCd=00060,00065').then(function(response){
       $scope.flow = response.data.value.timeSeries[0].values[0].value;
-      $scope.flowData = [];                                                          
+       $scope.flowData = [];   
+       $scope.dateData = [];                                                       
+    
+      
       for (var i = 0; i < $scope.flow.length; i+=112) {
         if($scope.flow[i].value == '-999999'){
           $scope.flowData.push(1)
+          $scope.dateData.push(moment($scope.flow[i].dateTime).format('MM-DD-YY'))
         }
         else{
           $scope.flowData.push(Number($scope.flow[i].value));
+          $scope.dateData.push(moment($scope.flow[i].dateTime).format('MM-DD-YY'))
+        
         }
       };
 
-      return $scope.flowData;
-    }).then(function(arr){
+      return [$scope.flowData, $scope.dateData]
+    }).then(function(flow){
       $scope.labels = [];
-       // $scope.series = ['Series A'];
-      for (var i = 0; i <= arr.length; i++) {
-        $scope.labels.push('|');
-      };
+      $scope.series = ['Series A'];
+      for (var i = 0; i <= flow[1].length-1; i++) {
+        $scope.labels.push(flow[1][i]);
 
-      $scope.data = [arr];
+      };
+    
+      $scope.data = [flow[0]];
 
       $scope.onClick = function (points, evt) {
 
