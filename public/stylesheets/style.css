@@ -17,10 +17,10 @@ body, html{
   columns: 3;
 }
 .table>tbody>tr>td{
-  width: 80vh;
+  width: 100vh;
 }
 .table>tbody>tr>th{
-  width: 80vh;
+  width: 100vh;
 }
 .taco{ 
   background-color: white;
