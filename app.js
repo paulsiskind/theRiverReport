@@ -68,19 +68,6 @@ passport.use(new FacebookStrategy({
   }
 ));
 
-// app.post('/twilio', function(req, res){
-  
-// client.messages.create({
-//     to:'+15303860690',
-//     from:'+17754130349',
-//     body:'Gore Canyon is in!'
-// }, function(error, message) {
-//     if (error) {
-//         console.log(error.message);
-//     }
-//   });
-// });
-
 app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/login' }),
   function(req, res) {
@@ -111,8 +98,6 @@ app.use(function(req, res, next){
   next()
 })
 app.use('/', routes);
-
-// app.use('/twiliotest', twilio)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
