@@ -1,0 +1,105 @@
+<div layout="column" style="height:800px;" ng-controller="EventsController" ng-cloak>
+
+  <section layout="row" flex>
+
+    <md-sidenav
+        class="md-sidenav-left"
+        md-component-id="left"
+        md-is-locked-open="$mdMedia('gt-md')"
+        md-whiteframe="3"
+        layout="column"
+        flex
+        >
+
+      <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Menu</h1>
+      </md-toolbar>
+      <md-content layout-padding ng-controller="LeftCtrl">
+        <md-button ng-click="close()" class="md-primary" hide-gt-md>
+          Close Menu
+        </md-button>
+        
+        <div>
+          <md-input-container>
+            <label for="testInput">Search Events</label>
+            <input type="text"
+                   ng-model="myFilter" 
+                   ng-keydown="myFilterFunction(myFilter)"
+                   md-autofocus>
+          </md-input-container>
+        </div>
+
+        <div flex layout="column" layout-align="end start">
+          <md-button class="md-raised md-primary" >
+            <md-menu-bar>
+              <md-menu>
+                <md-button  ng-click="$mdMenu.open()" ng-default="state('co')">
+                 State
+                </md-button>
+                <md-menu-content>   
+                 <md-menu-item>
+                    <md-button>
+                       <a href="#" ng-click="state('all')">All</a>
+                    </md-button>  
+                  </md-menu-item>        
+                  <md-menu-item>
+                    <md-button>
+                       <a href="#" ng-click="state('co')">Colorado</a>
+                    </md-button>  
+                  </md-menu-item>        
+                  <md-menu-item>
+                    <md-button>
+                     <a href="#" ng-click="state('nm')">New Mexico</a>
+                    </md-button>  
+                  </md-menu-item>
+                  <md-menu-item>
+                    <md-button>
+                      <a href="#" ng-click="state('wy')">Wyoming</a>
+                    </md-button>  
+                  </md-menu-item>         
+                </md-menu-content>
+              </md-menu>   
+            </md-menu-bar>
+          </md-button>
+        </div>  
+      </md-content>
+    </md-sidenav>
+
+    <md-content flex layout-padding>
+
+      <div layout="column" layout-align="top center">
+        <div>
+          <md-button ng-click="toggleLeft()"
+            class="md-primary" hide-gt-md>
+            Toggle left
+          </md-button>
+        </div>
+
+    
+      <div>
+        <div flex layout="row" md-display-2>
+          <h2>
+            {{viewBarState}}{{myFilter}} 
+          </h2>
+        </div>
+        <table class="table">
+          <th>Event</th>
+          <th>Where</th>
+          <th>When</th>
+
+          <tr class="staticTr" ng-repeat="event in events | filter:newFilter | filter: {state:choice} |  filter:myFilter">
+
+            <td style="padding: 20px;"><a href="{{event.url}}">{{event.event}}</a></td>
+            <td style="padding: 20px;">{{event.where}}</td>
+            <td style="padding: 20px;">{{event.when}} </td>
+
+          </tr> 
+        </table>
+      </div>
+      
+    </div>
+
+      
+    </md-content>
+  </section>
+</div>

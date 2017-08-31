@@ -44,23 +44,23 @@
                     </md-button>  
                   </md-menu-item>
                   <md-menu-item>
-                    <md-button ng-disable="true">
-                      <a href="#" ng-click="order('events')">Events</a>
+                    <md-button>
+                      <a href="/events" ng-click="order('events')">Events</a>
                     </md-button>  
                   </md-menu-item>
                   <md-menu-item>
+                    <md-button>
+                      <a href="/gear" ng-click="order('gear')">Gear</a>
+                    </md-button>  
+                  </md-menu-item>
+                  <md-menu-item ng-if='user.facebookId'>
                     <md-button ng-disable="true">
-                      <a href="#" ng-click="order('gear')">Gear</a>
+                      <div><a href="/favorites" ng-click="order('favorites')">Favorites</a></div>
                     </md-button>  
                   </md-menu-item>
                   <md-menu-item>
-                    <md-button ng-disable="true">
-                      <div ng-if='user.facebookId'><a href="/favorites" ng-click="order('favorites')">Favorites</a></div>
-                    </md-button>  
-                  </md-menu-item>
-                  <md-menu-item>
-                    <md-button ng-disable="true">
-                      <a href="#" ng-click="order('announcements')">Announcements</a>
+                    <md-button>
+                      <a href="/anouncements" ng-click="order('announcements')">Announcements</a>
                     </md-button>  
                   </md-menu-item>           
                 </md-menu-content>
@@ -83,17 +83,17 @@
 
       <div ng-view></div>
     
-    <script type="text/javascript" src="/javascripts/init.js"></script>
     <script type="text/javascript" src="/javascripts/app.js"></script>
+    <script type="text/javascript" src="/javascripts/config.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/favoritescontroller.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/gearcontroller.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/riverpagecontroller.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/homecontroller.js"></script>
+
     <script type="text/javascript" src="/javascripts/controllers/indexcontroller.js"></script>
     <script type="text/javascript" src="/javascripts/controllers/mapcontroller.js"></script>
-    <script type="text/javascript" src="/javascripts/config.js"></script>
-    <script type="text/javascript" src="/javascripts/init.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/eventscontroller.js"></script>
+    <script type="text/javascript" src="/javascripts/controllers/anouncementscontroller.js"></script>
 
     <script type="text/javascript" src="/javascripts/directives/funtimes.js"></script>
     <script type="text/javascript" src="/javascripts/directives/favoriteDirective.js"></script>
@@ -101,6 +101,7 @@
     <script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
     <script type="text/javascript" src="./node_modules/nodemailer"></script>
     
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
     
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-aria.min.js"></script>

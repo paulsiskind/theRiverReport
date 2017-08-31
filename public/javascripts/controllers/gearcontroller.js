@@ -1,4 +1,4 @@
-app.controller("GearController", function($scope, $http, $routeParams, $location){
+app.controller("gearController", function($scope, $http, $routeParams, $location){
 
 
 });

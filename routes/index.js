@@ -4,6 +4,8 @@ var pg = require('pg');
 var conString = process.env.DATABASE_URL || "postgres://@localhost/theriverreport";
 var coData = require('../coData.json')
 var newsFeed = require('../newFeed.json')
+var events = require('../events.json')
+var anouncements = require('../anouncements.json')
 // var db = require('../queries');
 
 
@@ -21,6 +23,16 @@ router.get('/api/v1/coData', function(req, res, next) {
 router.get('/api/v1/newFeed', function(req, res, next){
   console.log('heeeeeeelo')
   res.json(newsFeed)
+});
+
+router.get('/api/v1/events', function(req, res, next){
+  console.log('Goododododododo')
+  res.json(events)
+});
+
+router.get('/api/v1/anouncements', function(req, res, next){
+  console.log('Goododododododo')
+  res.json(anouncements)
 });
 
 

@@ -146,7 +146,14 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
   $scope.isOpenRight = function(){
     return $mdSidenav('right').isOpen();
   };
+  
 
+  $scope.showflag = true;
+  setTimeout(function (){
+    $scope.$apply(function(){
+      $scope.showflag = false;
+      });
+  }, 2000);
   /**
    * Supplies a function that will continue to operate until the
    * time is up.
