@@ -1,4 +1,4 @@
 [
- {"event":"Gauley Festival", "where":"Summersville, WV", "when":"September 14-17", "url": "https://www.americanwhitewater.org/content/Wiki/aw:events_gauley"},
- {"event":"Feather Festival", "where":"Tobin, CA", "when":"September 22-24", "url": "https://www.americanwhitewater.org/content/Wiki/aw:events_feather"}
+ {"event":"Gauley Festival", "where":"Summersville, WV", "state":"WV", "when":"September 14-17", "url": "https://www.americanwhitewater.org/content/Wiki/aw:events_gauley"},
+ {"event":"Feather Festival", "where":"Tobin, CA", "state":"CA", "when":"September 22-24", "url": "https://www.americanwhitewater.org/content/Wiki/aw:events_feather"}
 ]

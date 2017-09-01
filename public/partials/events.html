@@ -67,39 +67,36 @@
 
     <md-content flex layout-padding>
 
-      <div layout="column" layout-align="top center">
+      <div layout="column" layout-align="top left">
         <div>
           <md-button ng-click="toggleLeft()"
             class="md-primary" hide-gt-md>
-            Toggle left
+            Menu
           </md-button>
         </div>
 
     
-      <div>
-        <div flex layout="row" md-display-2>
-          <h2>
-            {{viewBarState}}{{myFilter}} 
-          </h2>
+        <div>
+          <div flex layout="row" md-display-2>
+            <h2>
+              {{viewBarState}}{{myFilter}} 
+            </h2>
+          </div>
+          <table class="table">
+            <th>Event</th>
+            <th>Where</th>
+            <th>When</th>
+
+            <tr class="staticTr" ng-repeat="event in events | filter:newFilter | filter: {state:choice} |  filter:myFilter">
+
+              <td style="padding: 20px;"><a href="{{event.url}}">{{event.event}}</a></td>
+              <td style="padding: 20px;">{{event.where}}</td>
+              <td style="padding: 20px;">{{event.when}} </td>
+
+            </tr> 
+          </table>
         </div>
-        <table class="table">
-          <th>Event</th>
-          <th>Where</th>
-          <th>When</th>
-
-          <tr class="staticTr" ng-repeat="event in events | filter:newFilter | filter: {state:choice} |  filter:myFilter">
-
-            <td style="padding: 20px;"><a href="{{event.url}}">{{event.event}}</a></td>
-            <td style="padding: 20px;">{{event.where}}</td>
-            <td style="padding: 20px;">{{event.when}} </td>
-
-          </tr> 
-        </table>
       </div>
-      
-    </div>
-
-      
     </md-content>
   </section>
 </div>
