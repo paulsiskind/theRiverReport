@@ -2,7 +2,6 @@
       
        // $scope.riverId = $routeParams.riverId;
        // console.log($routeParams.riverId)
-
     $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow, aboveRecommend){
       // completely frozen water
       if(actualFlow === '-999999') return 'nine'

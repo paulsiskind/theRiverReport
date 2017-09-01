@@ -1,0 +1,56 @@
+<md-toolbar class="md-hue-9 mainToolBar">
+  <div class="md-toolbar-tools">
+    <div flex md-truncate layout="row" layout-align="start center">
+      <span><h2><a href="/">theRiverReport.beta</a></h2></span>
+      <md-menu-bar>
+        <md-menu>
+          <md-button  ng-mouseenter="$mdMenu.open()">
+            <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+          </md-button>
+          <md-menu-content>   
+            <md-menu-item>
+              <md-button>
+                 <span class="active"><a href="/map">Map</a></span>
+              </md-button>  
+            </md-menu-item>        
+            <md-menu-item>
+              <md-button>
+                <a href="/rivers" ng-click="order('rivers')">Rivers</a>
+              </md-button>  
+            </md-menu-item>
+            <md-menu-item>
+              <md-button>
+                <a href="/events" ng-click="order('events')">Events</a>
+              </md-button>  
+            </md-menu-item>
+            <md-menu-item>
+              <md-button>
+                <a href="/gear" ng-click="order('gear')">Gear</a>
+              </md-button>  
+            </md-menu-item>
+            <md-menu-item ng-if='user.facebookId'>
+              <md-button ng-disable="true">
+                <div><a href="/favorites" ng-click="order('favorites')">Favorites</a></div>
+              </md-button>  
+            </md-menu-item>
+            <md-menu-item>
+              <md-button>
+                <a href="/anouncements" ng-click="order('announcements')">Announcements</a>
+              </md-button>  
+            </md-menu-item>           
+          </md-menu-content>
+        </md-menu>   
+      </md-menu-bar>
+    </div>
+    <md-button>
+        <a href="/auth/facebook" ng-hide="user.firstName" target="_self"> login
+          <span>
+            <i class="fa fa-facebook"></i>
+          </span>
+        </a>
+        <a href="/logout" ng-show="user.firstName" target="_self"> logout
+          <span><i class="fa fa-facebook"></i></span>
+        </a>  
+    </md-button>
+  </div>
+</md-toolbar>

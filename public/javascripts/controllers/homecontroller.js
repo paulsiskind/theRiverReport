@@ -1,19 +1,19 @@
 app.controller("HomeController", function($scope, $http, $location, $cookies, $routeParams){
   
-  $http.get('/_=_').then(function (response) {
-  $cookies.put('facebookId', response.data.facebookId);
-  $cookies.put('firstName', response.data.firstName);
-  $cookies.put('lastName', response.data.lastName);
-  $scope.user = $cookies.getAll()
+  // $http.get('/_=_').then(function (response) {
+  // $cookies.put('facebookId', response.data.facebookId);
+  // $cookies.put('firstName', response.data.firstName);
+  // $cookies.put('lastName', response.data.lastName);
+  // $scope.user = $cookies.getAll()
 
-  })
+  // })
 
   $http.get('/api/v1/newFeed').then(function (response) {  
     $scope.newsFeed = response.data;
   });
 
   
-  
+  console.log('beeers')
 
    
   $scope.locationData = $location.$$path
