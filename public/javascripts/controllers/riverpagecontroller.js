@@ -33,7 +33,6 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
           $scope.dateData.push(moment($scope.flow[i].dateTime).format('MM-DD-YY'))
         }
         else{
-          console.log(moment($scope.flow[i].dateTime).format('MM-DD-YY'))
           $scope.flowData.push(Number($scope.flow[i].value));
           $scope.dateData.push(moment($scope.flow[i].dateTime).format('MM-DD-YY'))
         
@@ -62,26 +61,6 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
       }
     });
   }
-
-
-  // console.log($scope.date);
-
-  // var ctrl.myDate = new Date();
-  // console.log(this.myDate)
-
-  // var ctrl.minDate = new Date(
-  //   this.myDate.getFullYear(),
-  //   this.myDate.getMonth() - 2,
-  //   this.myDate.getDate()
-
-  // );
-
-  // var ctrl.maxDate = new Date(
-  //   this.myDate.getFullYear(),
-  //   this.myDate.getMonth() + 2,
-  //   this.myDate.getDate()
-  // );
-
 
     $http.get('/api/v1/coData').then(function (response) {  
       $scope.coWaters = response.data;
