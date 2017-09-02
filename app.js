@@ -51,8 +51,8 @@ passport.use(new FacebookStrategy({
   function(accessToken, refreshToken, profile, done) {
   
     var fullName = profile.displayName.split(" "),
-        userFirstName = fullName[0],
-        userLastName = fullName[1]
+      userFirstName = fullName[0],
+      userLastName = fullName[1]
 
     pg.connect(conString, function(err, client, done) {
       if (err) return console.error('error fetching client from pool', err);

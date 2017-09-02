@@ -11,11 +11,13 @@
       </md-toolbar>
       <md-content layout-padding ng-controller="LeftCtrl">
         <md-button ng-click="close()" class="md-primary" hide-gt-md>
-          <i class="fa fa-caret-square-o-left fa-2x" aria-hidden="true"></i> 
+          <!-- <i class="fa fa-caret-square-o-left fa-2x" aria-hidden="true"></i>  -->
+          Close Menu
         </md-button>
        
         <md-button class="md-primary" ng-click="showme=!showme">
-          <i class="fa fa-caret-square-o-down fa-2x" aria-hidden="true"></i>
+          <!-- <i class="fa fa-caret-square-o-down fa-2x" aria-hidden="true"></i> -->
+          User Info
         </md-button>
         <!-- <p><a href="#" ng-click="showme=!showme">Add user info</a></p> -->
         <form form method="post" action="/addPhone" ng-show="showme" class="fade-in-out">
@@ -54,13 +56,14 @@
 
     <md-content flex layout-padding>
 
-      <div layout="column" layout-align="top center">
+      <div layout="column" layout-align="top left">
        
 
         <div>
           <md-button ng-click="toggleLeft()"
             class="md-primary" hide-gt-md>
-            <i class="fa fa-caret-square-o-left fa-2x" aria-hidden="true"></i>
+            <!-- <i class="fa fa-caret-square-o-left fa-2x" aria-hidden="true"></i> -->
+            Menu
           </md-button>
         </div>
 
