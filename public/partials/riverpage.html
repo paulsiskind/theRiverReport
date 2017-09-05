@@ -1,4 +1,4 @@
-<div layout="column" style="height:800px;" ng-cloak>
+<div layout="column" class="fixedColumn">
 
   <section layout="row" flex>
 
@@ -46,9 +46,32 @@
           </span>
 
           <div>
-            <h4>Flow Search</h4>
+             <md-button class="md-primary" ng-click="show=!show">
+             Quick Search
+             </md-button>
             <md-datepicker ng-model="userDate" md-placeholder="Enter date"
-            md-min-date="ctrl.minDate" md-max-date="ctrl.maxDate" ng-change="dateFunction(userDate)"></md-datepicker>
+            md-min-date="ctrl.minDate" md-max-date="ctrl.maxDate" ng-change="dateFunction(userDate)" ng-show="show"></md-datepicker>
+          </div>
+          <div>
+            <md-button class="md-primary" ng-click="showme=!showme">
+            Specific Search
+            </md-button>
+            <form form method="post" ng-show="showme" class="fade-in-out">
+              <p>Start Date</p>
+              <md-datepicker ng-model="startDate" md-placeholder="Enter Start Date">
+                
+              </md-datepicker>
+              
+              <br>
+              <p>End Date</p>
+              <md-datepicker ng-model="endDate" md-placeholder="Enter End Date">
+              </md-datepicker>
+              <br>
+              
+              <md-button type="submit" class="md-raised md-primary"  ng-click="sDateFunction(startDate, endDate)">
+                Search
+              </md-button>
+            </form>
           </div>
         </div>
         

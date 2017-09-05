@@ -13,6 +13,9 @@ body, html{
   display: none !important;
 
 }
+.fixedColumn{
+  height: 90vh;
+}
 .columns{
   columns: 3;
 }
