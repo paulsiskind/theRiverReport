@@ -322,3 +322,6 @@ tr.staticTr:hover{
 .graphBut{
   padding-top: 3vh;
 }
+#riverPageColumn .md-button{
+  width: 20vh;
+}

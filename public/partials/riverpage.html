@@ -16,7 +16,7 @@
           Close River Info
         </md-button>
 
-        <div flex layout="column">
+        <div flex layout="column" id="riverPageColumn">
           <span class="riverpageDashboard">
             <p>Location: {{riverInfo.nameProper}}</p>
             <p>Section: {{riverInfo.name}} </p>
@@ -25,7 +25,8 @@
               <span class="frozen" ng-if="flows.timeSeries[0].values[0].value[0].value == -999999"> Frozen</span>  
               <span ng-if="flows.timeSeries[0].values[0].value[0].value != -999999">{{flows.timeSeries[0].values[0].value[0].value}}</span>
             </p>
-          </span>    
+          </span> 
+          <br>   
           <span ng-if='user.facebookId' class="addFav">
             <md-button class="md-raised md-cornered md-primary" type="submit" value="Add to rivers" ng-click="addFav(riverInfo.id)">Favorite
             </md-button>
