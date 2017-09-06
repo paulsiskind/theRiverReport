@@ -325,3 +325,6 @@ tr.staticTr:hover{
 #riverPageColumn .md-button{
   width: 20vh;
 }
+.md-sidenav-right{
+  width: max-content;
+}

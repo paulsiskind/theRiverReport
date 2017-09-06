@@ -181,6 +181,12 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
   });
 
  
+  $scope.showflag = true;
+  setTimeout(function (){
+    $scope.$apply(function(){
+      $scope.showflag = false;
+      });
+  }, 2000);
 
 
   $scope.toggleLeft = buildDelayedToggler('left');
@@ -190,12 +196,6 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
   };
   
 
-  $scope.showflag = true;
-  setTimeout(function (){
-    $scope.$apply(function(){
-      $scope.showflag = false;
-      });
-  }, 2000);
   /**
    * Supplies a function that will continue to operate until the
    * time is up.

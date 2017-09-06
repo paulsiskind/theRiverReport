@@ -1,4 +1,4 @@
-<section id="backgroundImg" data-type="background" data-speed="10" ng-class="setBackground()">
+<!-- <section id="backgroundImg" data-type="background" data-speed="10" ng-class="setBackground()">
   <article>
     <div class='container'>
       <div class="offset-md-2 col-md-8">
@@ -62,4 +62,135 @@
   <div layout="row" layout-align="end center">
     <a href="https://paulsiskind.herokuapp.com/"><h3>©BrokenPaddleProductions</h3></a>
   </div>
-</md-toolbar>
+</md-toolbar> -->
+
+
+
+
+<!-- ////////////////////////////////////////////////////
+ -->
+
+
+<div layout="column" class="fixedColumn">
+  <section layout="row" flex>
+
+    <md-sidenav
+        class="md-sidenav-left"
+        md-component-id="left"
+        md-is-locked-open="$mdMedia('gt-md')"
+        md-whiteframe="4">
+
+      <md-toolbar class="md-theme-indigo">
+        <h1>Top Ten</h1>
+      </md-toolbar>
+      <md-content layout-padding ng-controller="LeftCtrl">
+        <md-button ng-click="close()" class="md-primary" hide-gt-md>
+          Close Sidenav Left
+        </md-button>
+
+        <div class="container">
+          <div class="row">
+            <div id="news">
+              <ol>
+                <li ng-repeat="article in newsFeed">
+                   <a href={{article.url}}><h3>{{article.Tag}}</h3></a>
+                </li>
+              </ol>
+            </a>     
+            </div>
+          </div>
+        </div>      
+      </md-content>
+    </md-sidenav>
+
+    <md-content flex layout-padding>
+
+
+<!--     <section id="backgroundImg" data-type="background" data-speed="10" ng-class="setBackground()">
+ -->      <div layout="column" layout-align="top center">
+    
+
+        <div>
+          <md-button ng-click="toggleLeft()"
+            class="md-primary" hide-gt-md>
+            Toggle left
+          </md-button>
+        </div>
+
+        <div>
+          <md-button ng-click="toggleRight()"
+            ng-hide="isOpenRight()"
+            class="md-primary">
+            Toggle right
+          </md-button>
+        </div>
+
+
+      </div>
+
+       <md-card>
+        <img id="backgroundImg" data-type="background" data-speed="10" ng-class="setBackground()">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">In-card mixed actions</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="start center">
+          <md-card-icon-actions>
+            <md-button class="md-icon-button" aria-label="Favorite">
+              <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="Share">
+              <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
+            </md-button>
+          </md-card-icon-actions>
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+<!--     </section>
+ -->
+      
+      <div flex></div>
+
+    </md-content>
+
+    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+
+      <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">Sidenav Right</h1>
+      </md-toolbar>
+      <md-content ng-controller="RightCtrl" layout-padding>
+    
+        <md-button ng-click="close()" class="md-primary">
+          Close Sidenav Right
+        </md-button>
+
+        <div>
+          <div flex layout="row" md-display-2>
+            <h2>
+              {{viewBarState}} {{viewBarClass}} {{myFilter}}
+            </h2>
+          </div>
+          <table class="table">
+            <th>Section</th>
+            <th>River Name</th>
+            <th>Flow</th>
+
+            <tr class="flow" ng-repeat="water in coWaters | filter:newFilter | filter: {state:choice} | filter:{class:classSearch}| filter:myFilter" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend)">
+
+              <td style="padding: 20px;"><a href="/{{water.id}}">{{water.name}}</a></td>
+              <td style="padding: 20px;">{{water.nameProper}}</td>
+              <td style="padding: 20px;">
+                <span class="frozen five" ng-if="flows[water.name] == -999999">Frozen</span>  
+                <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span>
+              </td>
+            </tr> 
+          </table>
+        </div>  
+      </div>
+      </md-content>
+    </md-sidenav>
+  </section>
+</div>
+
+
