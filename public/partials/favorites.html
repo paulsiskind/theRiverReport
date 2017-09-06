@@ -92,10 +92,12 @@
               </td>
              
               <td style="padding: 20px;">
-                <form method="post" action="/deleteFav">
+               <!--  <form method="post" action="/deleteFav">
                   <input type="hidden" value="{{water.id}}" name="riverId">
                   <md-button class="md-raised md-cornered" type="submit" value="Add to rivers">Delete</md-button>
-                </form>
+                </form> -->
+                <md-button class="md-raised md-cornered" type="submit" value="Add to rivers" ng-click="deleteFav(water.id)">Delete
+                </md-button>
               </td>
             </tr>  
           </table>

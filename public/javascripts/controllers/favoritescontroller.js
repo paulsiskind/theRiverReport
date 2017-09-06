@@ -102,6 +102,16 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
     })
   }
 
+   $scope.deleteFav = function(fav){
+    console.log(fav);
+
+      $http({
+        url: '/deleteFav',
+        method: "POST",
+        data: { 'riverId' : fav }
+      })
+    }
+
   $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow, aboveRecommend){
     // completely frozen water
     if(actualFlow === '-999999') return 'nine'
