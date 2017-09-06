@@ -104,9 +104,9 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
 
   $scope.deleteRow = function(water){
     console.log('down', water.id)
-    for (var i = 0; i < $scope.coWaters.length; i++) {
-      if ($scope.coWaters[i].id === water.id) {
-      $scope.coWaters.splice(i, 1);
+    for (var i = 0; i < $scope.userFavs.length; i++) {
+      if ($scope.userFavs[i].id === water.id) {
+      $scope.userFavs.splice(i, 1);
       break;
       }
     }
