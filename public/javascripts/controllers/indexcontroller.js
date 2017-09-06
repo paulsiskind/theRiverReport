@@ -38,9 +38,7 @@
     }
 
     $scope.addFav = function(fav){
-
     console.log(fav);
-
       $http({
         url: '/addFav',
         method: "POST",

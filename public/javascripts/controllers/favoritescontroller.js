@@ -114,13 +114,21 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
 
   $scope.deleteFav = function(fav){
     console.log(fav);
+    $http({
+      url: '/deleteFav',
+      method: "POST",
+      data: { 'riverId' : fav }
+    })
+  }
 
-      $http({
-        url: '/deleteFav',
-        method: "POST",
-        data: { 'riverId' : fav }
-      })
-    }
+  $scope.setWaterLevel = function(water,level){
+     $http({
+      url: '/addLevel',
+      method: "POST",
+      data: { 'riverLevel' : level,
+              'riverId': water.id }
+    })
+  }
 
   $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow, aboveRecommend){
     // completely frozen water

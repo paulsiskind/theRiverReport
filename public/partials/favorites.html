@@ -76,6 +76,7 @@
             <th>Season</th>
             <th>Users Level</th>
             <th>Flow</th>
+            <th>Alert</th>
             <th>Delete</th>
           
             <tr class="flow" ng-repeat="water in userFavs | filter: search" data-twillio="flows[water.name], water" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend, water.aboveRecommend)">
@@ -89,6 +90,12 @@
               <td style="padding: 20px;">
                 <span class="frozen five" ng-if="flows[water.name] == -999999"> Frozen</span>  
                 <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span>
+              </td> 
+              <td>
+                <md-input-container>
+                  <label>Sms Level</label>                
+                  <input ng-model="level"  type="number" ng-change="setWaterLevel(water, level)">
+                </md-input-container>
               </td>            
               <td style="padding: 20px;">
                 <md-button class="md-raised md-cornered" type="submit" value="Add to rivers" ng-click="deleteRow(water);deleteFav(water.id)">Delete
