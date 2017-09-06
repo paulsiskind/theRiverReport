@@ -26,23 +26,13 @@
               <span ng-if="flows.timeSeries[0].values[0].value[0].value != -999999">{{flows.timeSeries[0].values[0].value[0].value}}</span>
             </p>
           </span>    
-        
           <span ng-if='user.facebookId' class="addFav" class="text-right">
-            <form method="post" action="/addFav/">
-              <input type="hidden" value="{{riverInfo.id}}" name="riverId">
-              <md-button class="md-raised md-cornered md-primary" type="submit" value="Add to rivers">Add to Favorite Rivers</md-button>
-            </form>
-
-            <md-button class="md-raised md-primary">
-              <p ng-click="showit=!showit">SMS Level</p>
-              <form form method="post" action="/addLevel" ng-show="showit" class="fade-in-out">
-                <p>Water Level</p>
-                <input type="hidden" value="{{riverInfo.id}}" name="riverId">
-                <input type="number" class="form-control" name="riverLevel">
-                <br>
-                <button type="submit" class="btn btn-success" ng-click="showit=false">Update</button>
-              </form>
-            </md-button>  
+            <md-button class="md-raised md-cornered md-primary" type="submit" value="Add to rivers" ng-click="addFav(riverInfo.id)">Favorite
+            </md-button>
+            <md-input-container>
+              <label>Sms Level</label>                
+              <input ng-model="level"  type="number" ng-change="setWaterLevel(riverInfo.id, level)">
+            </md-input-container> 
           </span>
 
           <div class="graphBut">

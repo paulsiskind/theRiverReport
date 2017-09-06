@@ -3,22 +3,29 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
   $scope.riverId = $routeParams.riverId;  
   $scope.user = $cookies.getAll();
 
-
-  
-
-  // create a new time variable with the current date
-  $scope.date = new moment();
-
-
+  $scope.addFav = function(fav){
+    console.log(fav);
+    //   $http({
+    //     url: '/addFav',
+    //     method: "POST",
+    //     data: { 'riverId' : fav }
+    // })
+  }
+  $scope.setWaterLevel = function(water,level){
+    console.log(water, level)
+    //  $http({
+    //   url: '/addLevel',
+    //   method: "POST",
+    //   data: { 'riverLevel' : level,
+    //           'riverId': water }
+    // })
+  }
   $scope.sDateFunction = function(start, end){
-    // $scope.userRefinedDate = $scope.userDate.slice(0,11);
     
     let mStart = moment(start).format('YY-MM-DD')
     let mEnd = moment(end).format('YY-MM-DD')
    
-    $scope.specCal(mStart, mEnd)
-
-    // console.log($scope.userRefinedDate)   
+    $scope.specCal(mStart, mEnd) 
   }
 
 
