@@ -45,15 +45,15 @@
             </md-button>  
           </span>
 
-          <div>
-             <md-button class="md-primary" ng-click="show=!show">
+          <div class="graphBut">
+             <md-button class="md-raised md-primary" ng-click="show=!show">
              Quick Search
              </md-button>
             <md-datepicker ng-model="userDate" md-placeholder="Enter date"
             md-min-date="ctrl.minDate" md-max-date="ctrl.maxDate" ng-change="dateFunction(userDate)" ng-show="show"></md-datepicker>
           </div>
           <div>
-            <md-button class="md-primary" ng-click="showme=!showme">
+            <md-button class="md-raised md-primary" ng-click="showme=!showme">
             Specific Search
             </md-button>
             <form form method="post" ng-show="showme" class="fade-in-out">
@@ -68,7 +68,7 @@
               </md-datepicker>
               <br>
               
-              <md-button type="submit" class="md-raised md-primary"  ng-click="sDateFunction(startDate, endDate)">
+              <md-button type="submit" class="md-raised md-accent"  ng-click="sDateFunction(startDate, endDate)">
                 Search
               </md-button>
             </form>

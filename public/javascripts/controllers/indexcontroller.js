@@ -27,6 +27,17 @@
       $scope.newFilter = filter
     }
 
+    $scope.addFav = function(){
+
+      console.log($scope.water.id)
+
+      // $http({
+      //   url: '/addFav/',
+      //   method: "POST",
+      //   data: { 'riverId' : $scope.newFav}
+      // })
+    }
+
     $scope.state = function(choice){
      
       if(choice === 'al'){

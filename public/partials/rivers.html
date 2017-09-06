@@ -130,6 +130,7 @@
           <th>Class</th>
           <th>Season</th>
           <th>Flow</th>
+          <th ng-if='user.facebookId'>Favorite</th>
 
           <tr class="flow" ng-repeat="water in coWaters | filter:newFilter | filter: {state:choice} | filter:{class:classSearch}| filter:myFilter" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend)">
 
@@ -141,6 +142,13 @@
             <td style="padding: 20px;">
               <span class="frozen five" ng-if="flows[water.name] == -999999">Frozen</span>  
               <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span>
+            </td>
+            <td ng-if='user.facebookId'>
+              <form method="post" action="/addFav/">
+                <input type="hidden" value="{{water.id}}" ng-model="newFav" name="riverId">
+                <md-button class="md-raised md-cornered" type="submit" value="Add to rivers">Add Fav
+                </md-button>
+              </form>
             </td>
           </tr> 
         </table>

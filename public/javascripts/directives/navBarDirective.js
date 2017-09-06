@@ -13,7 +13,6 @@ app.directive('simpleNavbar', function () {
             $scope.user = $cookies.getAll()
 
             })
-            console.log($scope.user)
         },
     };
 });

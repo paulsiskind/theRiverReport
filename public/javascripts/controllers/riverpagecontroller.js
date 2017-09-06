@@ -23,7 +23,6 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
 
 
   $scope.specCal = function(sDate, eDate){
-    console.log(sDate, eDate, 'overhere>>>>>>>>>>>>>')
    // console.log('https://nwis.waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT='+date+'&parameterCd=00060,00065')
     $http.get('https://nwis.waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT=20'+sDate+'&endDT=20'+eDate+'&parameterCd=00060,00065').then(function(response){
    //waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites=01646500&startDT=2017-08-01&endDT=2017-09-01&parameterCd=00060,00065&siteStatus=all      
@@ -52,7 +51,6 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
         $scope.labels.push(flow[1][i]);
 
       };
-      console.log(flow[0], flow[1])
     
       $scope.data = [flow[0]];
     
@@ -77,7 +75,7 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
     // console.log($scope.userRefinedDate)   
   }
   $scope.customCal = function(date){
-    console.log(date)
+  
    // console.log('https://nwis.waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT='+date+'&parameterCd=00060,00065')
     $http.get('https://nwis.waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT=20'+date+'&parameterCd=00060,00065').then(function(response){
       $scope.flow = response.data.value.timeSeries[0].values[0].value;
@@ -105,7 +103,7 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
         $scope.labels.push(flow[1][i]);
 
       };
-      console.log(flow[0], flow[1])
+ 
     
       $scope.data = [flow[0]];
     
