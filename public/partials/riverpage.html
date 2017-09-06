@@ -26,9 +26,10 @@
               <span ng-if="flows.timeSeries[0].values[0].value[0].value != -999999">{{flows.timeSeries[0].values[0].value[0].value}}</span>
             </p>
           </span>    
-          <span ng-if='user.facebookId' class="addFav" class="text-right">
+          <span ng-if='user.facebookId' class="addFav">
             <md-button class="md-raised md-cornered md-primary" type="submit" value="Add to rivers" ng-click="addFav(riverInfo.id)">Favorite
             </md-button>
+            <br><br>
             <md-input-container>
               <label>Sms Level</label>                
               <input ng-model="level"  type="number" ng-change="setWaterLevel(riverInfo.id, level)">

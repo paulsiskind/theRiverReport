@@ -5,20 +5,20 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
 
   $scope.addFav = function(fav){
     console.log(fav);
-    //   $http({
-    //     url: '/addFav',
-    //     method: "POST",
-    //     data: { 'riverId' : fav }
-    // })
+      $http({
+        url: '/addFav',
+        method: "POST",
+        data: { 'riverId' : fav }
+    })
   }
   $scope.setWaterLevel = function(water,level){
     console.log(water, level)
-    //  $http({
-    //   url: '/addLevel',
-    //   method: "POST",
-    //   data: { 'riverLevel' : level,
-    //           'riverId': water }
-    // })
+     $http({
+      url: '/addLevel',
+      method: "POST",
+      data: { 'riverLevel' : level,
+              'riverId': water }
+    })
   }
   $scope.sDateFunction = function(start, end){
     
