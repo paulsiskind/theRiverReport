@@ -27,15 +27,15 @@
       $scope.newFilter = filter
     }
 
-    $scope.addFav = function(){
+    $scope.addFav = function(fav){
 
-    console.log($scope.newFav)
+    console.log(fav);
 
-      // $http({
-      //   url: '/addFav/',
-      //   method: "POST",
-      //   data: { 'riverId' : $scope.newFav}
-      // })
+      $http({
+        url: '/addFav',
+        method: "POST",
+        data: { 'riverId' : fav }
+      })
     }
 
     $scope.state = function(choice){
