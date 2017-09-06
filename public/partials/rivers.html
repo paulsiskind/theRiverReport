@@ -143,14 +143,14 @@
               <span class="frozen five" ng-if="flows[water.name] == -999999">Frozen</span>  
               <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span>
             </td>
-           <!--  <td ng-if='user.facebookId'> -->
-           <td>
+            <td ng-if='user.facebookId'>
               <md-button class="md-raised md-cornered" type="submit" value="Add to rivers" ng-click="addFav(water.id)">Favorite
               </md-button>
             </td>
           </tr> 
         </table>
-      </div>   
+      </div>
+      
     </div>
 
       

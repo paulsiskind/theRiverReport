@@ -102,7 +102,17 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
     })
   }
 
-   $scope.deleteFav = function(fav){
+  $scope.deleteRow = function(water){
+    console.log('down', water.id)
+    for (var i = 0; i < $scope.coWaters.length; i++) {
+      if ($scope.coWaters[i].id === water.id) {
+      $scope.coWaters.splice(i, 1);
+      break;
+      }
+    }
+  }
+
+  $scope.deleteFav = function(fav){
     console.log(fav);
 
       $http({

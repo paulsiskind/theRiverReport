@@ -27,6 +27,16 @@
       $scope.newFilter = filter
     }
 
+    $scope.down = function(water){
+      console.log('down', water.id)
+      for (var i = 0; i < $scope.coWaters.length; i++) {
+        if ($scope.coWaters[i].id === water.id) {
+        $scope.coWaters.splice(i, 1);
+        break;
+        }
+      }
+    }
+
     $scope.addFav = function(fav){
 
     console.log(fav);

@@ -89,14 +89,9 @@
               <td style="padding: 20px;">
                 <span class="frozen five" ng-if="flows[water.name] == -999999"> Frozen</span>  
                 <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span>
-              </td>
-             
+              </td>            
               <td style="padding: 20px;">
-               <!--  <form method="post" action="/deleteFav">
-                  <input type="hidden" value="{{water.id}}" name="riverId">
-                  <md-button class="md-raised md-cornered" type="submit" value="Add to rivers">Delete</md-button>
-                </form> -->
-                <md-button class="md-raised md-cornered" type="submit" value="Add to rivers" ng-click="deleteFav(water.id)">Delete
+                <md-button class="md-raised md-cornered" type="submit" value="Add to rivers" ng-click="deleteRow(water);deleteFav(water.id)">Delete
                 </md-button>
               </td>
             </tr>  
