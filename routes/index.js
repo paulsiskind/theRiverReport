@@ -127,6 +127,22 @@ router.post('/addFav', function(req, res, next){
   });
 })
 
+router.post('/addFavRiver', function(req, res, next){
+  pg.connect(conString, function(err, client, done) {
+
+    if (err) {
+      return console.error('error fetching client from pool', err);
+    }
+    client.query('INSERT INTO favorites(facebook_id, riverId) VALUES($1, $2) returning id;',[req.user.facebookId, req.body.riverId], function(err, result) {
+      done();
+      res.redirect('/rivers')
+      if (err) {
+        return console.error('error running query', err);
+      }
+    });
+  });
+})
+
 router.post('/addLevel', function(req, res, next){
   pg.connect(conString, function(err, client, done) {
 

@@ -29,7 +29,7 @@
 
     $scope.addFav = function(){
 
-      console.log($scope.water.id)
+    console.log($scope.newFav)
 
       // $http({
       //   url: '/addFav/',

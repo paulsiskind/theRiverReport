@@ -144,9 +144,9 @@
               <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span>
             </td>
             <td ng-if='user.facebookId'>
-              <form method="post" action="/addFav/">
+              <form method="post" action="/addFavRiver/">
                 <input type="hidden" value="{{water.id}}" ng-model="newFav" name="riverId">
-                <md-button class="md-raised md-cornered" type="submit" value="Add to rivers">Add Fav
+                <md-button class="md-raised md-cornered" type="submit" value="Add to rivers" ng-click="addFav()">Add Fav
                 </md-button>
               </form>
             </td>
