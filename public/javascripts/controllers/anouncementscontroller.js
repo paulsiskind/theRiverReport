@@ -1,16 +1,12 @@
   app.controller("AnouncementsController", function($scope, $http, $location, $timeout, $mdSidenav, $log){
       
-       // $scope.riverId = $routeParams.riverId;
-       // console.log($routeParams.riverId)
-
-
+      
     $scope.myFilterFunction = function(filter){
       $scope.newFilter = filter
     }
 
      $http.get('/api/v1/anouncements').then(function (response) {  
       $scope.anouncements = response.data;
-      console.log($scope.events)
     });
 
 

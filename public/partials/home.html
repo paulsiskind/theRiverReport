@@ -1,76 +1,3 @@
-<!-- <section id="backgroundImg" data-type="background" data-speed="10" ng-class="setBackground()">
-  <article>
-    <div class='container'>
-      <div class="offset-md-2 col-md-8">
-        <h1 class="text-center riverHeader">riverCycle.beta</h1>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 jumbotron" id="news">
-          <div class="columns">
-            <div ng-repeat="article in newsFeed">
-              <a href={{article.url}}>
-                <h4>{{article.Tag}}</h4>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </article>
-</section>
-<section id="middleText" data-type="background" data-speed="5">
-  <article>
-    <div class="container">
-      <div class="col-md-4">
-        <h5>
-          Welcome to theRiverReport.beta, this website is a work in progress, and if you are using it that makes you a beta user.  This website is intended as a research tool for water levels.  Designed to be mobile friendly you can look up your favorite river anywhere in the world.  Currently, just a few futures are available.   But, these futures, you will find, makes this website unique.  <br><br>
-
-          A user-friendly interface.  The ability to set up daily text msg and email water level alerts. Charts for in depth focus on previous year water levels.  We hope theRiverReport will become your go to application for all your whitewater needs.  
-           <br><br>
-          
-          Be the First boater on the block to know when Piney has enough flow to run beaver attack.  Monitor the crystal gorge and walk around Zute Shoot.  Plan the perfect family trip on the Yampa or float the Flaming Gorge.  The world is your oyster and this application will make life easier.  File your taxes, take better notes, insider stock tips, learn to code, this application will not help with any of these things.  But, if you want to fire off Gore Canyon at 8k, you might be in the right place.  
-        </h5>
-      </div>
-
-      <div class="col-md-4">
-        <h5>
-          Pig rump ham pork loin. Pork brisket andouille venison. Ribeye rump cupim meatball ham doner fatback flank corned beef tail drumstick. Strip steak andouille alcatra turducken ribeye. Pork shank venison short ribs. Strip steak tongue frankfurter pork chop ball tip.<br><br>
-
-           Hamburger ribeye spare ribs porchetta, beef ribs pork belly tail prosciutto leberkas venison turducken cow ham jowl. Pastrami salami porchetta meatball landjaeger sirloin kevin ham. Porchetta filet mignon doner ham hock sirloin prosciutto, drumstick picanha. Ground round swine jerky, brisket short ribs pork t-bone short loin shank boudin flank prosciutto tenderloin. Picanha shankle alcatra doner fatback, andouille tri-tip ribeye prosciutto. Shankle biltong spare ribs flank, pastrami tail doner jowl pork drumstick pork chop cupim meatloaf alcatra pig. Pork belly alcatra capicola kielbasa ground round rump jerky venison ham.
-        </h5>
-      </div>
-
-      <div class="col-md-4">
-        <h5>
-        Frankfurter ham hock bacon, tenderloin capicola prosciutto fatback venison pancetta shoulder. Beef ribs pork chop bresaola drumstick flank pancetta, picanha chicken venison landjaeger tenderloin. Pork swine boudin, landjaeger cupim pork loin prosciutto venison bacon beef ribs leberkas sausage picanha porchetta ball tip. Jerky meatball ham chicken leberkas. Chuck tail beef pork loin fatback cow. Ribeye jerky sirloin, drumstick capicola landjaeger turkey. Pork leberkas swine sausage.<br><br>
-
-        Pig filet mignon tenderloin brisket biltong flank. Venison turducken sausage leberkas tongue pastrami short ribs shankle meatball prosciutto. Sausage beef porchetta tri-tip meatloaf bresaola. Capicola picanha pork chop salami corned beef. Alcatra frankfurter cow kevin venison sausage short ribs ball tip hamburger. Hamburger turkey ham andouille salami prosciutto flank shankle pork belly. Jerky capicola tenderloin pork chop biltong salami rump ham hock shank doner flank strip steak corned beef porchetta.
-        </h5>
-      </div>
-    </div>
-  </article>
-</section>
-
-<section id="bottomImg" data-type="background" data-speed="15">
-  <article>
-  </article>
-</section>
-
-<md-toolbar class="md-hue-9" id="footer">
-  <div layout="row" layout-align="end center">
-    <a href="https://paulsiskind.herokuapp.com/"><h3>©BrokenPaddleProductions</h3></a>
-  </div>
-</md-toolbar> -->
-
-
-
-
-<!-- ////////////////////////////////////////////////////
- -->
-
-
 <div layout="column" class="fixedColumn">
   <section layout="row" flex>
 
@@ -80,8 +7,8 @@
         md-is-locked-open="$mdMedia('gt-md')"
         md-whiteframe="4">
 
-      <md-toolbar class="md-theme-indigo">
-        <h1>Top Ten</h1>
+      <md-toolbar class="md-theme-indigo ">
+        <h1>Paddle News</h1>
       </md-toolbar>
       <md-content layout-padding ng-controller="LeftCtrl">
         <md-button ng-click="close()" class="md-primary" hide-gt-md>
@@ -93,7 +20,7 @@
             <div id="news">
               <ol>
                 <li ng-repeat="article in newsFeed">
-                   <a href={{article.url}}><h3>{{article.Tag}}</h3></a>
+                   <a href={{article.url}}><h4>{{article.Tag}}</h4></a>
                 </li>
               </ol>
             </a>     
@@ -102,56 +29,39 @@
         </div>      
       </md-content>
     </md-sidenav>
-
     <md-content flex layout-padding>
-
-
-<!--     <section id="backgroundImg" data-type="background" data-speed="10" ng-class="setBackground()">
- -->      <div layout="column" layout-align="top center">
-    
-
-        <div>
-          <md-button ng-click="toggleLeft()"
-            class="md-primary" hide-gt-md>
-            Toggle left
-          </md-button>
-        </div>
-
-        <div>
-          <md-button ng-click="toggleRight()"
-            ng-hide="isOpenRight()"
-            class="md-primary">
-            Toggle right
-          </md-button>
-        </div>
-
-
-      </div>
-
-       <md-card>
+      <md-card id="homeCard" md-whiteframe="8">
         <img id="backgroundImg" data-type="background" data-speed="10" ng-class="setBackground()">
         <md-card-title>
           <md-card-title-text>
-            <span class="md-headline">In-card mixed actions</span>
+            <span class="md-headline">riverCycle.beta</span>
           </md-card-title-text>
+          <md-button ng-click="toggleLeft()"
+            class="md-primary" hide-gt-md>
+            Top Ten
+          </md-button> 
+          <md-button ng-click="toggleRight()"
+            ng-hide="isOpenRight()"
+            class="md-primary">
+            Quick View
+          </md-button>
         </md-card-title>
         <md-card-actions layout="row" layout-align="start center">
-          <md-card-icon-actions>
-            <md-button class="md-icon-button" aria-label="Favorite">
-              <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
-            </md-button>
-            <md-button class="md-icon-button" aria-label="Share">
-              <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
-            </md-button>
-          </md-card-icon-actions>
-          <md-button>Action 1</md-button>
-          <md-button>Action 2</md-button>
-        </md-card-actions>
-<!--     </section>
- -->
-      
-      <div flex></div>
+       
+            <div>
+              <h6>
+                Welcome to theRiverReport.beta, this website is a work in progress, and if you are using it that makes you a beta user.  This website is intended as a research tool for water levels.  Designed to be mobile friendly you can look up your favorite river anywhere in the world.  Currently, just a few futures are available.   But, these futures, you will find, makes this website unique.  <br><br>
 
+                A user-friendly interface.  The ability to set up daily text msg and email water level alerts. Charts for in depth focus on previous year water levels.  We hope theRiverReport will become your go to application for all your whitewater needs.  
+                 <br><br>
+                
+                Be the First boater on the block to know when Piney has enough flow to run beaver attack.  Monitor the crystal gorge and walk around Zute Shoot.  Plan the perfect family trip on the Yampa or float the Flaming Gorge.  The world is your oyster and this application will make life easier.  File your taxes, take better notes, insider stock tips, learn to code, this application will not help with any of these things.  But, if you want to fire off Gore Canyon at 8k, you might be in the right place.  
+              </h6>
+            </div>
+           
+         
+        </md-card-actions>
+      </md-card>
     </md-content>
 
     <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
@@ -162,7 +72,7 @@
       <md-content ng-controller="RightCtrl" layout-padding>
     
         <md-button ng-click="close()" class="md-primary">
-          Close Sidenav Right
+          Close Quick View
         </md-button>
 
         <div>
@@ -187,7 +97,6 @@
             </tr> 
           </table>
         </div>  
-      </div>
       </md-content>
     </md-sidenav>
   </section>

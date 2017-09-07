@@ -7,8 +7,7 @@ app.controller("HomeController", function($scope, $http, $location, $cookies, $t
     $scope.newsFeed = response.data;
   });
    
-  $scope.locationData = $location.$$path
-   console.log($scope.locationData)
+ 
 
   $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow, aboveRecommend){
     // completely frozen water
@@ -45,19 +44,19 @@ app.controller("HomeController", function($scope, $http, $location, $cookies, $t
     k++;
     $scope.setBackground()
     $scope.$apply(); 
-  },30000)
+  },10000)
 
-  var $window = $(window); 
-  $('section[data-type="background"]').each(function(){
-    var $bgobj = $(this); // assigning the object     
-    $(window).scroll(function() {
-        var yPos = -($window.scrollTop() / $bgobj.data('speed'));              
-        // Put together our final background position
-        var coords = '50% '+ yPos + 'px';
-        // Move the background
-        $bgobj.css({ backgroundPosition: coords });
-    }); 
-  });   
+  // var $window = $(window); 
+  // $('section[data-type="background"]').each(function(){
+  //   var $bgobj = $(this); // assigning the object     
+  //   $(window).scroll(function() {
+  //       var yPos = -($window.scrollTop() / $bgobj.data('speed'));              
+  //       // Put together our final background position
+  //       var coords = '50% '+ yPos + 'px';
+  //       // Move the background
+  //       $bgobj.css({ backgroundPosition: coords });
+  //   }); 
+  // });   
 
   $scope.toggleLeft = buildDelayedToggler('left');
   $scope.toggleRight = buildToggler('right');

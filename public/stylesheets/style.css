@@ -29,9 +29,10 @@ body, html{
   background-color: white;
   right: 0;
 }
-/*a {
-  color: black;
-}*/
+#homeCard{
+  height: 85vh;
+}
+
 .flow{
   transition: ease-in .33s;
   text-shadow: 1px 1px 1px rgba(0,0,0,.25);
@@ -200,14 +201,13 @@ ul.nav.navbar li a:hover{
   text-align: center;
 }
  #backgroundImg{
-  transition: ease-in .33s;
+  transition: ease-in .99s;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 100vh; 
+  height: 40vh; 
   width: 100%; 
-  max-width: 1920px;
   margin-top: 0px;
   border-top: 0px;    
 }
@@ -248,8 +248,7 @@ ul.nav.navbar li a:hover{
   width: 100%; 
 }
 #news{
-  opacity: .5;
-  margin-top: 50px;
+  margin-top: 7vh;
 }
 #middleText{
   background: #fff;
@@ -327,4 +326,7 @@ tr.staticTr:hover{
 }
 .md-sidenav-right{
   width: max-content;
+}
+.md-theme-indigo h1{
+  padding-left: 2vh;
 }
