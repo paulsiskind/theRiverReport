@@ -25,12 +25,15 @@ body, html{
 .table>tbody>tr>th{
   width: 100vh;
 }
+#introPar{
+  padding-right: 20vh;
+}
 .taco{ 
   background-color: white;
   right: 0;
 }
 #homeCard{
-  height: 85vh;
+  height: relative;
 }
 
 .flow{

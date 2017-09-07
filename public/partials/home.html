@@ -30,24 +30,25 @@
       </md-content>
     </md-sidenav>
     <md-content flex layout-padding>
-      <md-card id="homeCard" md-whiteframe="8">
+      <md-card id="homeCard" md-whiteframe="8" flex>
         <img id="backgroundImg" data-type="background" data-speed="10" ng-class="setBackground()">
-        <md-card-title>
+        <md-card-title class="col-xs-12">
           <md-card-title-text>
             <span class="md-headline">riverCycle.beta</span>
           </md-card-title-text>
-          <md-button ng-click="toggleLeft()"
-            class="md-primary" hide-gt-md>
-            Top Ten
-          </md-button> 
-          <md-button ng-click="toggleRight()"
-            ng-hide="isOpenRight()"
-            class="md-primary">
-            Quick View
-          </md-button>
+          <span>
+            <md-button ng-click="toggleLeft()"
+              class="md-primary" hide-gt-md>
+              Top Ten
+            </md-button> 
+            <md-button ng-click="toggleRight()"
+              ng-hide="isOpenRight()"
+              class="md-primary">
+              Quick View
+            </md-button>
+          </span>
         </md-card-title>
-        <md-card-actions layout="row" layout-align="start center">
-       
+        <md-card-actions class="col-xs-10">
             <div>
               <h6>
                 Welcome to theRiverReport.beta, this website is a work in progress, and if you are using it that makes you a beta user.  This website is intended as a research tool for water levels.  Designed to be mobile friendly you can look up your favorite river anywhere in the world.  Currently, just a few futures are available.   But, these futures, you will find, makes this website unique.  <br><br>
@@ -58,8 +59,6 @@
                 Be the First boater on the block to know when Piney has enough flow to run beaver attack.  Monitor the crystal gorge and walk around Zute Shoot.  Plan the perfect family trip on the Yampa or float the Flaming Gorge.  The world is your oyster and this application will make life easier.  File your taxes, take better notes, insider stock tips, learn to code, this application will not help with any of these things.  But, if you want to fire off Gore Canyon at 8k, you might be in the right place.  
               </h6>
             </div>
-           
-         
         </md-card-actions>
       </md-card>
     </md-content>
