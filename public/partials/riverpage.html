@@ -18,13 +18,13 @@
 
         <div flex layout="column" id="riverPageColumn">
           <span class="riverpageDashboard">
-            <p>Location: {{riverInfo.nameProper}}</p>
-            <p>Section: {{riverInfo.name}} </p>
-            <p>Class:  {{riverInfo.class}} </p>
-            <p>CFS: 
+            <h3>Location: {{riverInfo.nameProper}}</h3>
+            <h3>Section: {{riverInfo.name}} </h3>
+            <h3>Class:  {{riverInfo.class}} </h3>
+            <h3>CFS: 
               <span class="frozen" ng-if="flows.timeSeries[0].values[0].value[0].value == -999999"> Frozen</span>  
               <span ng-if="flows.timeSeries[0].values[0].value[0].value != -999999">{{flows.timeSeries[0].values[0].value[0].value}}</span>
-            </p>
+            </h3>
           </span> 
           <br>   
           <span ng-if='user.facebookId' class="addFav">
@@ -45,10 +45,10 @@
             md-min-date="ctrl.minDate" md-max-date="ctrl.maxDate" ng-change="dateFunction(userDate)" ng-show="show"></md-datepicker>
           </div>
           <div>
-            <md-button class="md-raised md-primary" ng-click="showme=!showme">
+            <md-button class="md-raised md-primary" ng-click="showCal=!showCal">
             Specific Search
             </md-button>
-            <form form method="post" ng-show="showme" class="fade-in-out">
+            <form form method="post" ng-show="showCal" class="fade-in-out">
               <p>Start Date</p>
               <md-datepicker ng-model="startDate" md-placeholder="Enter Start Date">
                 
@@ -73,7 +73,7 @@
 
     <md-content flex layout-padding>
 
-      <div layout="column" layout-align="top center">
+      <div layout="row" layout-align="top left">
         <div ng-include src= "'partials/spinner.html'"></div>
 
         <div>
@@ -87,26 +87,26 @@
           <md-button ng-click="toggleRight()"
             ng-hide="isOpenRight()"
             class="md-primary">
-            Weather
+            Weather/Table
           </md-button>   
         </div>
-
-        <div class="md-whiteframe-3dp charts col-md-12" layout="column">
-          <canvas id="bar" class="chart chart-line"  chart-data="data"
-            chart-labels="labels" chart-legend="true" chart-series="series"
-            chart-click="onClick" >
-          </canvas> 
-          <br>
-          <br>
-          <canvas id="bar" class="chart chart-bar"  chart-data="data"
-            chart-labels="labels" chart-legend="false" chart-series="series"
-            chart-click="onClick" chart-series="series"
-            chart-click="onClick">
-          </canvas> 
-          <br>
-          <br>
-        </div>  
       </div>
+
+      <div class="md-whiteframe-3dp charts col-md-12" layout="column">
+        <canvas id="bar" class="chart chart-line"  chart-data="data"
+          chart-labels="labels" chart-legend="true" chart-series="series"
+          chart-click="onClick" >
+        </canvas> 
+        <br>
+        <br>
+        <canvas id="bar" class="chart chart-bar"  chart-data="data"
+          chart-labels="labels" chart-legend="false" chart-series="series"
+          chart-click="onClick" chart-series="series"
+          chart-click="onClick">
+        </canvas> 
+        <br>
+        <br>
+      </div>  
     </md-content>
 
     <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
@@ -119,21 +119,29 @@
         <md-button ng-click="close()" class="md-primary">
           Close Weather
         </md-button>
+        <md-switch ng-model="weatherOnOff" aria-label="Switched aroo"  class="md-primary" ng-click="showme=!showme" ng-true-value="'On'" ng-false-value="'Off'">
+              Quick View
+        </md-switch>
+        <div ng-show="showme" class="toggleInfo">
+          <h4>Long Term Forecast</h4>
+          <p>Weather Station: {{weatherLocation}}</p>
+          <p>{{weatherUnder[0].title}}: {{weatherUnder[0].fcttext}}</p>
+          <p>{{weatherUnder[1].title}}: {{weatherUnder[1].fcttext}}</p>
+          <p>{{weatherUnder[2].title}}: {{weatherUnder[2].fcttext}}</p>
+          <p>{{weatherUnder[3].title}}: {{weatherUnder[3].fcttext}}</p>
+          <p>{{weatherUnder[4].title}}: {{weatherUnder[4].fcttext}}</p>
+          <p>{{weatherUnder[5].title}}: {{weatherUnder[5].fcttext}}</p>
+          <p>{{weatherUnder[6].title}}: {{weatherUnder[6].fcttext}}</p>
+          <p>{{weatherUnder[7].title}}: {{weatherUnder[7].fcttext}}</p>
+        </div>
 
-        <h4>Long Term Forecast</h4>
-        <p>Weather Station: {{weatherLocation}}</p>
-        <p>{{weatherUnder[0].title}}: {{weatherUnder[0].fcttext}}</p>
-        <p>{{weatherUnder[1].title}}: {{weatherUnder[1].fcttext}}</p>
-        <p>{{weatherUnder[2].title}}: {{weatherUnder[2].fcttext}}</p>
-        <p>{{weatherUnder[3].title}}: {{weatherUnder[3].fcttext}}</p>
-        <p>{{weatherUnder[4].title}}: {{weatherUnder[4].fcttext}}</p>
-        <p>{{weatherUnder[5].title}}: {{weatherUnder[5].fcttext}}</p>
-        <p>{{weatherUnder[6].title}}: {{weatherUnder[6].fcttext}}</p>
-        <p>{{weatherUnder[7].title}}: {{weatherUnder[7].fcttext}}</p>
+        <div ng-show="!showme" class="toggleInfo">
+          
+          <side-table></side-table>
+
+        </div>  
       </md-content>
-
     </md-sidenav>
-
   </section>
 </div>
 

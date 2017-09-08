@@ -22,16 +22,16 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
   }
   $scope.sDateFunction = function(start, end){
     
-    let mStart = moment(start).format('YY-MM-DD')
-    let mEnd = moment(end).format('YY-MM-DD')
-   
+    let mStart = moment(start).format('YYYY-MM-DD')
+    let mEnd = moment(end).format('YYYY-MM-DD')
+    console.log(mStart, mEnd)
     $scope.specCal(mStart, mEnd) 
   }
 
 
   $scope.specCal = function(sDate, eDate){
    // console.log('https://nwis.waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT='+date+'&parameterCd=00060,00065')
-    $http.get('https://nwis.waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT=20'+sDate+'&endDT=20'+eDate+'&parameterCd=00060,00065').then(function(response){
+    $http.get('https://nwis.waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT='+sDate+'&endDT='+eDate+'&parameterCd=00060,00065').then(function(response){
    //waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites=01646500&startDT=2017-08-01&endDT=2017-09-01&parameterCd=00060,00065&siteStatus=all      
       $scope.flow = response.data.value.timeSeries[0].values[0].value;
       $scope.flowData = [];   
@@ -180,6 +180,26 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
     });
   });
 
+  $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow, aboveRecommend){
+    // completely frozen water
+    if(actualFlow === '-999999') return 'nine'
+    if(actualFlow < recommendedFlow) return 'eight'
+    if(actualFlow - recommendedFlow > 0 && actualFlow - recommendedFlow < (recommendedFlow * .5)) return 'seven'
+    if(actualFlow - recommendedFlow > (recommendedFlow * .5) && actualFlow - recommendedFlow < recommendedFlow) return 'six'
+    if(actualFlow  > recommendedFlow) return 'five'
+    else return 'one'
+  }
+  $http.get('/api/v1/coData').then(function (response) {
+    $scope.flows = {};
+    $scope.coWaters = response.data;
+
+    $scope.coWaters.map(function(d){
+      return $http.get('https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ d.USGSid +'&parameterCd=00060,00065').then(function(response){
+        $scope.flows[d.name] = response.data.value.timeSeries[0].values[0].value[0].value;
+      });
+    });
+  }); 
+
  
   $scope.showflag = true;
   setTimeout(function (){
@@ -195,7 +215,8 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
     return $mdSidenav('right').isOpen();
   };
   
-
+  $scope.showme = true;
+  
   /**
    * Supplies a function that will continue to operate until the
    * time is up.

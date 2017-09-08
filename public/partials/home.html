@@ -31,7 +31,9 @@
     </md-sidenav>
     <md-content flex layout-padding>
       <md-card id="homeCard" md-whiteframe="8" flex>
+      <div id="backGroundContainer">
         <img id="backgroundImg" data-type="background" data-speed="10" ng-class="setBackground()">
+      </div>
         <md-card-title class="col-xs-12">
           <md-card-title-text>
             <span class="md-headline">riverCycle.beta</span>
@@ -73,29 +75,9 @@
         <md-button ng-click="close()" class="md-primary">
           Close Quick View
         </md-button>
+        
+        <side-table></side-table>
 
-        <div>
-          <div flex layout="row" md-display-2>
-            <h2>
-              {{viewBarState}} {{viewBarClass}} {{myFilter}}
-            </h2>
-          </div>
-          <table class="table">
-            <th>Section</th>
-            <th>River Name</th>
-            <th>Flow</th>
-
-            <tr class="flow" ng-repeat="water in coWaters | filter:newFilter | filter: {state:choice} | filter:{class:classSearch}| filter:myFilter" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend)">
-
-              <td style="padding: 20px;"><a href="/{{water.id}}">{{water.name}}</a></td>
-              <td style="padding: 20px;">{{water.nameProper}}</td>
-              <td style="padding: 20px;">
-                <span class="frozen five" ng-if="flows[water.name] == -999999">Frozen</span>  
-                <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span>
-              </td>
-            </tr> 
-          </table>
-        </div>  
       </md-content>
     </md-sidenav>
   </section>

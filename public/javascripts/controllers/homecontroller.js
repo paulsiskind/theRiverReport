@@ -1,35 +1,10 @@
 app.controller("HomeController", function($scope, $http, $location, $cookies, $timeout, $routeParams, $mdSidenav, $log, tableFactory){
   
-  // $scope.setClassBasedOnFlow = tableFactory.setClassBasedOnFlow(this.flows[water.name], this.water.recommend);
-
 
   $http.get('/api/v1/newFeed').then(function (response) {  
     $scope.newsFeed = response.data;
   });
    
- 
-
-  $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow, aboveRecommend){
-    // completely frozen water
-    if(actualFlow === '-999999') return 'nine'
-    if(actualFlow < recommendedFlow) return 'eight'
-    if(actualFlow - recommendedFlow > 0 && actualFlow - recommendedFlow < (recommendedFlow * .5)) return 'seven'
-    if(actualFlow - recommendedFlow > (recommendedFlow * .5) && actualFlow - recommendedFlow < recommendedFlow) return 'six'
-    if(actualFlow  > recommendedFlow) return 'five'
-    else return 'one'
-  }
-  $http.get('/api/v1/coData').then(function (response) {
-    $scope.flows = {};
-    $scope.coWaters = response.data;
-
-    $scope.coWaters.map(function(d){
-      return $http.get('https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ d.USGSid +'&parameterCd=00060,00065').then(function(response){
-        $scope.flows[d.name] = response.data.value.timeSeries[0].values[0].value[0].value;
-      });
-    });
-  }); 
-
-
   var k=0;
 
   $scope.setBackground = function(){
@@ -42,21 +17,9 @@ app.controller("HomeController", function($scope, $http, $location, $cookies, $t
  
   setInterval(function(){
     k++;
-    $scope.setBackground()
+    $scope.setBackground();
     $scope.$apply(); 
-  },10000)
-
-  // var $window = $(window); 
-  // $('section[data-type="background"]').each(function(){
-  //   var $bgobj = $(this); // assigning the object     
-  //   $(window).scroll(function() {
-  //       var yPos = -($window.scrollTop() / $bgobj.data('speed'));              
-  //       // Put together our final background position
-  //       var coords = '50% '+ yPos + 'px';
-  //       // Move the background
-  //       $bgobj.css({ backgroundPosition: coords });
-  //   }); 
-  // });   
+  },10000) 
 
   $scope.toggleLeft = buildDelayedToggler('left');
   $scope.toggleRight = buildToggler('right');
