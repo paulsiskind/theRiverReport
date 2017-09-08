@@ -4,13 +4,13 @@
        // console.log($routeParams.riverId)
     $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow, aboveRecommend){
       // completely frozen water
-      if(actualFlow === '-999999') return 'nine'
-      if(actualFlow < recommendedFlow) return 'eight'
-      if(actualFlow - recommendedFlow > 0 && actualFlow - recommendedFlow < (recommendedFlow * .5)) return 'seven'
-      if(actualFlow - recommendedFlow > (recommendedFlow * .5) && actualFlow - recommendedFlow < recommendedFlow) return 'six'
-      if(actualFlow  > recommendedFlow) return 'five'
-      else return 'one'
-    }
+      if(actualFlow === '-999999') return 'nine';
+      if(actualFlow < recommendedFlow) return 'eight';
+      if(actualFlow - recommendedFlow > 0 && actualFlow - recommendedFlow < (recommendedFlow * .5)) return 'seven';
+      if(actualFlow - recommendedFlow > (recommendedFlow * .5) && actualFlow - recommendedFlow < recommendedFlow) return 'six';
+      if(actualFlow  > recommendedFlow) return 'five';
+      else return 'one';
+    };
 
     $http.get('/api/v1/coData').then(function (response) {
       $scope.flows = {};
@@ -24,8 +24,8 @@
     }); 
 
     $scope.myFilterFunction = function(filter){
-      $scope.newFilter = filter
-    }
+      $scope.newFilter = filter;
+    };
 
     // $scope.down = function(water){
     //   console.log('down', water.id)
@@ -43,74 +43,74 @@
         url: '/addFav',
         method: "POST",
         data: { 'riverId' : fav }
-      })
-    }
+      });
+    };
 
     $scope.state = function(choice){
      
       if(choice === 'al'){
-        $scope.viewBarState = 'Alabama' 
+        $scope.viewBarState = 'Alabama';
         $scope.choice = choice; 
       }
       if(choice === 'ak'){
-        $scope.viewBarState = "Alaska"
+        $scope.viewBarState = "Alaska";
         $scope.choice = choice;
       }
       if(choice === 'all'){
-        $scope.viewBarState = 'Display All'
+        $scope.viewBarState = 'Display All';
         $scope.choice = '';
       }
       if(choice === 'az'){
-        $scope.viewBarState = 'Arizona'
+        $scope.viewBarState = 'Arizona';
         $scope.choice = choice;
       }
       if(choice === 'ar'){
-        $scope.viewBarState = 'Arkansas'
+        $scope.viewBarState = 'Arkansas';
         $scope.choice = choice;
       }
       if(choice === 'ca'){
-        $scope.viewBarState = "California"
+        $scope.viewBarState = "California";
         $scope.choice = choice;
       }
       if(choice === 'co'){
-        $scope.viewBarState = "Colorado"
+        $scope.viewBarState = "Colorado";
         $scope.choice = choice;
       }
       if(choice === 'nm'){
-        $scope.viewBarState = "New Mexico"
+        $scope.viewBarState = "New Mexico";
         $scope.choice = choice;
       }
       if(choice === 'wy'){
-        $scope.viewBarState = "Wyoming"
+        $scope.viewBarState = "Wyoming";
         $scope.choice = choice;
       }
       
-    }
+    };
 
     $scope.state('co');
 
     $scope.class = function(select){
       if(select === 'v'){
-        $scope.viewBarClass = 'Class V'
-        $scope.classSearch = 'V'
+        $scope.viewBarClass = 'Class V';
+        $scope.classSearch = 'V';
       }
       if(select === 'iv'){
-        $scope.viewBarClass = 'Class IV'
-        $scope.classSearch = 'IV'
+        $scope.viewBarClass = 'Class IV';
+        $scope.classSearch = 'IV';
       }
       if(select === 'iii'){
-        $scope.viewBarClass = 'Class III'
-        $scope.classSearch = 'III'
+        $scope.viewBarClass = 'Class III';
+        $scope.classSearch = 'III';
       }
       if(select === 'ii'){
-        $scope.viewBarClass = 'Class II'
-        $scope.classSearch = 'II'
+        $scope.viewBarClass = 'Class II';
+        $scope.classSearch = 'II';
       }
       if(select === 'i'){
-        $scope.viewBarClass = 'Class I'
-        $scope.classSearch = 'I'
+        $scope.viewBarClass = 'Class I';
+        $scope.classSearch = 'I';
       }
-    }
+    };
   
     $scope.showflag = true;
 
@@ -174,4 +174,4 @@
         $log.debug("close LEFT is done");
       });
   };
-})
+});

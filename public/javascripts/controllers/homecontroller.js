@@ -32,6 +32,8 @@ app.controller("HomeController", function($scope, $http, $location, $cookies, $t
    * Supplies a function that will continue to operate until the
    * time is up.
    */
+
+
   function debounce(func, wait, context) {
     var timer;
 
@@ -50,6 +52,7 @@ app.controller("HomeController", function($scope, $http, $location, $cookies, $t
    * Build handler to open/close a SideNav; when animation finishes
    * report completion in console
    */
+ 
   function buildDelayedToggler(navID) {
     return debounce(function() {
       // Component lookup should always be available since we are not using `ng-if`
@@ -61,6 +64,7 @@ app.controller("HomeController", function($scope, $http, $location, $cookies, $t
     }, 200);
   }
 
+ 
   function buildToggler(navID) {
     return function() {
       // Component lookup should always be available since we are not using `ng-if`

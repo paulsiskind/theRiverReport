@@ -9,24 +9,24 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
         url: '/addFav',
         method: "POST",
         data: { 'riverId' : fav }
-    })
-  }
+    });
+  };
   $scope.setWaterLevel = function(water,level){
-    console.log(water, level)
+    console.log(water, level);
      $http({
       url: '/addLevel',
       method: "POST",
       data: { 'riverLevel' : level,
               'riverId': water }
-    })
-  }
+    });
+  };
   $scope.sDateFunction = function(start, end){
     
-    let mStart = moment(start).format('YYYY-MM-DD')
-    let mEnd = moment(end).format('YYYY-MM-DD')
-    console.log(mStart, mEnd)
-    $scope.specCal(mStart, mEnd) 
-  }
+    let mStart = moment(start).format('YYYY-MM-DD');
+    let mEnd = moment(end).format('YYYY-MM-DD');
+    console.log(mStart, mEnd);
+    $scope.specCal(mStart, mEnd);
+  };
 
 
   $scope.specCal = function(sDate, eDate){
@@ -40,24 +40,24 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
       
       for (var i = 0; i < $scope.flow.length; i+=112) {
         if($scope.flow[i].value == '-999999'){
-          $scope.flowData.push(1)
-          $scope.dateData.push(moment($scope.flow[i].dateTime).format('MM-DD-YY'))
+          $scope.flowData.push(1);
+          $scope.dateData.push(moment($scope.flow[i].dateTime).format('MM-DD-YY'));
         }
         else{
           $scope.flowData.push(Number($scope.flow[i].value));
-          $scope.dateData.push(moment($scope.flow[i].dateTime).format('MM-DD-YY'))
+          $scope.dateData.push(moment($scope.flow[i].dateTime).format('MM-DD-YY'));
         
         }
-      };
+      }
 
-      return [$scope.flowData, $scope.dateData]
+      return [$scope.flowData, $scope.dateData];
     }).then(function(flow){
       $scope.labels = [];
       $scope.series = ['Series A'];
       for (var i = 0; i <= flow[1].length-1; i++) {
         $scope.labels.push(flow[1][i]);
 
-      };
+      }
     
       $scope.data = [flow[0]];
     
@@ -68,19 +68,19 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
       $scope.chart = function(select) {
         $scope.chartSelect = "line";
         $scope.chartSelect = select;
-      }
+      };
     });
-  }
+  };
 
   $scope.dateFunction = function(taco){
     // $scope.userRefinedDate = $scope.userDate.slice(0,11);
     
-    let jerry = moment(taco).format('YY-MM-DD')
+    let jerry = moment(taco).format('YY-MM-DD');
     
-    $scope.customCal(jerry)
+    $scope.customCal(jerry);
 
     // console.log($scope.userRefinedDate)   
-  }
+  };
   $scope.customCal = function(date){
   
    // console.log('https://nwis.waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+$scope.riverInfo.USGSid +'&startDT='+date+'&parameterCd=00060,00065')
@@ -92,7 +92,7 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
       
       for (var i = 0; i < $scope.flow.length; i+=112) {
         if($scope.flow[i].value == '-999999'){
-          $scope.flowData.push(1)
+          $scope.flowData.push(1);
           $scope.dateData.push(moment($scope.flow[i].dateTime).format('MM-DD-YY'))
         }
         else{
