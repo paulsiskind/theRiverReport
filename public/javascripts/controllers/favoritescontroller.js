@@ -1,31 +1,31 @@
 app.controller('FavoritesController', function ($scope, $http, $routeParams, $rootScope, $window, $cookies, $timeout, $mdSidenav) {
   $scope.user = $cookies.getAll();
   $scope.flows = {};
-  $scope.ideal = []
-  $scope.showme =false
+  $scope.ideal = [];
+  $scope.showme =false;
   
 
   $http.get('/usersData').then(function (response) {
-    $scope.usersData = response.data   
-    $scope.userphone = $scope.usersData[0].userphone
-    $scope.userEmail = $scope.usersData[0].email 
-    $scope.textAlert = $scope.changeTrueToOn($scope.usersData[0].textalert)
-    $scope.emailAlert =$scope.changeTrueToOn($scope.usersData[0].emailalert)
+    $scope.usersData = response.data;   
+    $scope.userphone = $scope.usersData[0].userphone;
+    $scope.userEmail = $scope.usersData[0].email; 
+    $scope.textAlert = $scope.changeTrueToOn($scope.usersData[0].textalert);
+    $scope.emailAlert =$scope.changeTrueToOn($scope.usersData[0].emailalert);
   });
 
   $scope.changeTrueToOn = function(response){
     if(response === true){
-      return 'On'
+      return 'On';
     }
     if(response === false){
-      return 'Off'
+      return 'Off';
     }
-  }
+  };
 
   
 
   $http.get('/userFavorites').then(function (response) {
-    $scope.favorites = response.data
+    $scope.favorites = response.data;
      
     $http.get('/api/v1/coData').then(function (response) {
       $scope.allRivers = response.data;
@@ -50,7 +50,7 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
       return $scope.userFavs;
 
     }).then(function(userFavs){
-      var promises = []
+      var promises = [];
 
       // start map
       userFavs.map(function(favs){
@@ -58,7 +58,7 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
           $scope.flows[favs["name"]] = response.data.value.timeSeries[0].values[0].value[0].value;
           return $scope.flows;
         });
-        promises.push(p)
+        promises.push(p);
       });
       // end map
            
@@ -72,15 +72,15 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
 
             if(prop === userFavs[i].name){
                
-              if(userFavs[i].riverlevel != null){
+              if(userFavs[i].riverlevel !== null){
                 if(rivers[prop] > userFavs[i].riverlevel){
                   
-                  $scope.ideal.push(userFavs[i])
-                };
-              };
-            };
-          };
-        };
+                  $scope.ideal.push(userFavs[i]);
+                }
+              }
+            }
+          }
+        }
       });
     });
   });
@@ -90,8 +90,8 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
         url: '/textAlert',
         method: "POST",
         data: { 'textAlert' : $scope.textAlert}
-    })
-  }
+    });
+  };
   
 
   $scope.emailAlertChange = function(){
@@ -99,18 +99,18 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
         url: '/emailAlert',
         method: "POST",
         data: { 'emailAlert' : $scope.emailAlert}
-    })
-  }
+    });
+  };
 
   $scope.deleteRow = function(water){
-    console.log('down', water.id)
+    console.log('down', water.id);
     for (var i = 0; i < $scope.userFavs.length; i++) {
       if ($scope.userFavs[i].id === water.id) {
       $scope.userFavs.splice(i, 1);
       break;
       }
     }
-  }
+  };
 
   $scope.deleteFav = function(fav){
     console.log(fav);
@@ -118,8 +118,8 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
       url: '/deleteFav',
       method: "POST",
       data: { 'riverId' : fav }
-    })
-  }
+    });
+  };
 
   $scope.setWaterLevel = function(water,level){
      $http({
@@ -127,31 +127,31 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
       method: "POST",
       data: { 'riverLevel' : level,
               'riverId': water.id }
-    })
-  }
+    });
+  };
 
   $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow, aboveRecommend){
     // completely frozen water
-    if(actualFlow === '-999999') return 'nine'
-      if(actualFlow < recommendedFlow) return 'eight'
-      if(actualFlow - recommendedFlow > 0 && actualFlow - recommendedFlow < 200) return 'seven'
-      if(actualFlow - recommendedFlow > 200 && actualFlow - recommendedFlow < recommendedFlow) return 'six'
-      if(actualFlow - recommendedFlow > recommendedFlow) return 'five'
-  }
+    if(actualFlow === '-999999') return 'nine';
+      if(actualFlow < recommendedFlow) return 'eight';
+      if(actualFlow - recommendedFlow > 0 && actualFlow - recommendedFlow < 200) return 'seven';
+      if(actualFlow - recommendedFlow > 200 && actualFlow - recommendedFlow < recommendedFlow) return 'six';
+      if(actualFlow - recommendedFlow > recommendedFlow) return 'five';
+  };
   var k =0;
   $scope.setBackground = function(){
-    if(k==0) return 'zero'
-    if(k==1) return 'one'
-    if(k==2) return 'two'
-    if(k===3) return 'three'   
+    if(k==0) return 'zero';
+    if(k==1) return 'one';
+    if(k==2) return 'two';
+    if(k===3) return 'three';   
     if(k===4) k=0;
-  }
+  };
  
   setInterval(function(){
     k++;
-    $scope.setBackground()
+    $scope.setBackground();
     $scope.$apply(); 
-  },30000)
+  },30000);
 
   ///////////////
 
@@ -208,5 +208,5 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
         $log.debug("close LEFT is done");
       });
   };
-})
+});
  

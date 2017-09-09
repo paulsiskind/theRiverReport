@@ -11,46 +11,36 @@
       .when('/', {
         templateUrl: 'partials/home.html',
         controller: 'HomeController',       
-      
       })
       .when('/map', {
         templateUrl: 'partials/map.html',
-        controller: 'MapController',  
-      
+        controller: 'MapController',       
       })
       .when('/rivers',{
         templateUrl: 'partials/rivers.html',
-        controller: "IndexController",
-          
-        
+        controller: "IndexController",       
       })
       .when('/gear',{
          templateUrl: 'partials/gear.html',
-         controller: 'GearController',
-         
+         controller: 'GearController',        
       })
       .when('/favorites', {
         templateUrl: 'partials/favorites.html',
-        controller: 'FavoritesController',
-     
+        controller: 'FavoritesController',    
       })
       .when('/events', {
         templateUrl: 'partials/events.html',
-        controller: 'EventsController'
-
+        controller: 'EventsController',
       })
       .when('/anouncements', {
         templateUrl: 'partials/anouncements.html',
-        controller: 'AnouncementsController'
-
+        controller: 'AnouncementsController',
       })
-
       .when('/:riverId', {
         templateUrl: 'partials/riverpage.html',
-        controller: "RiverPageController",
-              
+        controller: "RiverPageController",              
       })
-      .otherwise( {redirectTo: '/'
+      .otherwise({redirectTo: '/'
       })
       $locationProvider.html5Mode(true)   
     })

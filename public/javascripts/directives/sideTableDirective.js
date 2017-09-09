@@ -4,8 +4,7 @@ app.directive('sideTable', function () {
     return {
         restrict: 'E',
         templateUrl: './partials/sideTable.html',
-        controller: function($scope, $http, $cookies) {
-            console.log('hello')
+        controller: function($scope, $http, $cookies) {f
 
           $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow, aboveRecommend){
             // completely frozen water

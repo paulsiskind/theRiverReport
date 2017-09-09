@@ -2,58 +2,53 @@ app.controller("EventsController", function($scope, $http, $location, $timeout, 
   
   $http.get('/api/v1/events').then(function (response) {  
     $scope.events = response.data;
-    console.log($scope.events)
   });
 
   $scope.myFilterFunction = function(filter){
     $scope.newFilter = filter;
-  }
+  };
 
   $scope.state = function(choice){
    
     if(choice === 'al'){
-      $scope.viewBarState = 'Alabama' 
+      $scope.viewBarState = 'Alabama'; 
       $scope.choice = choice; 
     }
     if(choice === 'ak'){
-      $scope.viewBarState = "Alaska"
+      $scope.viewBarState = "Alaska";
       $scope.choice = choice;
     }
     if(choice === 'all'){
-      $scope.viewBarState = 'Display All'
+      $scope.viewBarState = 'Display All';
       $scope.choice = '';
     }
     if(choice === 'az'){
-      $scope.viewBarState = 'Arizona'
+      $scope.viewBarState = 'Arizona';
       $scope.choice = choice;
     }
     if(choice === 'ar'){
-      $scope.viewBarState = 'Arkansas'
+      $scope.viewBarState = 'Arkansas';
       $scope.choice = choice;
     }
     if(choice === 'ca'){
-      $scope.viewBarState = "California"
+      $scope.viewBarState = "California";
       $scope.choice = choice;
     }
     if(choice === 'co'){
-      $scope.viewBarState = "Colorado"
+      $scope.viewBarState = "Colorado";
       $scope.choice = choice;
     }
     if(choice === 'nm'){
-      $scope.viewBarState = "New Mexico"
+      $scope.viewBarState = "New Mexico";
       $scope.choice = choice;
     }
     if(choice === 'wy'){
-      $scope.viewBarState = "Wyoming"
+      $scope.viewBarState = "Wyoming";
       $scope.choice = choice;
     }
     
-  }
-
- 
-
-
-   $scope.toggleLeft = buildDelayedToggler('left');
+  };
+  $scope.toggleLeft = buildDelayedToggler('left');
 
   /**
    * Supplies a function that will continue to operate until the
@@ -94,7 +89,5 @@ app.controller("EventsController", function($scope, $http, $location, $timeout, 
       .then(function () {
         $log.debug("close LEFT is done");
       });
-
   };
-
-}) 
+}); 
