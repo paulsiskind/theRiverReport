@@ -34,12 +34,12 @@
         </form>
         
         <div class="textAlerts">
-          <md-switch ng-model="textAlert" value="textAlert" aria-label="Text Alert Switch" class="md-primary" ng-change="textAlertChange()" ng-true-value="'On'" ng-false-value="'Off'">
+          <md-switch ng-model="textAlert" value="textAlert" aria-label="Text Alert Switch" class="md-primary" ng-change="textAlertChange(textAlert)" ng-true-value="'On'" ng-false-value="'Off'">
             Text Alert: {{textAlert}}
           </md-switch>
         </div>
         <div class="emailAlerts">
-          <md-switch ng-model="emailAlert" aria-label="Email on off switch"  class="md-primary" ng-change="emailAlertChange()" ng-true-value="'On'" ng-false-value="'Off'">
+          <md-switch ng-model="emailAlert" aria-label="Email on off switch"  class="md-primary" ng-change="emailAlertChange(emailAlert)" ng-true-value="'On'" ng-false-value="'Off'">
               Email Alert: {{emailAlert}}
           </md-switch>
         </div>

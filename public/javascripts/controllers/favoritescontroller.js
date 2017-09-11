@@ -85,8 +85,8 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
     });
   });
 
-  $scope.textAlertChange = function(){
-    console.log($scope.textAlert)
+  $scope.textAlertChange = function(text){
+    console.log(text)
     $http({
         url: '/textAlert',
         method: "POST",
@@ -95,8 +95,8 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
   };
   
 
-  $scope.emailAlertChange = function(){
-    console.log($scope.emailAlert)
+  $scope.emailAlertChange = function(email){
+    console.log(email)
     $http({
         url: '/emailAlert',
         method: "POST",
