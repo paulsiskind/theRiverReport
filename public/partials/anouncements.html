@@ -33,39 +33,51 @@
     </md-sidenav>
 
     <md-content flex layout-padding>
-
       <div layout="column" layout-align="top left">
         <div>
           <md-button ng-click="toggleLeft()"
             class="md-primary" hide-gt-md>
             Menu
           </md-button>
+          <md-button ng-click="toggleRight()"
+            ng-hide="isOpenRight()"
+            class="md-primary">
+            Quick View
+          </md-button>
         </div>
 
     
-      <div>
-        <div flex layout="row" md-display-2>
-          <h2>
-            {{myFilter}}
-          </h2>
+        <div>
+          <div flex layout="row" md-display-2>
+            <h2>
+              {{myFilter}}
+            </h2>
+          </div>
+          <table class="table">
+            <th>Anouncement</th>
+            <th>Date</th>
+           
+
+            <tr class="staticTr" ng-repeat="anouncement in anouncements| filter:newFilter">
+
+              <td style="padding: 20px;">{{anouncement.anouncement}}</td>
+              <td style="padding: 20px;">{{anouncement.date}}</td>
+          
+            </tr> 
+          </table>
         </div>
-        <table class="table">
-          <th>Anouncement</th>
-          <th>Date</th>
-         
-
-          <tr class="staticTr" ng-repeat="anouncement in anouncements| filter:newFilter">
-
-            <td style="padding: 20px;">{{anouncement.anouncement}}</td>
-            <td style="padding: 20px;">{{anouncement.date}}</td>
-        
-          </tr> 
-        </table>
       </div>
-      
-    </div>
-
-      
     </md-content>
+    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+      <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">Sidenav Right</h1>
+      </md-toolbar>
+      <md-content ng-controller="RightCtrl" layout-padding>
+        <md-button ng-click="close()" class="md-primary">
+          Close Quick View
+        </md-button>
+        <side-table></side-table>
+      </md-content>
+    </md-sidenav>
   </section>
 </div>

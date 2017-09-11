@@ -42,7 +42,7 @@
              Quick Search
              </md-button>
             <md-datepicker ng-model="userDate" md-placeholder="Enter date"
-            md-min-date="ctrl.minDate" md-max-date="ctrl.maxDate" ng-change="dateFunction(userDate)" ng-show="show"></md-datepicker>
+            md-min-date="ctrl.minDate" md-max-date="" ng-change="dateFunction(userDate)" ng-show="show"></md-datepicker>
           </div>
           <div>
             <md-button class="md-raised md-primary" ng-click="showCal=!showCal">
@@ -119,8 +119,8 @@
         <md-button ng-click="close()" class="md-primary">
           Close Weather
         </md-button>
-        <md-switch ng-model="weatherOnOff" aria-label="Switched aroo"  class="md-primary" ng-click="showme=!showme" ng-true-value="'On'" ng-false-value="'Off'">
-              Quick View
+        <md-switch ng-model="weatherOnOff" aria-label="Switched aroo" class="md-primary" ng-click="showme=!showme" ng-true-value="'Table'" ng-false-value="'Weather'">
+          Quick View: {{weatherOnOff}}
         </md-switch>
         <div ng-show="showme" class="toggleInfo">
           <h4>Long Term Forecast</h4>

@@ -2,6 +2,7 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
   
   $scope.riverId = $routeParams.riverId;  
   $scope.user = $cookies.getAll();
+  $scope.weatherOnOff = "Weather";
 
   $scope.addFav = function(fav){
     console.log(fav);
@@ -27,6 +28,8 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
     console.log(mStart, mEnd);
     $scope.specCal(mStart, mEnd);
   };
+
+  $scope.currentDate = (moment().format('LLLL'));
 
 
   $scope.specCal = function(sDate, eDate){
@@ -180,25 +183,25 @@ app.controller("RiverPageController", function($scope, $http, $routeParams, $loc
     });
   });
 
-  $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow, aboveRecommend){
-    // completely frozen water
-    if(actualFlow === '-999999') return 'nine'
-    if(actualFlow < recommendedFlow) return 'eight'
-    if(actualFlow - recommendedFlow > 0 && actualFlow - recommendedFlow < (recommendedFlow * .5)) return 'seven'
-    if(actualFlow - recommendedFlow > (recommendedFlow * .5) && actualFlow - recommendedFlow < recommendedFlow) return 'six'
-    if(actualFlow  > recommendedFlow) return 'five'
-    else return 'one'
-  }
-  $http.get('/api/v1/coData').then(function (response) {
-    $scope.flows = {};
-    $scope.coWaters = response.data;
+  // $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow, aboveRecommend){
+  //   // completely frozen water
+  //   if(actualFlow === '-999999') return 'nine'
+  //   if(actualFlow < recommendedFlow) return 'eight'
+  //   if(actualFlow - recommendedFlow > 0 && actualFlow - recommendedFlow < (recommendedFlow * .5)) return 'seven'
+  //   if(actualFlow - recommendedFlow > (recommendedFlow * .5) && actualFlow - recommendedFlow < recommendedFlow) return 'six'
+  //   if(actualFlow  > recommendedFlow) return 'five'
+  //   else return 'one'
+  // }
+  // $http.get('/api/v1/coData').then(function (response) {
+  //   $scope.flows = {};
+  //   $scope.coWaters = response.data;
 
-    $scope.coWaters.map(function(d){
-      return $http.get('https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ d.USGSid +'&parameterCd=00060,00065').then(function(response){
-        $scope.flows[d.name] = response.data.value.timeSeries[0].values[0].value[0].value;
-      });
-    });
-  }); 
+  //   $scope.coWaters.map(function(d){
+  //     return $http.get('https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites='+ d.USGSid +'&parameterCd=00060,00065').then(function(response){
+  //       $scope.flows[d.name] = response.data.value.timeSeries[0].values[0].value[0].value;
+  //     });
+  //   });
+  // }); 
 
  
   $scope.showflag = true;

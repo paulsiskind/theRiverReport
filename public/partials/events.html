@@ -73,6 +73,11 @@
             class="md-primary" hide-gt-md>
             Menu
           </md-button>
+          <md-button ng-click="toggleRight()"
+            ng-hide="isOpenRight()"
+            class="md-primary">
+            Quick View
+          </md-button>
         </div>
 
     
@@ -98,5 +103,16 @@
         </div>
       </div>
     </md-content>
+    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+      <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">Sidenav Right</h1>
+      </md-toolbar>
+      <md-content ng-controller="RightCtrl" layout-padding>
+        <md-button ng-click="close()" class="md-primary">
+          Close Quick View
+        </md-button>
+        <side-table></side-table>
+      </md-content>
+    </md-sidenav>
   </section>
 </div>
