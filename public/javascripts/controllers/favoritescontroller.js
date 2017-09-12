@@ -84,23 +84,30 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
       });
     });
   });
+  
+
+  $scope.changeOntoTrue = function(val){
+    if(val === "On"){
+      return true;
+    }else{
+      return false;
+    }
+  }
 
   $scope.textAlertChange = function(text){
-    console.log(text)
     $http({
         url: '/textAlert',
         method: "POST",
-        data: { 'textAlert' : $scope.textAlert}
+        data: { 'textAlert' : $scope.changeOntoTrue(text)}
     });
   };
   
 
   $scope.emailAlertChange = function(email){
-    console.log(email)
     $http({
         url: '/emailAlert',
         method: "POST",
-        data: { 'emailAlert' : $scope.emailAlert}
+        data: { 'emailAlert' : $scope.changeOntoTrue(email)}
     });
   };
 
