@@ -141,12 +141,13 @@ app.controller('FavoritesController', function ($scope, $http, $routeParams, $ro
 
   $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow, aboveRecommend){
     // completely frozen water
-    if(actualFlow === '-999999') return 'nine';
-    if(actualFlow < recommendedFlow) return 'eight';
-    if(actualFlow - recommendedFlow > 0 && actualFlow - recommendedFlow < 200) return 'seven';
-    if(actualFlow - recommendedFlow > 200 && actualFlow - recommendedFlow < recommendedFlow) return 'six';
-    if(actualFlow - recommendedFlow > recommendedFlow) return 'five';
-  };
+    if(actualFlow === '-999999') return 'nine'
+    if(actualFlow < recommendedFlow) return 'eight'
+    if(actualFlow > recommendedFlow && actualFlow < aboveRecommend - (actualFlow*.5)) return 'seven'
+    if(actualFlow > recommendedFlow && actualFlow < aboveRecommend) return 'six'
+    if(actualFlow  > aboveRecommend) return 'five'
+    else return 'one'
+  }
 
 
   $scope.toggleLeft = buildDelayedToggler('left');

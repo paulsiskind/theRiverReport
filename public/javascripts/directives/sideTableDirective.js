@@ -10,9 +10,9 @@ app.directive('sideTable', function () {
             // completely frozen water
             if(actualFlow === '-999999') return 'nine'
             if(actualFlow < recommendedFlow) return 'eight'
-            if(actualFlow - recommendedFlow > 0 && actualFlow - recommendedFlow < (recommendedFlow * .5)) return 'seven'
-            if(actualFlow - recommendedFlow > (recommendedFlow * .5) && actualFlow - recommendedFlow < recommendedFlow) return 'six'
-            if(actualFlow  > recommendedFlow) return 'five'
+            if(actualFlow > recommendedFlow && actualFlow < aboveRecommend - (actualFlow*.5)) return 'seven'
+            if(actualFlow > recommendedFlow && actualFlow < aboveRecommend) return 'six'
+            if(actualFlow  > aboveRecommend) return 'five'
             else return 'one'
           }
           $http.get('/api/v1/coData').then(function (response) {

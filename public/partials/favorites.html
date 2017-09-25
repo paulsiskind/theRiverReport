@@ -81,7 +81,7 @@
             <th>Alert</th>
             <th>Delete</th>
           
-            <tr class="flow" ng-repeat="water in userFavs | filter: search" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend, water.aboveRecommend)">
+            <tr class="flow" ng-repeat="water in userFavs | filter: search" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend, water.high)">
            
               <td style="padding: 20px;"><a href="/{{water.id}}">{{water.name}}</td>
               <td style="padding: 20px;">{{water.nameProper}}</a></td>

@@ -1,16 +1,16 @@
   app.controller("IndexController", function($scope, $http, $location, $timeout, $mdSidenav, $log){
       
-       // $scope.riverId = $routeParams.riverId;
-       // console.log($routeParams.riverId)
+      // $scope.riverId = $routeParams.riverId;
+      // console.log($routeParams.riverId)
     $scope.setClassBasedOnFlow = function(actualFlow, recommendedFlow, aboveRecommend){
       // completely frozen water
-      if(actualFlow === '-999999') return 'nine';
-      if(actualFlow < recommendedFlow) return 'eight';
-      if(actualFlow - recommendedFlow > 0 && actualFlow - recommendedFlow < (recommendedFlow * .5)) return 'seven';
-      if(actualFlow - recommendedFlow > (recommendedFlow * .5) && actualFlow - recommendedFlow < recommendedFlow) return 'six';
-      // if(actualFlow  > recommendedFlow) return 'five';
-      else return 'one';
-    };
+      if(actualFlow === '-999999') return 'nine'
+      if(actualFlow < recommendedFlow) return 'eight'
+      if(actualFlow > recommendedFlow && actualFlow < aboveRecommend - (actualFlow*.5)) return 'seven'
+      if(actualFlow > recommendedFlow && actualFlow < aboveRecommend) return 'six'
+      if(actualFlow  > aboveRecommend) return 'five'
+      else return 'one'
+    }
 
     $http.get('/api/v1/coData').then(function (response) {
       $scope.flows = {};
