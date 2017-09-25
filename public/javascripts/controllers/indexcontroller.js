@@ -8,7 +8,7 @@
       if(actualFlow < recommendedFlow) return 'eight';
       if(actualFlow - recommendedFlow > 0 && actualFlow - recommendedFlow < (recommendedFlow * .5)) return 'seven';
       if(actualFlow - recommendedFlow > (recommendedFlow * .5) && actualFlow - recommendedFlow < recommendedFlow) return 'six';
-      if(actualFlow  > recommendedFlow) return 'five';
+      // if(actualFlow  > recommendedFlow) return 'five';
       else return 'one';
     };
 
@@ -80,6 +80,11 @@
         $scope.viewBarState = "New Mexico";
         $scope.choice = choice;
       }
+       if(choice === 'wv'){
+        $scope.viewBarState = "West Virginia";
+        $scope.choice = choice;
+      }
+
       if(choice === 'wy'){
         $scope.viewBarState = "Wyoming";
         $scope.choice = choice;
