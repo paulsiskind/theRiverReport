@@ -58,10 +58,10 @@
             <th>Date</th>
            
 
-            <tr class="staticTr" ng-repeat="anouncement in anouncements| filter:newFilter">
+            <tr class="staticTr" id="flow" ng-repeat="anouncement in anouncements| filter:newFilter">
 
-              <td style="padding: 20px;">{{anouncement.anouncement}}</td>
-              <td style="padding: 20px;">{{anouncement.date}}</td>
+              <td>{{anouncement.anouncement}}</td>
+              <td>{{anouncement.date}}</td>
           
             </tr> 
           </table>

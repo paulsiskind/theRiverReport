@@ -137,14 +137,14 @@
           <th>Flow</th>
           <th ng-if='user.facebookId'>Favorite</th>
 
-          <tr class="flow" ng-repeat="water in coWaters | filter:newFilter | filter: {state:choice} | filter:{class:classSearch}| filter:myFilter" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend, water.high)">
+          <tr class="flow" id="flow" ng-repeat="water in coWaters | filter:newFilter | filter: {state:choice} | filter:{class:classSearch}| filter:myFilter" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend, water.high)">
 
-            <td style="padding: 20px;"><a href="/{{water.id}}">{{water.name}}</a></td>
-            <td style="padding: 20px;">{{water.nameProper}}</td>
-            <td style="padding: 20px;">{{water.state}} </td>
-            <td style="padding: 20px;">{{water.class}} </td>
-            <td style="padding: 20px;">{{water.season}}</td>
-            <td style="padding: 20px;">
+            <td><a href="/{{water.id}}">{{water.name}}</a></td>
+            <td>{{water.nameProper}}</td>
+            <td>{{water.state}} </td>
+            <td>{{water.class}} </td>
+            <td>{{water.season}}</td>
+            <td>
               <span class="frozen five" ng-if="flows[water.name] == -999999">Frozen</span>  
               <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span>
             </td>

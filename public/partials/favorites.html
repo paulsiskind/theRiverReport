@@ -81,15 +81,15 @@
             <th>Alert</th>
             <th>Delete</th>
           
-            <tr class="flow" ng-repeat="water in userFavs | filter: search" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend, water.high)">
+            <tr class="flow" id="flow" ng-repeat="water in userFavs | filter: search" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend, water.high)">
            
-              <td style="padding: 20px;"><a href="/{{water.id}}">{{water.name}}</td>
-              <td style="padding: 20px;">{{water.nameProper}}</a></td>
-              <td style="padding: 20px;">{{water.state}} </td>
-              <td style="padding: 20px;">{{water.class}} </td>
-              <td style="padding: 20px;">{{water.season}} </td>
-              <td style="padding: 20px;">{{water.riverlevel}}</td>
-              <td style="padding: 20px;">
+              <td><a href="/{{water.id}}">{{water.name}}</td>
+              <td>{{water.nameProper}}</a></td>
+              <td>{{water.state}} </td>
+              <td>{{water.class}} </td>
+              <td>{{water.season}} </td>
+              <td>{{water.riverlevel}}</td>
+              <td>
                 <span class="frozen five" ng-if="flows[water.name] == -999999"> Frozen</span>  
                 <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span>
               </td> 
@@ -99,7 +99,7 @@
                   <input ng-model="level"  type="number" ng-change="setWaterLevel(water, level)">
                 </md-input-container>
               </td>            
-              <td style="padding: 20px;">
+              <td>
                 <md-button class="md-raised md-cornered" type="submit" value="Add to rivers" ng-click="deleteRow(water);deleteFav(water.id)">Delete
                 </md-button>
               </td>

@@ -1,19 +1,25 @@
 <div>
   <div flex layout="row" md-display-2>
-    <h2>
-      {{viewBarState}} {{viewBarClass}} {{myFilter}}
-    </h2>
+
+    <div>
+      <md-input-container>
+        <label for="testInput">Search Rivers</label>
+        <input type="text"
+               ng-model="myFilter" 
+               md-autofocus>
+      </md-input-container>
+    </div>
   </div>
   <table class="table">
     <th>Section</th>
     <th>River Name</th>
     <th>Flow</th>
 
-    <tr class="flow" ng-repeat="water in coWaters | filter:newFilter | filter: {state:choice} | filter:{class:classSearch}| filter:myFilter" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend, water.high)">
+    <tr class="flow" id="sideTable" ng-repeat="water in coWaters | filter:myFilter" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend, water.high)">
 
-      <td style="padding: 20px;"><a href="/{{water.id}}">{{water.name}}</a></td>
-      <td style="padding: 20px;">{{water.nameProper}}</td>
-      <td style="padding: 20px;">
+      <td><a href="/{{water.id}}">{{water.name}}</a></td>
+      <td>{{water.nameProper}}</td>
+      <td>
         <span class="frozen five" ng-if="flows[water.name] == -999999">Frozen</span>  
         <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span>
       </td>
