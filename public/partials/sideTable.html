@@ -11,14 +11,12 @@
     </div>
   </div>
   <table class="table">
-    <th>Section</th>
-    <th>River Name</th>
+    <th>River</th>
     <th>Flow</th>
 
     <tr class="flow" id="sideTable" ng-repeat="water in coWaters | filter:myFilter" ng-class="setClassBasedOnFlow(flows[water.name], water.recommend, water.high)">
 
-      <td><a href="/{{water.id}}">{{water.name}}</a></td>
-      <td>{{water.nameProper}}</td>
+      <td><a href="/{{water.id}}">{{water.name}}: {{water.nameProper}}</a></td>
       <td>
         <span class="frozen five" ng-if="flows[water.name] == -999999">Frozen</span>  
         <span ng-if="flows[water.name] != -999999">{{flows[water.name]}}</span>
